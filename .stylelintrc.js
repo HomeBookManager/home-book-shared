@@ -31,6 +31,7 @@ module.exports = {
     ],
     'scss/at-rule-no-unknown': true,
     'scss/dollar-variable-pattern': '(^--cth-)|(^self$)',
+    'selector-class-pattern': null,
     'selector-pseudo-class-no-unknown': true,
     'selector-pseudo-element-no-unknown': true,
     'selector-type-no-unknown': true,
