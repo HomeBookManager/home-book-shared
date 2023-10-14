@@ -10,7 +10,7 @@ import { TContext } from './types';
 // utils
 import { getThemePreferences } from '../../utils/userPreferences';
 
-type TProps = {
+export type TContextProviderProps = {
   children: ReactNode;
   theme?: Theme;
 };
@@ -22,7 +22,7 @@ const defaultState = {
 
 export const Context: React.Context<TContext> = createContext(defaultState);
 
-export const ContextProvider: FC<TProps> = ({
+export const ContextProvider: FC<TContextProviderProps> = ({
   children,
   theme: defaultTheme = undefined,
 }) => {
