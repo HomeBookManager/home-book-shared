@@ -4,7 +4,7 @@ import rollupPluginutils from 'rollup-pluginutils';
 export const rollupPluginSvg = (options = {}) => {
   const filter = rollupPluginutils.createFilter(
     options.include,
-    options.exclude
+    options.exclude,
   );
 
   return {
