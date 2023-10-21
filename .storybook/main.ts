@@ -1,3 +1,4 @@
+const path = require('path');
 import { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
@@ -7,6 +8,15 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
   ],
+  core: {
+    builder: {
+      name: '@storybook/builder-webpack5',
+      options: {
+        fsCache: true,
+        lazyCompilation: true,
+      },
+    },
+  },
   docs: {
     autodocs: 'tag',
   },
@@ -15,5 +25,15 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  webpackFinal: async (config) => {
+    config.module!.rules!.push({
+      test: /\.scss$/i,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
+    });
+
+    return config;
+  },
 };
+
 export default config;

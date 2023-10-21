@@ -2,6 +2,10 @@ import cx from 'classnames';
 import { camelCase } from 'lodash';
 import { FC, ReactNode, useEffect } from 'react';
 
+// @home-book
+import { DARK_COLORS } from 'home-book-constants';
+import { Theme } from 'home-book-types';
+
 // components
 import StoryBlockCode, {
   TProps as TStoryBlockCodeProps,
@@ -30,7 +34,6 @@ type TProps = TStoryBlockCodeProps & {
   flex?: boolean;
   title: string;
 };
-
 const StoryComponent: FC<TProps> = ({
   applyMaxWidth = true,
   children,
@@ -45,6 +48,10 @@ const StoryComponent: FC<TProps> = ({
   const { classNamesWithTheme, theme } = useTheme(classNames);
 
   useEffect(() => {
+    if (theme === Theme.dark) {
+      document.body.style.backgroundColor = DARK_COLORS.neutral4;
+    }
+
     document.body.style.colorScheme = theme;
   }, [theme]);
 
