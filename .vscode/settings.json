@@ -148,7 +148,9 @@
   "search.exclude": {
     "**/*.spec.tsx.snap": true,
     "**/*.stories.tsx": true,
-    "build": true
+    "build": true,
+    "dist": true,
+    "storybook-static": true
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }
