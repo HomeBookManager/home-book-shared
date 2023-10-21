@@ -2,6 +2,7 @@
   "name": "home-book-shared",
   "version": "1.0.0",
   "description": "A package containing generic components, utils for application",
+  "homepage": "https://HomeBookManager.github.io/home-book-shared/",
   "main": "index.ts",
   "files": [
     "dist",
@@ -18,7 +19,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "build-library": "npx rimraf dist && rollup -c",
-    "build-storybook": "storybook build",
+    "build-storybook": "npx rimraf storybook-static && STORYBOOK_THEME=dark storybook build",
+    "deploy": "gh-pages -d storybook-static",
     "eslint-ts": "eslint . --ext .ts --fix --max-warnings=0",
     "eslint-tsx": "eslint . --ext .tsx --fix --max-warnings=0",
     "prepare": "husky install",
@@ -73,6 +75,7 @@
     "css-loader": "^6.8.1",
     "eslint": "^8.51.0",
     "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^6.0.0",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",

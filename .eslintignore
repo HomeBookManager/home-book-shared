@@ -6,6 +6,7 @@ dist
 jest.config.js
 package.json
 src/tests/mocks.tsx
+storybook-static
 tsconfig.json
 tsconfig.spec.json
 webpack.config.js

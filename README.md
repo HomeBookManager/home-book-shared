@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Installation](#Installation)
-- [Build](#Build)
+- [Build Library](#Build-Library)
 - [Start](#Start)
 - [Publish](#Publish)
 - [Instruction](#Instruction)
@@ -25,7 +25,19 @@ npm install or npm i
 npm install -g @commitlint/cli @commitlint/config-conventional
 ```
 
-## Build
+## Deploy
+
+```
+npm run build-storybook
+```
+
+After build
+
+```
+npm run deploy
+```
+
+## Build Library
 
 ```
 npm run build-library
