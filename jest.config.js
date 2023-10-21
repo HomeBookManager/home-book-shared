@@ -4,6 +4,7 @@ module.exports = {
     'mock/*',
     'src/config',
     'src/sample/index.tsx',
+    'src/stories',
     'src/tests',
     'src/types',
   ],
