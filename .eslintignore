@@ -1,5 +1,6 @@
 branchlint.config.js
 build
+classNames.ts
 commitlint.config.js
 dist
 jest.config.js

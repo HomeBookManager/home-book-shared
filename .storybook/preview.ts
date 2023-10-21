@@ -4,6 +4,9 @@ import { themes } from '@storybook/theming';
 // others
 import { THEME_STYLES } from './constants';
 
+// styles
+import './styles/index.scss';
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },

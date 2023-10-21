@@ -212,6 +212,13 @@ export const RightArrow = () => (
 
 <style>
   {`
+  .sbdocs {
+    background-color: ${
+      process.env.STORYBOOK_THEME === 'light' ? '#ffffff' : '#1E262F'
+    };
+    color: ${process.env.STORYBOOK_THEME === 'light' ? '#1E2839' : '#fff'};
+  }
+
   .sb-container {
     margin-bottom: 48px;
   }
@@ -229,6 +236,18 @@ export const RightArrow = () => (
 
   .sb-section-title {
     margin-bottom: 32px;
+  }
+
+  h1,
+  h4,
+  p {
+    color: ${
+      process.env.STORYBOOK_THEME === 'light' ? '#1E2839' : '#fff'
+    } !important;
+  }
+
+  #configure-your-project {
+    color: ${process.env.STORYBOOK_THEME === 'light' ? '#1E2839' : '#fff'};
   }
 
   .sb-section a:not(h1 a, h2 a, h3 a) {
