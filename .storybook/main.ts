@@ -3,10 +3,11 @@ import { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   addons: [
-    '@storybook/addon-links',
+    '@storybook/addon-designs',
     '@storybook/addon-essentials',
-    '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
+    '@storybook/addon-links',
+    '@storybook/addon-onboarding',
   ],
   core: {
     builder: {
