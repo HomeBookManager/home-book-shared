@@ -55,6 +55,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
+    "@types/classnames": "^2.3.1",
     "@types/jest": "^29.5.5",
     "@types/lodash": "^4.14.199",
     "@types/node": "^20.8.3",
@@ -100,6 +101,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "home-book-constants": "^1.0.0",
     "home-book-types": "^1.0.1",
     "lodash": "^4.17.21",
@@ -107,10 +109,14 @@
     "react-dom": "^18.2.0"
   },
   "peerDependencies": {
+    "@types/classnames": "^2.3.1",
+    "@types/lodash": "^4.14.199",
+    "classnames": "^2.3.2",
     "home-book-constants": "^1.0.0",
     "home-book-types": "^1.0.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2"
   }
 }
