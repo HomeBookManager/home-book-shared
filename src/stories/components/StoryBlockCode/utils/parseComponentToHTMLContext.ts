@@ -58,6 +58,7 @@ export const parseComponentToHTMLContext = (
               )
               .join('');
           }
+
           return getHTMLElement(
             classNames.children,
             parseComponentToHTMLContext({}, componentName, classNames),

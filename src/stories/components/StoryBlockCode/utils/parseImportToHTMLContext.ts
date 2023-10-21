@@ -7,7 +7,7 @@ import { TImport } from '../types';
 // utils
 import { getHTMLElement } from './common';
 
-const getItemWithHighlightAs = (
+const getItemWithHighlightWordAs = (
   itemsToImports: string,
   classNames: TObject<string>,
 ): string =>
@@ -26,7 +26,7 @@ export const parseImportToHTMLContext = (
     getHTMLElement(classNames.import, 'import'),
     getHTMLElement(
       classNames.importItems,
-      getItemWithHighlightAs(itemsToImports, classNames),
+      getItemWithHighlightWordAs(itemsToImports, classNames),
     ),
     getHTMLElement(classNames.importFrom, 'from'),
     getHTMLElement(classNames.importPath, `'${path}'`),
