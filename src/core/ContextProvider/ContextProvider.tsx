@@ -17,7 +17,7 @@ export type TContextProviderProps = {
 
 const defaultState = {
   setTheme: (theme: Theme) => localStorage.setItem(THEME, theme),
-  theme: (process.env.STORYBOOK_THEME as Theme) || getThemePreferences(),
+  theme: getThemePreferences(),
 };
 
 export const Context: React.Context<TContext> = createContext(defaultState);
