@@ -49,6 +49,10 @@ npm run build-library
 npm run start
 ```
 
+```
+npm run storybook
+```
+
 After run local environment you can use some component in sample/index.tsx.
 
 ## Publish

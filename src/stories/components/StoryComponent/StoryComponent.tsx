@@ -50,9 +50,8 @@ const StoryComponent: FC<TProps> = ({
   useEffect(() => {
     if (theme === Theme.dark) {
       document.body.style.backgroundColor = DARK_COLORS.neutral4;
+      document.body.style.colorScheme = theme;
     }
-
-    document.body.style.colorScheme = theme;
   }, [theme]);
 
   return (

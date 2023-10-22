@@ -19,7 +19,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build-library": "npx rimraf dist && rollup -c",
-    "build-storybook": "npx rimraf storybook-static && STORYBOOK_THEME=dark storybook build",
+    "build-storybook": "npx rimraf storybook-static && storybook build",
     "deploy": "gh-pages -d storybook-static",
     "eslint-ts": "eslint . --ext .ts --fix --max-warnings=0",
     "eslint-tsx": "eslint . --ext .tsx --fix --max-warnings=0",
@@ -32,9 +32,7 @@
     "test:coverage": "jest --colors --coverage",
     "test:update": "jest --updateSnapshot",
     "test:watch": "npm test -- --watch",
-    "storybook": "storybook dev -p 6006",
-    "storybook:light": "STORYBOOK_THEME=light storybook dev -p 6006",
-    "storybook:dark": "STORYBOOK_THEME=dark storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",

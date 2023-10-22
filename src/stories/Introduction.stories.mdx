@@ -214,9 +214,9 @@ export const RightArrow = () => (
   {`
   .sbdocs {
     background-color: ${
-      process.env.STORYBOOK_THEME === 'light' ? '#ffffff' : '#1E262F'
+      localStorage.getItem('theme') === 'light' ? '#ffffff' : '#1E262F'
     };
-    color: ${process.env.STORYBOOK_THEME === 'light' ? '#1E2839' : '#fff'};
+    color: ${localStorage.getItem('theme') === 'light' ? '#1E2839' : '#fff'};
   }
 
   .sb-container {
@@ -242,12 +242,8 @@ export const RightArrow = () => (
   h4,
   p {
     color: ${
-      process.env.STORYBOOK_THEME === 'light' ? '#1E2839' : '#fff'
+      localStorage.getItem('theme') === 'light' ? '#1E2839' : '#fff'
     } !important;
-  }
-
-  #configure-your-project {
-    color: ${process.env.STORYBOOK_THEME === 'light' ? '#1E2839' : '#fff'};
   }
 
   .sb-section a:not(h1 a, h2 a, h3 a) {
