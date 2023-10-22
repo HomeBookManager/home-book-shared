@@ -5,10 +5,11 @@ import { ThemeVars, themes } from '@storybook/theming';
 import { THEME } from 'home-book-constants';
 import { Theme } from 'home-book-types';
 
+// components
+import ToggleMode from './addons/ToggleMode';
+
 // others
 import { THEME_STYLES } from './constants';
-
-import { ToggleMode } from './addons/ToggleMode';
 
 const getTheme = (): ThemeVars => {
   const theme = localStorage.getItem(THEME) || Theme.light;
