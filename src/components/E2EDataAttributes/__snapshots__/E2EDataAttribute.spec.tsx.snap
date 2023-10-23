@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`E2EDataAttribute snapshots should render E2EDataAttribute 1`] = `
+<DocumentFragment>
+  <span
+    data-test-test=""
+  >
+    child
+  </span>
+</DocumentFragment>
+`;
+
+exports[`E2EDataAttribute snapshots should render with value 1`] = `
+<DocumentFragment>
+  <span
+    data-test-test="test"
+  >
+    child
+  </span>
+</DocumentFragment>
+`;
+
+exports[`E2EDataAttribute snapshots should render without attribute id 1`] = `
+<DocumentFragment>
+  <span>
+    child
+  </span>
+</DocumentFragment>
+`;
