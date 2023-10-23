@@ -6,7 +6,7 @@ import { THEME } from 'home-book-constants';
 import { Theme } from 'home-book-types';
 
 // components
-import ToggleMode from './addons/ToggleMode';
+import ToggleMode from './addons/ToggleMode/ToggleMode';
 
 // others
 import { THEME_STYLES } from './constants';
