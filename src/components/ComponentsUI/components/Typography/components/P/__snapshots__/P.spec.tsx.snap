@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`P snapshots should render P 1`] = `
+<DocumentFragment>
+  <p
+    class="Typography Typography--regular Typography--normal Typography--p"
+    data-test-text=""
+  >
+    P
+  </p>
+</DocumentFragment>
+`;

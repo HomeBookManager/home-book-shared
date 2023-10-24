@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H1 snapshots should render H1 1`] = `
+<DocumentFragment>
+  <h1
+    class="Typography Typography--regular Typography--normal Typography--h1"
+    data-test-text=""
+  >
+    H1
+  </h1>
+</DocumentFragment>
+`;

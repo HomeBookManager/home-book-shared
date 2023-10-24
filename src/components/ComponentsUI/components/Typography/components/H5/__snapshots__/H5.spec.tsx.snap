@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H5 snapshots should render H5 1`] = `
+<DocumentFragment>
+  <h5
+    class="Typography Typography--regular Typography--normal Typography--h5"
+    data-test-text=""
+  >
+    H5
+  </h5>
+</DocumentFragment>
+`;

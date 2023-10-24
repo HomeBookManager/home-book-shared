@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+@import '../../../../styles/mixins/typography/typography';
+@import '../../../../styles/mixins/typography/typography-font-family';
+@import '../../../../styles/mixins/typography/typography-list';
+@import '../../../../styles/mixins/typography/typography-map';
+
+.Typography {
+  @each $font-type in $--cth-font-types {
+    &--#{$font-type} {
+      $--cth-font-size: map.get($--cth-font-size-map, $font-type);
+      $--cth-line-height: map.get($--cth-line-height-map, $font-type);
+      $--cth-margin-bottom: map.get($--cth-margin-bottom-map, $font-type);
+
+      @if $font-type == 'p' or $font-type == 'small' {
+        @include standard;
+      } @else {
+        @include heading;
+      }
+
+      @include typography-styles(
+        $--cth-font-size,
+        $--cth-line-height,
+        $--cth-margin-bottom
+      );
+    }
+  }
+
+  @each $font-style in $--cth-font-styles {
+    &--#{$font-style} {
+      font-style: map.get($--cth-font-styles-map, $font-style);
+    }
+  }
+
+  @each $font-weight in $--cth-font-weights {
+    &--#{$font-weight} {
+      /* stylelint-disable-next-line font-weight-notation */
+      font-weight: map.get($--cth-font-weights-map, $font-weight);
+    }
+  }
+
+  &--without-margin {
+    margin: 0;
+  }
+}

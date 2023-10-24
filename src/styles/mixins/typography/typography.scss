@@ -1,0 +1,11 @@
+@mixin typography-styles($font-size, $line-height, $margin-bottom) {
+  display: block;
+  font-size: $font-size;
+  font-weight: 400;
+  line-height: $line-height;
+  margin: 0;
+  margin-bottom: $margin-bottom;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  padding: 0;
+}
