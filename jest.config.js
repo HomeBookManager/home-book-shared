@@ -7,6 +7,7 @@ module.exports = {
     'src/stories',
     'src/tests',
     'src/types',
+    'stories.tsx',
   ],
   coverageThreshold: {
     global: {
