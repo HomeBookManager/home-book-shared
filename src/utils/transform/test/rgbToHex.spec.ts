@@ -9,4 +9,12 @@ describe('rgbToHex', () => {
     // result
     expect(result).toEqual('#000000');
   });
+
+  it('Should return hex value', () => {
+    // before
+    const result = rgbToHex(100, 100, 100);
+
+    // result
+    expect(result).toEqual('#646464');
+  });
 });
