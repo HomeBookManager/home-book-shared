@@ -11,7 +11,6 @@ import { className, classNames } from './classNames';
 
 // styles
 import './app.scss';
-import { H1 } from '../../../components/ComponentsUI/components/Typography';
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -26,7 +25,6 @@ export const App = () => {
         >
           Current mode: {theme}
         </button>
-        <H1>adsads</H1>
       </div>
     </div>
   );
