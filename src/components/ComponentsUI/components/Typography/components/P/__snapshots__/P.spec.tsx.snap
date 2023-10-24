@@ -3,8 +3,9 @@
 exports[`P snapshots should render P 1`] = `
 <DocumentFragment>
   <p
-    class="Typography Typography--regular Typography--normal Typography--p"
+    class="Typography Typography--regular Typography--normal Typography--p Typography--without-margin"
     data-test-text=""
+    style="color: rgb(30, 40, 57);"
   >
     P
   </p>

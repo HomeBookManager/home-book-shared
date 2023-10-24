@@ -3,8 +3,9 @@
 exports[`H2 snapshots should render H2 1`] = `
 <DocumentFragment>
   <h2
-    class="Typography Typography--regular Typography--normal Typography--h2"
+    class="Typography Typography--regular Typography--normal Typography--h2 Typography--without-margin"
     data-test-text=""
+    style="color: rgb(30, 40, 57);"
   >
     H2
   </h2>

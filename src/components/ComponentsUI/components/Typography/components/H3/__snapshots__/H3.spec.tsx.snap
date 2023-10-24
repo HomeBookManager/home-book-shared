@@ -3,8 +3,9 @@
 exports[`H3 snapshots should render H3 1`] = `
 <DocumentFragment>
   <h3
-    class="Typography Typography--regular Typography--normal Typography--h3"
+    class="Typography Typography--regular Typography--normal Typography--h3 Typography--without-margin"
     data-test-text=""
+    style="color: rgb(30, 40, 57);"
   >
     H3
   </h3>
