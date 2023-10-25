@@ -34,6 +34,7 @@ export type TTypographyProps = {
   fontType?: TypographyFontType;
   fontWeight?: TypographyFontWeight;
   innerHtml?: string;
+  noWrap?: boolean;
   withoutMargin?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
@@ -48,8 +49,9 @@ export const Typography: FC<TTypographyProps> = ({
   fontType = TypographyFontType.p,
   fontWeight = TypographyFontWeight.regular,
   innerHtml = '',
-  withoutMargin = true,
+  noWrap = false,
   style = {},
+  withoutMargin = true,
   ...restProps
 }) => {
   const { classNamesWithTheme, theme } = useTheme(classNames);
@@ -65,13 +67,17 @@ export const Typography: FC<TTypographyProps> = ({
       ...(innerHtml ? { dangerouslySetInnerHTML: { __html: innerHtml } } : {}),
       [getDataTestAttribute(e2eAttribute)]: e2eValue,
       className: classnames(
-        classNamesWithTheme[classNameTypography].name,
         className,
+        classNamesWithTheme[classNameTypography].name,
         classNamesWithTheme[classNameTypography].modificators[
           camelCase(fontWeight) as keyof typeof TypographyFontWeight
         ],
         classNamesWithTheme[classNameTypography].modificators[fontStyle],
         classNamesWithTheme[classNameTypography].modificators[fontType],
+        {
+          [classNamesWithTheme[classNameTypography].modificators.noWrap]:
+            noWrap,
+        },
         {
           [classNamesWithTheme[classNameTypography].modificators.withoutMargin]:
             withoutMargin,

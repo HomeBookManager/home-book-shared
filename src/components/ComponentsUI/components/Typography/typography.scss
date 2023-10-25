@@ -1,5 +1,6 @@
 @use 'sass:map';
 
+@import '../../../../styles/mixins/text-ellipsis';
 @import '../../../../styles/mixins/typography/typography';
 @import '../../../../styles/mixins/typography/typography-font-family';
 @import '../../../../styles/mixins/typography/typography-list';
@@ -37,6 +38,10 @@
       /* stylelint-disable-next-line font-weight-notation */
       font-weight: map.get($--cth-font-weights-map, $font-weight);
     }
+  }
+
+  &--no-wrap {
+    @include text-ellipsis;
   }
 
   &--without-margin {

@@ -13,6 +13,7 @@ export const classNames = {
   [className]: {
     name: className,
     modificators: {
+      noWrap: `${className}--no-wrap`,
       withoutMargin: `${className}--without-margin`,
       ...mapValues(
         TypographyFontType,

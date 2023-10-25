@@ -8,7 +8,7 @@ import { Theme } from 'home-book-types';
 import Typography from './Typography';
 
 // others
-import { className as typographyClassName, classNames } from './classNames';
+import { className as classNameTypography, classNames } from './classNames';
 
 // types
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
@@ -122,7 +122,7 @@ describe('Typography props', () => {
 
     // result
     expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveClass(
-      classNames[typographyClassName].modificators[TypographyFontStyle.italic],
+      classNames[classNameTypography].modificators[TypographyFontStyle.italic],
     );
   });
 
@@ -134,7 +134,7 @@ describe('Typography props', () => {
 
     // result
     expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveClass(
-      classNames[typographyClassName].modificators[TypographyFontType.h1],
+      classNames[classNameTypography].modificators[TypographyFontType.h1],
     );
 
     expect(
@@ -150,7 +150,7 @@ describe('Typography props', () => {
 
     // result
     expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveClass(
-      classNames[typographyClassName].modificators[TypographyFontWeight.black],
+      classNames[classNameTypography].modificators[TypographyFontWeight.black],
     );
   });
 
@@ -172,6 +172,16 @@ describe('Typography props', () => {
     );
   });
 
+  it('should pass noWrap', () => {
+    //before
+    const { container } = render(<Typography noWrap>children</Typography>);
+
+    // result
+    expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveClass(
+      classNames[classNameTypography].modificators.noWrap,
+    );
+  });
+
   it('should pass withoutMargin', () => {
     //before
     const { container } = render(
@@ -180,7 +190,7 @@ describe('Typography props', () => {
 
     // result
     expect(getByE2EAttribute(container, E2EAttribute.text)).not.toHaveClass(
-      classNames[typographyClassName].modificators.withoutMargin,
+      classNames[classNameTypography].modificators.withoutMargin,
     );
   });
 });
