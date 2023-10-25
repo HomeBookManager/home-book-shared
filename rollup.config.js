@@ -28,7 +28,10 @@ export default {
     './src/index.ts',
     ...getFiles('./src/assets', extensions, excludeExtensions),
     ...getFiles('./src/components', extensions, excludeExtensions),
+    ...getFiles('./src/core', extensions, excludeExtensions),
+    ...getFiles('./src/hooks', extensions, excludeExtensions),
     ...getFiles('./src/types', extensions, excludeExtensions),
+    ...getFiles('./src/utils', extensions, excludeExtensions),
   ],
   output: {
     dir: 'dist',
@@ -44,6 +47,7 @@ export default {
     typescript({
       declaration: true,
       declarationDir: 'dist',
+      exclude: ['src/**/*.stories.tsx'],
       tsconfig: './tsconfig.json',
     }),
     postcss({
