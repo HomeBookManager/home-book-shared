@@ -4,8 +4,8 @@ import { FC } from 'react';
 import Typography from '../../Typography';
 
 // types
-import { TypographyFontType } from '../../enums';
 import { TOmittedTypographyProps } from '../../types';
+import { TypographyFontType } from '../../enums';
 
 const P: FC<TOmittedTypographyProps> = ({ children, ...restProps }) => (
   <Typography fontType={TypographyFontType.p} {...restProps}>
