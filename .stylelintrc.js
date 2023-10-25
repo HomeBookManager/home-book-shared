@@ -2,6 +2,7 @@ module.exports = {
   extends: 'stylelint-config-standard-scss',
   plugins: ['stylelint-scss', 'stylelint-order'],
   rules: {
+    'at-rule-empty-line-before': null,
     'at-rule-no-unknown': null,
     'color-named': 'never',
     'block-no-empty': true,
@@ -21,7 +22,7 @@ module.exports = {
     'no-duplicate-at-import-rules': true,
     'no-duplicate-selectors': true,
     'no-empty-source': true,
-    'no-invalid-position-at-import-rule': true,
+    'no-invalid-position-at-import-rule': null,
     'order/properties-alphabetical-order': true,
     'rule-empty-line-before': [
       'always',
@@ -30,6 +31,7 @@ module.exports = {
       },
     ],
     'scss/at-rule-no-unknown': true,
+    'scss/dollar-variable-empty-line-before': null,
     'scss/dollar-variable-pattern': '(^--cth-)|(^self$)',
     'selector-class-pattern': null,
     'selector-pseudo-class-no-unknown': true,

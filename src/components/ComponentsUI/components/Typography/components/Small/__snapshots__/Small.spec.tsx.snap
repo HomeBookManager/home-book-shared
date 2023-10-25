@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Small snapshots should render Small 1`] = `
+<DocumentFragment>
+  <small
+    class="Typography Typography--regular Typography--normal Typography--small Typography--without-margin"
+    data-test-text=""
+    style="color: rgb(30, 40, 57);"
+  >
+    Small
+  </small>
+</DocumentFragment>
+`;

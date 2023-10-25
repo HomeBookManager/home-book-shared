@@ -1,3 +1,14 @@
 .App {
-  background-color: #ffffff;
+  &__navigation {
+    background-color: #707070;
+    padding: 15px;
+  }
+
+  &__button-mode {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    padding: 15px;
+  }
 }

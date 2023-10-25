@@ -2,6 +2,18 @@
 
 exports[`AppInitializer snapshots should render AppInitializer 1`] = `
 <DocumentFragment>
-  App
+  <div
+    class="App"
+  >
+    <div
+      class="App__navigation"
+    >
+      <button
+        class="App__button-mode"
+      >
+        Current mode: light
+      </button>
+    </div>
+  </div>
 </DocumentFragment>
 `;

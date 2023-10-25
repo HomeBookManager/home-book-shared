@@ -7,13 +7,17 @@ import { E2EValue } from './types';
 // utils
 import { getDataTestAttribute } from './utils';
 
-export type TProps = {
+export type TE2EDataAttributeProps = {
   children: ReactElement<HTMLElement>;
   type?: E2EAttribute | string;
   value?: E2EValue;
 };
 
-const E2EDataAttribute: FC<TProps> = ({ children, type = '', value = '' }) => {
+export const E2EDataAttribute: FC<TE2EDataAttributeProps> = ({
+  children,
+  type = '',
+  value = '',
+}) => {
   const childrenOnly = Children.only(children);
 
   if (!type && !value) {
