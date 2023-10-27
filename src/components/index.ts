@@ -1,5 +1,6 @@
 export * from './ComponentsUI/components/Typography';
 export * from './ComponentsUI/components/Typography/Typography';
+export * from './ComponentsUI/components/Typography/constants';
 export * from './ComponentsUI/components/Typography/enums';
 export * from './ComponentsUI/components/Typography/types';
 

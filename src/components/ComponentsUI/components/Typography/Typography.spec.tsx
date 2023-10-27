@@ -12,7 +12,6 @@ import { className as classNameTypography, classNames } from './classNames';
 
 // types
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
-import { TTypographyColorMode } from './types';
 import {
   TypographyFontStyle,
   TypographyFontType,
@@ -23,6 +22,7 @@ import {
 import { getByE2EAttribute } from '../../../../tests/testHelpers';
 import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 import { hexToRgb } from '../../../../utils/transform/hexToRgb/hexToRgb';
+import { TYPOGRAPHY_COLORS_MODE } from './constants';
 
 const className = 'className';
 
@@ -52,37 +52,26 @@ describe('Typography props', () => {
 
   it('should pass color', () => {
     //before
-    const rgb = hexToRgb(COMMON_COLORS.blue1);
+    const rgb1 = hexToRgb(COMMON_COLORS.blue1);
+    const rgb2 = hexToRgb(LIGHT_COLORS.neutral5);
 
-    const { container } = render(
+    const { container: container1 } = render(
       <Typography color={COMMON_COLORS.blue1}>children</Typography>,
     );
 
-    // result
-    expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveAttribute(
-      'style',
-      `color: rgb(${rgb.r}, ${rgb.g}, ${rgb.b});`,
-    );
-  });
-
-  it('should pass colorMode', () => {
-    // mock
-    const colorMode: TTypographyColorMode = {
-      [Theme.dark]: DARK_COLORS.neutral5,
-      [Theme.light]: LIGHT_COLORS.neutral5,
-    };
-
-    //before
-    const rgb = hexToRgb(LIGHT_COLORS.neutral5);
-
-    const { container } = render(
-      <Typography colorMode={colorMode}>children</Typography>,
+    const { container: container2 } = render(
+      <Typography color={TYPOGRAPHY_COLORS_MODE.neutral5}>children</Typography>,
     );
 
     // result
-    expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveAttribute(
+    expect(getByE2EAttribute(container1, E2EAttribute.text)).toHaveAttribute(
       'style',
-      `color: rgb(${rgb.r}, ${rgb.g}, ${rgb.b});`,
+      `color: rgb(${rgb1.r}, ${rgb1.g}, ${rgb1.b});`,
+    );
+
+    expect(getByE2EAttribute(container2, E2EAttribute.text)).toHaveAttribute(
+      'style',
+      `color: rgb(${rgb2.r}, ${rgb2.g}, ${rgb2.b});`,
     );
   });
 

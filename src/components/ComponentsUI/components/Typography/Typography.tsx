@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { camelCase } from 'lodash';
+import { camelCase, isObject } from 'lodash';
 import { createElement, FC, HTMLAttributes, ReactNode } from 'react';
 
 // hooks
@@ -7,14 +7,14 @@ import { useTheme } from '../../../../hooks';
 
 // others
 import { className as classNameTypography, classNames } from './classNames';
-import { DEFAULT_COLOR_MODE } from './constants';
+import { TYPOGRAPHY_COLORS_MODE } from './constants';
 
 // styles
 import './typography.scss';
 
 // types
-import { TTypographyColor, TTypographyColorMode } from './types';
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
+import { TTypographyColor } from './types';
 import {
   TypographyFontStyle,
   TypographyFontWeight,
@@ -24,10 +24,9 @@ import {
 // utils
 import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 
-export type TTypographyProps = {
+export type TTypographyProps = Omit<HTMLAttributes<HTMLElement>, 'color'> & {
   children?: ReactNode;
   color?: TTypographyColor;
-  colorMode?: TTypographyColorMode;
   e2eAttribute?: string;
   e2eValue?: number | string;
   fontStyle?: TypographyFontStyle;
@@ -36,13 +35,12 @@ export type TTypographyProps = {
   innerHtml?: string;
   noWrap?: boolean;
   withoutMargin?: boolean;
-} & HTMLAttributes<HTMLElement>;
+};
 
 export const Typography: FC<TTypographyProps> = ({
   children,
   className = '',
-  color = '',
-  colorMode = DEFAULT_COLOR_MODE,
+  color = TYPOGRAPHY_COLORS_MODE.neutral1,
   e2eAttribute = E2EAttribute.text,
   e2eValue = '',
   fontStyle = TypographyFontStyle.normal,
@@ -85,7 +83,7 @@ export const Typography: FC<TTypographyProps> = ({
       ),
       style: {
         ...style,
-        color: color || colorMode[theme],
+        color: isObject(color) ? color[theme] : color,
       },
     },
     children,

@@ -7,7 +7,7 @@ import Typography from '../Typography';
 import { H1, H2, H3, H4, H5, H6, P, Small } from '../';
 
 // others
-import { DEFAULT_COLOR_MODE } from '../constants';
+import { TYPOGRAPHY_COLORS_MODE } from '../constants';
 
 // types
 import { ContentGridFlow } from '../../../../../stories/components/StoryComponent/enums';
@@ -17,12 +17,12 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Typography',
   imports: [
     {
-      items: 'Typography',
-      path: './shared/ComponentsUI/components/Typography/Typography',
-    },
-    {
       items: '{ H1, H2, H3, H4, H5, H6, P, Small }',
       path: './shared/ComponentsUI/components/Typography',
+    },
+    {
+      items: '{ TYPOGRAPHY_COLORS_MODE }',
+      path: './shared/ComponentsUI/constants',
     },
   ],
   props: [
@@ -105,5 +105,5 @@ TypographyVariants.argTypes = {
 };
 
 TypographyVariants.args = {
-  colorMode: DEFAULT_COLOR_MODE,
+  color: TYPOGRAPHY_COLORS_MODE.neutral1,
 };

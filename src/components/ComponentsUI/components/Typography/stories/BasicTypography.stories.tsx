@@ -5,7 +5,7 @@ import StoryComponent from '../../../../../stories/components/StoryComponent/Sto
 import Typography from '../Typography';
 
 // others
-import { DEFAULT_COLOR_MODE } from '../constants';
+import { TYPOGRAPHY_COLORS_MODE } from '../constants';
 
 // types
 import { ContentGridFlow } from '../../../../../stories/components/StoryComponent/enums';
@@ -21,6 +21,10 @@ const blockCodeData: TStoryBlockCode = {
     {
       items: 'Typography',
       path: './shared/ComponentsUI/components/Typography/Typography',
+    },
+    {
+      items: '{ TYPOGRAPHY_COLORS_MODE }',
+      path: './shared/ComponentsUI/constants',
     },
   ],
   props: [
@@ -60,5 +64,5 @@ BasicTypography.argTypes = {};
 
 BasicTypography.args = {
   children: 'text',
-  colorMode: DEFAULT_COLOR_MODE,
+  color: TYPOGRAPHY_COLORS_MODE.neutral1,
 };

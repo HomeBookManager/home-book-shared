@@ -25,15 +25,9 @@ const tableBodyData: Array<TTableBody> = [
   },
   {
     description:
-      'The standard color which ignore mode. If provided the color mode will be disabled. The standard color which ignore mode. If provided the <code>colorMode</code> will be disabled.',
+      'The color that you can pass. Also you can use <code>TYPOGRAPHY_COLORS_MODE</code> to provide color dependly on theme',
     name: 'color',
     type: 'TTypographyColor',
-  },
-  {
-    defaultValue: `{ "dark": "#ffffff", "light": "#1e2839" }`,
-    description: 'The color mode dependly on theme.',
-    name: 'colorMode',
-    type: 'TTypographyColorMode',
   },
   {
     description: 'Provide test-id.',
