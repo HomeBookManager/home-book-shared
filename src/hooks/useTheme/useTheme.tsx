@@ -29,19 +29,19 @@ export const useTheme = <T,>(classNames: T): TUseThemeProps<T> => {
       return getClassNameWithTheme(className);
     });
 
-  const uppdateClassNames = (): void => {
+  const updateClassNames = (): void => {
     const classNamesWithTheme = getClassNamesWithTheme(classNames);
 
     setClassNamesWithTheme(classNamesWithTheme);
   };
 
   useLayoutEffect(() => {
-    uppdateClassNames();
+    updateClassNames();
   }, [theme]);
 
   return {
     classNamesWithTheme,
-    forceUpdateClassNames: uppdateClassNames,
+    forceUpdateClassNames: updateClassNames,
     theme,
   };
 };
