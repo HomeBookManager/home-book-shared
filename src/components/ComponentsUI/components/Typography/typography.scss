@@ -2,7 +2,6 @@
 
 @import '../../../../styles/mixins/text-ellipsis';
 @import '../../../../styles/mixins/typography/typography';
-@import '../../../../styles/mixins/typography/typography-font-family';
 @import '../../../../styles/mixins/typography/typography-list';
 @import '../../../../styles/mixins/typography/typography-map';
 
@@ -12,12 +11,6 @@
       $--cth-font-size: map.get($--cth-font-size-map, $font-type);
       $--cth-line-height: map.get($--cth-line-height-map, $font-type);
       $--cth-margin-bottom: map.get($--cth-margin-bottom-map, $font-type);
-
-      @if $font-type == 'p' or $font-type == 'small' {
-        @include standard;
-      } @else {
-        @include heading;
-      }
 
       @include typography-styles(
         $--cth-font-size,
@@ -39,6 +32,8 @@
       font-weight: map.get($--cth-font-weights-map, $font-weight);
     }
   }
+
+  font-family: Rubik, sans-serif;
 
   &--no-wrap {
     @include text-ellipsis;

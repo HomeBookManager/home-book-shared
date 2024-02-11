@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react';
 
 // @home-book
-import { COMMON_COLORS, DARK_COLORS, LIGHT_COLORS } from 'home-book-constants';
-import { Theme } from 'home-book-types';
+import { COMMON_COLORS, LIGHT_COLORS } from 'home-book-constants';
 
 // components
 import Typography from './Typography';
 
 // others
 import { className as classNameTypography, classNames } from './classNames';
+import { TYPOGRAPHY_COLORS_MODE } from './constants';
 
 // types
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
@@ -22,11 +22,26 @@ import {
 import { getByE2EAttribute } from '../../../../tests/testHelpers';
 import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 import { hexToRgb } from '../../../../utils/transform/hexToRgb/hexToRgb';
-import { TYPOGRAPHY_COLORS_MODE } from './constants';
 
 const className = 'className';
 
 describe('Typography props', () => {
+  it('should pass align', () => {
+    // before
+    const align = 'center';
+    const rgb = hexToRgb(LIGHT_COLORS.neutral1);
+
+    const { container } = render(
+      <Typography align={align}>children</Typography>,
+    );
+
+    // result
+    expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveAttribute(
+      'style',
+      `color: rgb(${rgb.r}, ${rgb.g}, ${rgb.b}); text-align: ${align};`,
+    );
+  });
+
   it('should pass children', () => {
     // mock
     const children = 'children';
@@ -66,12 +81,12 @@ describe('Typography props', () => {
     // result
     expect(getByE2EAttribute(container1, E2EAttribute.text)).toHaveAttribute(
       'style',
-      `color: rgb(${rgb1.r}, ${rgb1.g}, ${rgb1.b});`,
+      `color: rgb(${rgb1.r}, ${rgb1.g}, ${rgb1.b}); text-align: inherit;`,
     );
 
     expect(getByE2EAttribute(container2, E2EAttribute.text)).toHaveAttribute(
       'style',
-      `color: rgb(${rgb2.r}, ${rgb2.g}, ${rgb2.b});`,
+      `color: rgb(${rgb2.r}, ${rgb2.g}, ${rgb2.b}); text-align: inherit;`,
     );
   });
 
@@ -168,6 +183,21 @@ describe('Typography props', () => {
     // result
     expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveClass(
       classNames[classNameTypography].modificators.noWrap,
+    );
+  });
+
+  it('should pass style', () => {
+    // before
+    const rgb = hexToRgb(LIGHT_COLORS.neutral1);
+
+    const { container } = render(
+      <Typography style={{ width: '100%' }}>children</Typography>,
+    );
+
+    // result
+    expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveAttribute(
+      'style',
+      `width: 100%; color: rgb(${rgb.r}, ${rgb.g}, ${rgb.b}); text-align: inherit;`,
     );
   });
 

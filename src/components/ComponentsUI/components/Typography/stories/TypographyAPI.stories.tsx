@@ -14,6 +14,12 @@ const description = [
 
 const tableBodyData: Array<TTableBody> = [
   {
+    defaultValue: 'inherit',
+    description: 'Set the text-align on the component.',
+    name: 'align',
+    type: `CSSProperties['textAlign']`,
+  },
+  {
     description: 'The content of the component.',
     name: 'children',
     type: 'ReactElement | Array<ReactElement>',
@@ -43,19 +49,19 @@ const tableBodyData: Array<TTableBody> = [
     defaultValue: 'normal',
     description: 'The font style to use.',
     name: 'fontStyle',
-    type: `normal'<br/>|&nbsp;'italic'<br/>|&nbsp;'normal'<br/>|&nbsp;'string'`,
+    type: `'normal'<br/>|&nbsp;'italic'<br/>|&nbsp;'normal'<br/>|&nbsp;'string'`,
   },
   {
-    defaultValue: 'P',
+    defaultValue: 'p',
     description: 'The variant to use.',
     name: 'fontType',
-    type: `P'<br/>|&nbsp;'h1'<br/>|&nbsp;'h2'<br/>|&nbsp;'h3'<br/>|&nbsp;'h4'<br/>|&nbsp;'h5'<br/>|&nbsp;'h6'<br/>|&nbsp;'P'<br/>|&nbsp;'Small'<br/>|&nbsp;'string'`,
+    type: `'p'<br/>|&nbsp;'h1'<br/>|&nbsp;'h2'<br/>|&nbsp;'h3'<br/>|&nbsp;'h4'<br/>|&nbsp;'h5'<br/>|&nbsp;'h6'<br/>|&nbsp;'p'<br/>|&nbsp;'small'<br/>|&nbsp;'string'`,
   },
   {
     defaultValue: 'regular',
     description: 'The font weight to use.',
     name: 'fontWeight',
-    type: `regular'<br/>|&nbsp;'black'<br/>|&nbsp;'black'<br/>|&nbsp;'extraBold'<br/>|&nbsp;'light'<br/>|&nbsp;'medium'<br/>|&nbsp;'regular'<br/>|&nbsp;'semiBold'<br/>|&nbsp;'string'`,
+    type: `'regular'<br/>|&nbsp;'black'<br/>|&nbsp;'extraBold'<br/>|&nbsp;'light'<br/>|&nbsp;'medium'<br/>|&nbsp;'regular'<br/>|&nbsp;'semiBold'<br/>|&nbsp;'string'`,
   },
   {
     description:
@@ -69,6 +75,16 @@ const tableBodyData: Array<TTableBody> = [
       'If true, the text will not wrap, but instead will truncate with a text overflow ellipsis.',
     name: 'noWrap',
     type: 'boolean',
+  },
+  {
+    description: 'The <code>ref</code> is forwarded to the root element.',
+    name: 'ref',
+    type: 'Ref<HTMLElement>',
+  },
+  {
+    description: 'Override styles by object of styles.',
+    name: 'style',
+    type: 'object',
   },
   {
     defaultValue: 'false',

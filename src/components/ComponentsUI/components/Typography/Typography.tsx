@@ -1,6 +1,13 @@
 import classnames from 'classnames';
 import { camelCase, isObject } from 'lodash';
-import { createElement, FC, HTMLAttributes, ReactNode } from 'react';
+import {
+  createElement,
+  CSSProperties,
+  forwardRef,
+  HTMLAttributes,
+  ReactNode,
+  Ref,
+} from 'react';
 
 // hooks
 import { useTheme } from '../../../../hooks';
@@ -25,6 +32,7 @@ import {
 import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 
 export type TTypographyProps = Omit<HTMLAttributes<HTMLElement>, 'color'> & {
+  align?: CSSProperties['textAlign'];
   children?: ReactNode;
   color?: TTypographyColor;
   e2eAttribute?: string;
@@ -34,60 +42,71 @@ export type TTypographyProps = Omit<HTMLAttributes<HTMLElement>, 'color'> & {
   fontWeight?: TypographyFontWeight;
   innerHtml?: string;
   noWrap?: boolean;
+  ref?: Ref<HTMLElement>;
   withoutMargin?: boolean;
 };
 
-export const Typography: FC<TTypographyProps> = ({
-  children,
-  className = '',
-  color = TYPOGRAPHY_COLORS_MODE.neutral1,
-  e2eAttribute = E2EAttribute.text,
-  e2eValue = '',
-  fontStyle = TypographyFontStyle.normal,
-  fontType = TypographyFontType.p,
-  fontWeight = TypographyFontWeight.regular,
-  innerHtml = '',
-  noWrap = false,
-  style = {},
-  withoutMargin = true,
-  ...restProps
-}) => {
-  const { classNamesWithTheme, theme } = useTheme(classNames);
-
-  if (!children && !innerHtml) {
-    return null;
-  }
-
-  return createElement(
-    fontType,
+export const Typography = forwardRef<HTMLElement, TTypographyProps>(
+  (
     {
-      ...restProps,
-      ...(innerHtml ? { dangerouslySetInnerHTML: { __html: innerHtml } } : {}),
-      [getDataTestAttribute(e2eAttribute)]: e2eValue,
-      className: classnames(
-        className,
-        classNamesWithTheme[classNameTypography].name,
-        classNamesWithTheme[classNameTypography].modificators[
-          camelCase(fontWeight) as keyof typeof TypographyFontWeight
-        ],
-        classNamesWithTheme[classNameTypography].modificators[fontStyle],
-        classNamesWithTheme[classNameTypography].modificators[fontType],
-        {
-          [classNamesWithTheme[classNameTypography].modificators.noWrap]:
-            noWrap,
-        },
-        {
-          [classNamesWithTheme[classNameTypography].modificators.withoutMargin]:
-            withoutMargin,
-        },
-      ),
-      style: {
-        ...style,
-        color: isObject(color) ? color[theme] : color,
-      },
+      align: textAlign = 'inherit',
+      children,
+      className = '',
+      color = TYPOGRAPHY_COLORS_MODE.neutral1,
+      e2eAttribute = E2EAttribute.text,
+      e2eValue = '',
+      fontStyle = TypographyFontStyle.normal,
+      fontType = TypographyFontType.p,
+      fontWeight = TypographyFontWeight.regular,
+      innerHtml = '',
+      noWrap = false,
+      style = {},
+      withoutMargin = true,
+      ...restProps
     },
-    children,
-  );
-};
+    ref,
+  ) => {
+    const { classNamesWithTheme, theme } = useTheme(classNames);
+
+    if (!children && !innerHtml) {
+      return null;
+    }
+
+    return createElement(
+      fontType,
+      {
+        ...restProps,
+        ...(innerHtml
+          ? { dangerouslySetInnerHTML: { __html: innerHtml } }
+          : {}),
+        [getDataTestAttribute(e2eAttribute)]: e2eValue,
+        className: classnames(
+          className,
+          classNamesWithTheme[classNameTypography].name,
+          classNamesWithTheme[classNameTypography].modificators[
+            camelCase(fontWeight) as keyof typeof TypographyFontWeight
+          ],
+          classNamesWithTheme[classNameTypography].modificators[fontStyle],
+          classNamesWithTheme[classNameTypography].modificators[fontType],
+          {
+            [classNamesWithTheme[classNameTypography].modificators.noWrap]:
+              noWrap,
+          },
+          {
+            [classNamesWithTheme[classNameTypography].modificators
+              .withoutMargin]: withoutMargin,
+          },
+        ),
+        ref,
+        style: {
+          ...style,
+          color: isObject(color) ? color[theme] : color,
+          textAlign,
+        },
+      },
+      children,
+    );
+  },
+);
 
 export default Typography;

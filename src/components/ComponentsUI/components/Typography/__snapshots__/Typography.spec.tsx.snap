@@ -7,7 +7,7 @@ exports[`Typography snapshots should render with passed inner html 1`] = `
   <p
     class="Typography Typography--regular Typography--normal Typography--p Typography--without-margin"
     data-test-text=""
-    style="color: rgb(30, 40, 57);"
+    style="color: rgb(30, 40, 57); text-align: inherit;"
   />
   <div>
     innerHtml
@@ -21,7 +21,7 @@ exports[`Typography snapshots should render with some text 1`] = `
   <p
     class="Typography Typography--regular Typography--normal Typography--p Typography--without-margin"
     data-test-text=""
-    style="color: rgb(30, 40, 57);"
+    style="color: rgb(30, 40, 57); text-align: inherit;"
   >
     Text
   </p>

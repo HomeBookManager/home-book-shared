@@ -14,7 +14,7 @@ import { ContentGridFlow } from '../../../../../stories/components/StoryComponen
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
 
 const blockCodeData: TStoryBlockCode = {
-  componentName: 'Typography',
+  componentName: '',
   imports: [
     {
       items: '{ H1, H2, H3, H4, H5, H6, P, Small }',
@@ -27,28 +27,16 @@ const blockCodeData: TStoryBlockCode = {
   ],
   props: [
     {
-      children: 'h1. Heading',
-    },
-    {
-      children: 'h. Heading',
-    },
-    {
-      children: 'h3. Heading',
-    },
-    {
-      children: 'h4. Heading',
-    },
-    {
-      children: 'h5. Heading',
-    },
-    {
-      children: 'h6. Heading',
-    },
-    {
-      children: 'Text',
-    },
-    {
-      children: 'Small Text',
+      children: [
+        { componentName: 'H1', props: [{ children: 'h1. Heading' }] },
+        { componentName: 'H2', props: [{ children: 'h2. Heading' }] },
+        { componentName: 'H3', props: [{ children: 'h3. Heading' }] },
+        { componentName: 'H4', props: [{ children: 'h4. Heading' }] },
+        { componentName: 'H5', props: [{ children: 'h5. Heading' }] },
+        { componentName: 'H6', props: [{ children: 'h6. Heading' }] },
+        { componentName: 'Text', props: [{ children: 'Text' }] },
+        { componentName: 'Small', props: [{ children: 'Small Text' }] },
+      ],
     },
   ],
 };
@@ -98,6 +86,11 @@ export const TypographyVariants = Template;
 
 TypographyVariants.argTypes = {
   children: {
+    table: {
+      disable: true,
+    },
+  },
+  fontType: {
     table: {
       disable: true,
     },
