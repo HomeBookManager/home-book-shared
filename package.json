@@ -32,7 +32,7 @@
     "test:ci": "jest --ci --colors --coverage --coverageReporters=lcov --coverageReporters=text-summary --coverageDirectory=coverage --silent --maxWorkers=1",
     "test:coverage": "jest --colors --coverage",
     "test:update": "jest --updateSnapshot",
-    "test:watch": "npm test -- --watch",
+    "test:watch": "jest --watchAll",
     "storybook": "storybook dev -p 6006"
   },
   "devDependencies": {

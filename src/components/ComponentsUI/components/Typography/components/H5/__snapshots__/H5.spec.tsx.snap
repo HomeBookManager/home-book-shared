@@ -5,7 +5,7 @@ exports[`H5 snapshots should render H5 1`] = `
   <h5
     class="Typography Typography--regular Typography--normal Typography--h5 Typography--without-margin"
     data-test-text=""
-    style="color: rgb(30, 40, 57);"
+    style="color: rgb(30, 40, 57); text-align: inherit;"
   >
     H5
   </h5>

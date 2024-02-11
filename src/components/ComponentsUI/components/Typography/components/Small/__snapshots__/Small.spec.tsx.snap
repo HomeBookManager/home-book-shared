@@ -5,7 +5,7 @@ exports[`Small snapshots should render Small 1`] = `
   <small
     class="Typography Typography--regular Typography--normal Typography--small Typography--without-margin"
     data-test-text=""
-    style="color: rgb(30, 40, 57);"
+    style="color: rgb(30, 40, 57); text-align: inherit;"
   >
     Small
   </small>
