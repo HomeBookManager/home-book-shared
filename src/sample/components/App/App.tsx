@@ -3,11 +3,21 @@ import { useContext } from 'react';
 // @home-book
 import { Theme } from 'home-book-types';
 
+// components
+import Icon from '../../../components/ComponentsUI/components/Icon/Icon';
+import {
+  IconLeftOutlined,
+  IconRightOutlined,
+} from '../../../components/ComponentsUI/components/Icon/components';
+
 // core
 import { Context } from '../../../core';
 
-// otehrs
+// others
 import { className, classNames } from './classNames';
+
+// types
+import { IconShape } from '../../../components/ComponentsUI/components/Icon/enums';
 
 // styles
 import './app.scss';
@@ -25,6 +35,21 @@ export const App = () => {
         >
           Current mode: {theme}
         </button>
+        <div style={{ padding: '50px' }}>
+          {isDarkMode ? (
+            <Icon
+              iconComponent={IconLeftOutlined}
+              iconShape={IconShape.leftOutlined}
+            />
+          ) : (
+            <>
+              <Icon
+                iconComponent={IconRightOutlined}
+                iconShape={IconShape.rightOutlined}
+              />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

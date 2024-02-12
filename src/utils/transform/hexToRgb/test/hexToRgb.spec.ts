@@ -12,7 +12,7 @@ describe('hexToRgb', () => {
 
   it('Should return null', () => {
     // before
-    const result = hexToRgb('');
+    const result = hexToRgb();
 
     // result
     expect(result).toBe(null);

@@ -32,7 +32,7 @@ module.exports = {
     ],
     'scss/at-rule-no-unknown': true,
     'scss/dollar-variable-empty-line-before': null,
-    'scss/dollar-variable-pattern': '(^--cth-)|(^self$)',
+    'scss/dollar-variable-pattern': '(^--hb-)|(^self$)',
     'selector-class-pattern': null,
     'selector-pseudo-class-no-unknown': true,
     'selector-pseudo-element-no-unknown': true,

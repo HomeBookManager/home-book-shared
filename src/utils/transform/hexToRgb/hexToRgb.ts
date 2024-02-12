@@ -1,7 +1,7 @@
 // types
 import { THexArg, THexToRgb } from './types';
 
-export const hexToRgb = (hex: THexArg): THexToRgb | null => {
+export const hexToRgb = (hex?: THexArg): THexToRgb | null => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
   return result

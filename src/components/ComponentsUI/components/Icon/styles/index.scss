@@ -1,0 +1,10 @@
+@import './lists';
+@import './mixins';
+
+$--hb-prefix: 'Icon';
+
+@each $name in $--hb-names-fill-list {
+  .#{$--hb-prefix}#{$name} {
+    @include apply-icon-styles(&, 'fill', path);
+  }
+}

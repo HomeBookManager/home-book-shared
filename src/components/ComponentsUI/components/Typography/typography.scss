@@ -6,30 +6,30 @@
 @import '../../../../styles/mixins/typography/typography-map';
 
 .Typography {
-  @each $font-type in $--cth-font-types {
+  @each $font-type in $--hb-font-types {
     &--#{$font-type} {
-      $--cth-font-size: map.get($--cth-font-size-map, $font-type);
-      $--cth-line-height: map.get($--cth-line-height-map, $font-type);
-      $--cth-margin-bottom: map.get($--cth-margin-bottom-map, $font-type);
+      $--hb-font-size: map.get($--hb-font-size-map, $font-type);
+      $--hb-line-height: map.get($--hb-line-height-map, $font-type);
+      $--hb-margin-bottom: map.get($--hb-margin-bottom-map, $font-type);
 
       @include typography-styles(
-        $--cth-font-size,
-        $--cth-line-height,
-        $--cth-margin-bottom
+        $--hb-font-size,
+        $--hb-line-height,
+        $--hb-margin-bottom
       );
     }
   }
 
-  @each $font-style in $--cth-font-styles {
+  @each $font-style in $--hb-font-styles {
     &--#{$font-style} {
-      font-style: map.get($--cth-font-styles-map, $font-style);
+      font-style: map.get($--hb-font-styles-map, $font-style);
     }
   }
 
-  @each $font-weight in $--cth-font-weights {
+  @each $font-weight in $--hb-font-weights {
     &--#{$font-weight} {
       /* stylelint-disable-next-line font-weight-notation */
-      font-weight: map.get($--cth-font-weights-map, $font-weight);
+      font-weight: map.get($--hb-font-weights-map, $font-weight);
     }
   }
 
