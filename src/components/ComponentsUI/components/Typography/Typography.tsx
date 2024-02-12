@@ -76,10 +76,6 @@ export const Typography = forwardRef<HTMLElement, TTypographyProps>(
       fontType,
       {
         ...restProps,
-        ...(innerHtml
-          ? { dangerouslySetInnerHTML: { __html: innerHtml } }
-          : {}),
-        [getDataTestAttribute(e2eAttribute)]: e2eValue,
         className: classnames(
           className,
           classNamesWithTheme[classNameTypography].name,
@@ -97,6 +93,10 @@ export const Typography = forwardRef<HTMLElement, TTypographyProps>(
               .withoutMargin]: withoutMargin,
           },
         ),
+        [getDataTestAttribute(e2eAttribute)]: e2eValue,
+        ...(innerHtml
+          ? { dangerouslySetInnerHTML: { __html: innerHtml } }
+          : {}),
         ref,
         style: {
           ...style,
