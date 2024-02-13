@@ -1,15 +1,14 @@
-import {
-  CSSProperties,
-  HTMLAttributes,
-  KeyboardEvent,
-  MouseEvent,
-} from 'react';
+import { HTMLAttributes } from 'react';
+
+// @home-book
+import { TClassNameWithModificator, TObject } from 'home-book-types';
 
 // types
-import { IconShape } from './enums';
+import { IconShape, IconModificatorsKeys } from './enums';
 
 export type TIconBasicProps = HTMLAttributes<SVGSVGElement> & {
   className?: string;
+  classNamePath?: string;
   clickable?: boolean;
   disabled?: boolean;
   disabledFocus?: boolean;
@@ -19,12 +18,15 @@ export type TIconBasicProps = HTMLAttributes<SVGSVGElement> & {
   fill?: string;
   forcedHover?: boolean;
   height?: string;
-  onClick?: (event: MouseEvent) => void;
-  onKeyDown?: (event: KeyboardEvent<SVGSVGElement>) => void;
   stroke?: string;
-  style?: CSSProperties;
-  tabIndex?: number;
-  width?: string;
 };
+
+export type TIconModificators = { [key in IconModificatorsKeys]: string };
+
+export type TIconComposedClassNames = TObject<
+  Omit<TClassNameWithModificator, 'modificators'> & {
+    modificators: TIconModificators;
+  }
+>;
 
 export type TIconShapes = { [key in IconShape]: string };
