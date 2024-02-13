@@ -30,6 +30,7 @@ export default {
     ...getFiles('./src/components', extensions, excludeExtensions),
     ...getFiles('./src/core', extensions, excludeExtensions),
     ...getFiles('./src/hooks', extensions, excludeExtensions),
+    ...getFiles('./src/shared', extensions, excludeExtensions),
     ...getFiles('./src/types', extensions, excludeExtensions),
     ...getFiles('./src/utils', extensions, excludeExtensions),
   ],
