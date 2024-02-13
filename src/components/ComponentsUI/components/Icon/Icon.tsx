@@ -7,7 +7,7 @@ import { Theme } from 'home-book-types';
 
 // components
 import E2EDataAttribute from '../../../E2EDataAttributes/E2EDataAttribute';
-import enhancementIcon from './enhancementIcon';
+import withRefreshReference from '../../../../shared/WithRefreshReference/withRefreshReference';
 
 // hooks
 import { useTheme } from '../../../../hooks';
@@ -112,4 +112,4 @@ export const Icon = forwardRef<SVGSVGElement, TIconProps>(
   },
 );
 
-export default enhancementIcon(Icon);
+export default withRefreshReference(Icon);

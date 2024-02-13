@@ -38,14 +38,12 @@ export const App = () => {
         <div style={{ padding: '50px' }}>
           {isDarkMode ? (
             <Icon
-              disabledHover
               iconComponent={IconLeftOutlined}
               iconShape={IconShape.leftOutlined}
             />
           ) : (
             <>
               <Icon
-                disabledHover
                 iconComponent={IconRightOutlined}
                 iconShape={IconShape.rightOutlined}
               />
