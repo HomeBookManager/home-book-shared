@@ -1,9 +1,14 @@
-import { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
+import {
+  CSSProperties,
+  HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent,
+} from 'react';
 
 // types
 import { IconShape } from './enums';
 
-export type TIconBasicProps = {
+export type TIconBasicProps = HTMLAttributes<SVGSVGElement> & {
   className?: string;
   clickable?: boolean;
   disabled?: boolean;

@@ -7,6 +7,7 @@ import { Theme } from 'home-book-types';
 
 // components
 import E2EDataAttribute from '../../../E2EDataAttributes/E2EDataAttribute';
+import enhancementIcon from './enhancementIcon';
 
 // hooks
 import { useClassNames } from './hooks/useClassNames';
@@ -28,7 +29,6 @@ export type TIconProps = TIconBasicProps & {
   iconShape: IconShape;
   ignoreDefaultStyles?: boolean;
   selected?: boolean;
-  shouldForceClassNames?: boolean;
   strokeDark?: string;
 };
 
@@ -47,7 +47,6 @@ export const Icon: FC<TIconProps> = ({
   iconShape,
   ignoreDefaultStyles = true,
   selected = false,
-  shouldForceClassNames = false,
   stroke = '',
   strokeDark = '',
   tabIndex = -1,
@@ -56,16 +55,7 @@ export const Icon: FC<TIconProps> = ({
   const withDefaultStyles =
     ignoreDefaultStyles && !fill && !fillDark && !stroke && !strokeDark;
 
-  const { classNamesWithTheme, forceUpdateClassNames, theme } =
-    useClassNames(iconShape);
-
-  if (!classNamesWithTheme[classNames[iconShape]]) {
-    if (shouldForceClassNames) {
-      forceUpdateClassNames();
-    }
-
-    return null;
-  }
+  const { classNamesWithTheme, theme } = useClassNames(iconShape);
 
   return (
     <E2EDataAttribute
@@ -110,4 +100,4 @@ export const Icon: FC<TIconProps> = ({
   );
 };
 
-export default Icon;
+export default enhancementIcon(Icon);

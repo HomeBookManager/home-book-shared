@@ -11,7 +11,7 @@ import { classNames } from '../classNames';
 import { IconShape } from '../enums';
 
 // utils
-import { applyModificators } from '../utils';
+import { applyModificators } from '../utils/applyModificators';
 
 export type TUseClassNames = TUseThemeProps<TObject<TClassNameWithModificator>>;
 
