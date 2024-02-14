@@ -14,6 +14,7 @@ export const rollupPluginSvg = (options = {}) => {
         const content = code
           .trim()
           .substring(code.indexOf('"') + 1, code.lastIndexOf('"'));
+
         const encoded = JSON.stringify(content);
 
         return { code: 'export default ' + encoded, map: { mappings: '' } };
