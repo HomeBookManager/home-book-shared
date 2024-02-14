@@ -1,0 +1,129 @@
+@import '../../../../../styles/colors/common';
+@import '../../../../../styles/mixins/transitions';
+
+@mixin apply-icon-idle(
+  $property,
+  $selector,
+  $colorLight: $--hb-neutral-2,
+  $colorDark: $--hb-neutral-2--dark
+) {
+  #{$selector} {
+    #{$property}: $colorLight;
+  }
+
+  &--dark {
+    #{$selector} {
+      #{$property}: $colorDark;
+    }
+  }
+}
+
+@mixin apply-icon-focus(
+  $className,
+  $property,
+  $selector,
+  $colorLight: $--hb-neutral-1,
+  $colorDark: $--hb-neutral-1--dark
+) {
+  &:focus:not(#{$className}--selected):not(#{$className}--disabled-hover) {
+    #{$selector} {
+      #{$property}: $colorLight;
+    }
+  }
+
+  &--dark:focus:not(#{$className}--selected--dark):not(
+      #{$className}--disabled-hover--dark
+    ) {
+    #{$selector} {
+      #{$property}: $colorDark;
+    }
+  }
+}
+
+@mixin apply-icon-hover(
+  $className,
+  $property,
+  $selector,
+  $colorLight: $--hb-neutral-1,
+  $colorDark: $--hb-neutral-1--dark
+) {
+  &:hover:not(#{$className}--selected):not(#{$className}--disabled-hover) {
+    #{$selector} {
+      #{$property}: $colorLight;
+    }
+  }
+
+  &--dark:hover:not(#{$className}--selected--dark):not(
+      #{$className}--disabled-hover--dark
+    ) {
+    #{$selector} {
+      #{$property}: $colorDark;
+    }
+  }
+}
+
+@mixin apply-icon-forced-hover(
+  $property,
+  $selector,
+  $colorLight: $--hb-neutral-1,
+  $colorDark: $--hb-neutral-1--dark
+) {
+  &--forced-hover {
+    #{$selector} {
+      #{$property}: $colorLight;
+    }
+
+    &--dark {
+      #{$selector} {
+        #{$property}: $colorDark;
+      }
+    }
+  }
+}
+
+@mixin apply-icon-selected(
+  $property,
+  $selector,
+  $colorLight: $--hb-common-neutral-blue-1,
+  $colorDark: $--hb-common-neutral-blue-2
+) {
+  &--selected {
+    #{$selector} {
+      #{$property}: $colorLight;
+    }
+
+    &--dark {
+      #{$selector} {
+        #{$property}: $colorDark;
+      }
+    }
+  }
+}
+
+@mixin apply-icon-disabled() {
+  &--disabled {
+    opacity: 0.5;
+  }
+}
+
+@mixin apply-icon-clickable() {
+  &--clickable {
+    cursor: pointer;
+  }
+}
+
+@mixin apply-icon-styles($className, $property, $selector) {
+  @include apply-icon-idle($property, $selector);
+  @include apply-icon-focus($className, $property, $selector);
+  @include apply-icon-hover($className, $property, $selector);
+  @include apply-icon-forced-hover($property, $selector);
+  @include apply-icon-selected($property, $selector);
+  @include apply-icon-disabled;
+  @include apply-icon-clickable;
+
+  outline: none;
+
+  path {
+    @include transition;
+  }
+}

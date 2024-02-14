@@ -3,7 +3,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     'mock/*',
     'src/config',
-    'src/sample/*',
+    'src/components/ComponentsUI/components/Icon/components',
+    'src/sample',
     'src/stories',
     'src/tests',
     'src/types',

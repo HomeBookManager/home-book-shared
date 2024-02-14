@@ -17,4 +17,5 @@ export enum ContentGridFlow {
   maxThreeColumns = 'max-three-columns',
   maxFourColumns = 'max-four-columns',
   maxFiveColumns = 'max-five-columns',
+  maxSixColumns = 'max-six-columns',
 }

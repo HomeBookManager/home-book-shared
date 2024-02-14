@@ -1,49 +1,49 @@
 @import '../../typography';
 
-$--cth-font-size-map: (
-  h1: $--cth-typography-font-size-h1,
-  h2: $--cth-typography-font-size-h2,
-  h3: $--cth-typography-font-size-h3,
-  h4: $--cth-typography-font-size-h4,
-  h5: $--cth-typography-font-size-h5,
-  h6: $--cth-typography-font-size-h6,
-  p: $--cth-typography-font-size-p,
-  small: $--cth-typography-font-size-small,
+$--hb-font-size-map: (
+  h1: $--hb-typography-font-size-h1,
+  h2: $--hb-typography-font-size-h2,
+  h3: $--hb-typography-font-size-h3,
+  h4: $--hb-typography-font-size-h4,
+  h5: $--hb-typography-font-size-h5,
+  h6: $--hb-typography-font-size-h6,
+  p: $--hb-typography-font-size-p,
+  small: $--hb-typography-font-size-small,
 );
 
-$--cth-font-styles-map: (
-  normal: $--cth-typography-font-style-normal,
-  italic: $--cth-typography-font-style-italic,
+$--hb-font-styles-map: (
+  normal: $--hb-typography-font-style-normal,
+  italic: $--hb-typography-font-style-italic,
 );
 
-$--cth-font-weights-map: (
-  light: $--cth-typography-font-weight-light,
-  regular: $--cth-typography-font-weight-regular,
-  medium: $--cth-typography-font-weight-medium,
-  semi-bold: $--cth-typography-font-weight-semi-bold,
-  bold: $--cth-typography-font-weight-bold,
-  extra-bold: $--cth-typography-font-weight-extra-bold,
-  blacks: $--cth-typography-font-weight-blacks,
+$--hb-font-weights-map: (
+  light: $--hb-typography-font-weight-light,
+  regular: $--hb-typography-font-weight-regular,
+  medium: $--hb-typography-font-weight-medium,
+  semi-bold: $--hb-typography-font-weight-semi-bold,
+  bold: $--hb-typography-font-weight-bold,
+  extra-bold: $--hb-typography-font-weight-extra-bold,
+  blacks: $--hb-typography-font-weight-blacks,
 );
 
-$--cth-line-height-map: (
-  h1: $--cth-typography-line-height-h1,
-  h2: $--cth-typography-line-height-h2,
-  h3: $--cth-typography-line-height-h3,
-  h4: $--cth-typography-line-height-h4,
-  h5: $--cth-typography-line-height-h5,
-  h6: $--cth-typography-line-height-h6,
-  p: $--cth-typography-line-height-p,
-  small: $--cth-typography-line-height-small,
+$--hb-line-height-map: (
+  h1: $--hb-typography-line-height-h1,
+  h2: $--hb-typography-line-height-h2,
+  h3: $--hb-typography-line-height-h3,
+  h4: $--hb-typography-line-height-h4,
+  h5: $--hb-typography-line-height-h5,
+  h6: $--hb-typography-line-height-h6,
+  p: $--hb-typography-line-height-p,
+  small: $--hb-typography-line-height-small,
 );
 
-$--cth-margin-bottom-map: (
-  h1: $--cth-typography-margin-bottom-h1,
-  h2: $--cth-typography-margin-bottom-h2,
-  h3: $--cth-typography-margin-bottom-h3,
-  h4: $--cth-typography-margin-bottom-h4,
-  h5: $--cth-typography-margin-bottom-h5,
-  h6: $--cth-typography-margin-bottom-h6,
-  p: $--cth-typography-margin-bottom-p,
-  small: $--cth-typography-margin-bottom-small,
+$--hb-margin-bottom-map: (
+  h1: $--hb-typography-margin-bottom-h1,
+  h2: $--hb-typography-margin-bottom-h2,
+  h3: $--hb-typography-margin-bottom-h3,
+  h4: $--hb-typography-margin-bottom-h4,
+  h5: $--hb-typography-margin-bottom-h5,
+  h6: $--hb-typography-margin-bottom-h6,
+  p: $--hb-typography-margin-bottom-p,
+  small: $--hb-typography-margin-bottom-small,
 );

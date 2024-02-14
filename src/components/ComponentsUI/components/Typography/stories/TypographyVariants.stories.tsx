@@ -22,7 +22,7 @@ const blockCodeData: TStoryBlockCode = {
     },
     {
       items: '{ TYPOGRAPHY_COLORS_MODE }',
-      path: './shared/ComponentsUI/constants',
+      path: './shared/ComponentsUI/components/Typography/constants',
     },
   ],
   props: [

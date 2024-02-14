@@ -98,6 +98,7 @@
     "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^5.2.1",
+    "timekeeper": "^2.3.1",
     "ts-loader": "^9.5.0",
     "typescript": "^5.2.2",
     "url-loader": "^4.1.1",
@@ -107,21 +108,23 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "home-book-constants": "^1.0.1",
-    "home-book-types": "^1.0.4",
+    "home-book-constants": "^1.0.2",
+    "home-book-types": "^1.0.8",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "uniqid": "^5.4.0"
   },
   "peerDependencies": {
     "@types/classnames": "^2.3.1",
     "@types/lodash": "^4.14.199",
     "classnames": "^2.3.2",
-    "home-book-constants": "^1.0.1",
-    "home-book-types": "^1.0.4",
+    "home-book-constants": "^1.0.2",
+    "home-book-types": "^1.0.8",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "uniqid": "^5.4.0"
   }
 }
