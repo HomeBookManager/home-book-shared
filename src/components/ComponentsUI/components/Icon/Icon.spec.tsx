@@ -358,6 +358,28 @@ describe('Icon props', () => {
     );
   });
 
+  it('should pass height', () => {
+    // mock
+    const height = '16px';
+
+    //before
+    const { container } = render(
+      <ContextProvider theme={Theme.dark}>
+        <Icon
+          height={height}
+          iconComponent={iconComponent}
+          iconShape={iconShape}
+        />
+      </ContextProvider>,
+    );
+
+    // result
+    expect(getByE2EAttribute(container, E2EAttribute.icon)).toHaveAttribute(
+      'height',
+      height,
+    );
+  });
+
   it('should pass iconComponent', () => {
     //before
     const { container } = render(
@@ -459,6 +481,28 @@ describe('Icon props', () => {
     expect(container.querySelector(`.${classNamePath}`)).not.toHaveAttribute(
       'stroke',
       strokeDark,
+    );
+  });
+
+  it('should pass width', () => {
+    // mock
+    const width = '16px';
+
+    //before
+    const { container } = render(
+      <ContextProvider theme={Theme.dark}>
+        <Icon
+          iconComponent={iconComponent}
+          iconShape={iconShape}
+          width={width}
+        />
+      </ContextProvider>,
+    );
+
+    // result
+    expect(getByE2EAttribute(container, E2EAttribute.icon)).toHaveAttribute(
+      'width',
+      width,
     );
   });
 });

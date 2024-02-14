@@ -19,6 +19,7 @@ export type TIconBasicProps = HTMLAttributes<SVGSVGElement> & {
   forcedHover?: boolean;
   height?: string;
   stroke?: string;
+  width?: string;
 };
 
 export type TIconModificators = { [key in IconModificatorsKeys]: string };

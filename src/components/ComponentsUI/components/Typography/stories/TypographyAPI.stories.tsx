@@ -9,7 +9,7 @@ import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCod
 import { TTableBody } from '../../../../../stories/components/StoryPropsTable/types';
 
 const description = [
-  'API documentation for the React Typography component. Learn about the available props.',
+  'API documentation for the React Typography component. Learn about the available props. Typography is based on basic <code>props</code> from <code>HTMLAttributes<HTMLElement></code>',
 ];
 
 const tableBodyData: Array<TTableBody> = [
@@ -36,6 +36,7 @@ const tableBodyData: Array<TTableBody> = [
     type: 'TTypographyColor',
   },
   {
+    defaultValue: 'E2EAttribute.text',
     description: 'Provide test-id.',
     name: 'e2eAttribute',
     type: 'E2EAttribute',
