@@ -15,7 +15,7 @@ export enum TypographyFontType {
 }
 
 export enum TypographyFontWeight {
-  black = 'black',
+  blacks = 'blacks',
   bold = 'bold',
   extraBold = 'extra-bold',
   light = 'light',

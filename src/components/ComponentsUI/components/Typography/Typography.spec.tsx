@@ -149,12 +149,14 @@ describe('Typography props', () => {
   it('should pass fontWeight', () => {
     //before
     const { container } = render(
-      <Typography fontWeight={TypographyFontWeight.black}>children</Typography>,
+      <Typography fontWeight={TypographyFontWeight.blacks}>
+        children
+      </Typography>,
     );
 
     // result
     expect(getByE2EAttribute(container, E2EAttribute.text)).toHaveClass(
-      classNames[classNameTypography].modificators[TypographyFontWeight.black],
+      classNames[classNameTypography].modificators[TypographyFontWeight.blacks],
     );
   });
 
