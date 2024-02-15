@@ -1,0 +1,80 @@
+@import './button-icons-list';
+@import '../../../../../styles/colors/button/button-list';
+@import '../../../../../styles/colors/button/button-map';
+
+@mixin button-icons-apply-property($color, $property) {
+  path {
+    #{$property}: $color;
+  }
+}
+
+@mixin button-icons-state-styles($color, $property, $state, $variant) {
+  @if $state == 'idle' {
+    @include button-icons-apply-property(
+      map-get($--hb-text-map, $variant + '-' + $color),
+      $property
+    );
+  } @else if $state == 'disabled' {
+    @include button-icons-apply-property(
+      map-get($--hb-text-map, $variant + '-' + $color + '-disabled'),
+      $property
+    );
+  } @else {
+    @include button-icons-apply-property(
+      map-get($--hb-text-map, $variant + '-' + $color + '-hover'),
+      $property
+    );
+  }
+}
+
+@mixin button-icons-apply-margins {
+  &--start {
+    margin-right: 10px;
+  }
+
+  &--end {
+    margin-left: 10px;
+  }
+}
+
+@mixin button-icons-apply-sizes {
+  &--small {
+    height: 12px;
+  }
+
+  &--medium {
+    height: 14px;
+  }
+
+  &--large {
+    height: 16px;
+  }
+}
+
+@mixin button-icons($className, $state: 'idle') {
+  #{$className}__icon {
+    @each $property in $--hb-button-icons-properties {
+      &--apply-#{$property} {
+        @each $variant in $--hb-button-variants {
+          &--#{$variant} {
+            @each $color in $--hb-button-colors {
+              &--#{$color} {
+                @include button-icons-state-styles(
+                  $color,
+                  $property,
+                  $state,
+                  $variant
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @if $state == 'idle' {
+      @include button-icons-apply-margins;
+      @include button-icons-apply-sizes;
+    }
+  }
+}
