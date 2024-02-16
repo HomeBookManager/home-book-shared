@@ -53,7 +53,7 @@ export const Button: FC<TButtonProps> = ({
   variant = ButtonVariant.contained,
   ...restProps
 }) => {
-  const Icon = useIcon(color, size, variant);
+  const Icon = useIcon(size);
 
   const { rippleEffect, triggerRippleEffect } = useRippleEffect(
     classNames[classNameButton].modificators[color][variant],
@@ -76,9 +76,9 @@ export const Button: FC<TButtonProps> = ({
               color
             ]]: forcedHover,
           },
+          classNames[classNameButton].modificators[color],
           classNames[classNameButton].modificators[size],
           classNames[classNameButton].modificators[variant],
-          classNames[classNameButton].modificators[color][variant],
           className,
         )}
         onClick={onClickHandler}

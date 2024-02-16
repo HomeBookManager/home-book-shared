@@ -8,16 +8,12 @@ import Icon from '../../Icon/Icon';
 import { classNames } from '../classNames';
 
 // types
-import { ButtonColor, ButtonSize, ButtonVariant } from '../enums';
+import { ButtonSize } from '../enums';
 import { TButtonIconArgs } from '../types';
 
 export type TUseIcon = (data: TButtonIconArgs) => JSX.Element;
 
-export const useIcon = (
-  color: ButtonColor,
-  size: ButtonSize,
-  variant: ButtonVariant,
-): TUseIcon =>
+export const useIcon = (size: ButtonSize): TUseIcon =>
   useCallback(
     ({
       placement,
@@ -27,11 +23,10 @@ export const useIcon = (
         className={cx(
           classNames.icon.name,
           {
-            [classNames.icon.modificators.applyFill[color][variant]]: applyFill,
+            [classNames.icon.modificators.applyFill]: applyFill,
           },
           {
-            [classNames.icon.modificators.applyStroke[color][variant]]:
-              applyStroke,
+            [classNames.icon.modificators.applyStroke]: applyStroke,
           },
           classNames.icon.modificators[placement],
           classNames.icon.modificators[size],

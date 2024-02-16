@@ -51,24 +51,11 @@
   }
 }
 
-@mixin button-icons($className, $state: 'idle') {
+@mixin button-icons($className, $color, $state, $variant) {
   #{$className}__icon {
     @each $property in $--hb-button-icons-properties {
       &--apply-#{$property} {
-        @each $variant in $--hb-button-variants {
-          &--#{$variant} {
-            @each $color in $--hb-button-colors {
-              &--#{$color} {
-                @include button-icons-state-styles(
-                  $color,
-                  $property,
-                  $state,
-                  $variant
-                );
-              }
-            }
-          }
-        }
+        @include button-icons-state-styles($color, $property, $state, $variant);
       }
     }
 

@@ -15,7 +15,7 @@
     border-color: map.get($--hb-border-map, $variant + '-' + $color);
   }
 
-  @include button-icons($className);
+  @include button-icons($className, $color, 'idle', $variant);
 }
 
 @mixin button-disabled-styles($className, $color, $variant) {
@@ -32,7 +32,7 @@
   }
 
   @if $variant != 'contained' {
-    @include button-icons($className, 'disabled');
+    @include button-icons($className, $color, 'disabled', $variant);
 
     color: map.get($--hb-text-map, $variant + '-' + $color + '-disabled');
   }
@@ -55,7 +55,7 @@
   }
 
   @if $variant != 'contained' {
-    @include button-icons($className, 'hover');
+    @include button-icons($className, $color, 'hover', $variant);
 
     color: map.get($--hb-text-map, $variant + '-' + $color + '-hover');
   }
@@ -100,7 +100,7 @@
 
 @mixin button-variants($className) {
   @each $variant in $--hb-button-variants {
-    &--#{$variant} {
+    @each $color in $--hb-button-colors {
       @if $variant == 'text' or $variant == 'outlined' {
         background: unset;
       }
@@ -109,10 +109,8 @@
         border: 1px solid;
       }
 
-      @each $color in $--hb-button-colors {
-        &--#{$color} {
-          @include button-state-styles($className, $color, $variant);
-        }
+      @at-root #{&}--#{$variant}#{&}--#{$color} {
+        @include button-state-styles($className, $color, $variant);
       }
     }
   }

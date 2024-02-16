@@ -28,12 +28,7 @@ export const classNames = {
           ),
         })),
       },
-      ...mapValues(ButtonColor, (color) => ({
-        ...mapValues(
-          ButtonVariant,
-          (variant) => `${className}--${variant}--${color}`,
-        ),
-      })),
+      ...mapValues(ButtonColor, (color) => `${className}--${color}`),
       ...mapValues(ButtonSize, (size) => `${className}--${size}`),
       ...mapValues(ButtonVariant, (variant) => `${className}--${variant}`),
     },
@@ -41,8 +36,8 @@ export const classNames = {
   icon: {
     name: `${className}__icon`,
     modificators: {
-      applyFill: getIconModificators('fill'),
-      applyStroke: getIconModificators('stroke'),
+      applyFill: `${className}__icon--apply-fill`,
+      applyStroke: `${className}__icon--apply-stroke`,
       end: `${className}__icon--end`,
       start: `${className}__icon--start`,
       ...mapValues(ButtonSize, (size) => `${className}__icon--${size}`),
