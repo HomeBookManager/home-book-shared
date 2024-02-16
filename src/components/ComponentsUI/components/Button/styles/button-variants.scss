@@ -87,13 +87,13 @@
     @include button-disabled-styles($className, $color, $variant);
   }
 
-  &--forced-hover,
-  &:focus:enabled,
-  &:hover:enabled {
+  @at-root #{&}#{$className}--forced-hover,
+    &:focus:enabled,
+    &:hover:enabled {
     @include button-hover-styles($className, $color, $variant);
   }
 
-  &--ripple {
+  #{$className}--ripple {
     @include button-ripple-styles($color, $variant);
   }
 }

@@ -1,5 +1,8 @@
 import { MouseEvent, useEffect, useState } from 'react';
 
+// others
+import { RIPPLE_EFFECT_MODIFICATOR } from './constants';
+
 type TUseRippleEffect = {
   rippleEffect: JSX.Element | null;
   triggerRippleEffect: (event: MouseEvent) => void;
@@ -14,7 +17,7 @@ export const useRippleEffect = (
 
   const rippleEffect = isRippling ? (
     <span
-      className={`${className}--ripple`}
+      className={`${className}--${RIPPLE_EFFECT_MODIFICATOR}`}
       style={{
         left: coords.x,
         top: coords.y,

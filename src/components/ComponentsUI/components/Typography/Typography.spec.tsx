@@ -27,10 +27,11 @@ const className = 'className';
 
 describe('Typography props', () => {
   it('should pass align', () => {
-    // before
+    // mock
     const align = 'center';
     const rgb = hexToRgb(LIGHT_COLORS.neutral1);
 
+    // before
     const { container } = render(
       <Typography align={align}>children</Typography>,
     );
@@ -66,10 +67,11 @@ describe('Typography props', () => {
   });
 
   it('should pass color', () => {
-    //before
+    //mock
     const rgb1 = hexToRgb(COMMON_COLORS.blue1);
     const rgb2 = hexToRgb(LIGHT_COLORS.neutral5);
 
+    // before
     const { container: container1 } = render(
       <Typography color={COMMON_COLORS.blue1}>children</Typography>,
     );
@@ -189,9 +191,10 @@ describe('Typography props', () => {
   });
 
   it('should pass style', () => {
-    // before
+    // mock
     const rgb = hexToRgb(LIGHT_COLORS.neutral1);
 
+    // before
     const { container } = render(
       <Typography style={{ width: '100%' }}>children</Typography>,
     );

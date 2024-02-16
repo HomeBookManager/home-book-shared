@@ -21,6 +21,7 @@ describe('getThemePreferences', () => {
     // before
     mockMatchMedia(true);
 
+    // result
     expect(getThemePreferences()).toEqual(Theme.dark);
   });
 

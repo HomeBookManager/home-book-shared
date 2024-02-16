@@ -25,9 +25,9 @@ export type TButtonProps = ButtonHTMLAttributes<HTMLElement> & {
   className?: string;
   color?: ButtonColor;
   disableRippleEffect?: boolean;
-  endIcon?: TButtonIcon;
   e2eAttribute?: string;
   e2eValue?: number | string;
+  endIcon?: TButtonIcon;
   forcedHover?: boolean;
   fullWidth?: boolean;
   onClick?: () => void;
@@ -56,7 +56,7 @@ export const Button: FC<TButtonProps> = ({
   const Icon = useIcon(size);
 
   const { rippleEffect, triggerRippleEffect } = useRippleEffect(
-    classNames[classNameButton].modificators[color][variant],
+    classNames[classNameButton].name,
   );
 
   const onClickHandler = useClickInteraction(
@@ -72,9 +72,7 @@ export const Button: FC<TButtonProps> = ({
           classNames[classNameButton].name,
           { [classNames[classNameButton].modificators.fullwidth]: fullWidth },
           {
-            [classNames[classNameButton].modificators.forcedHover[variant][
-              color
-            ]]: forcedHover,
+            [classNames[classNameButton].modificators.forcedHover]: forcedHover,
           },
           classNames[classNameButton].modificators[color],
           classNames[classNameButton].modificators[size],

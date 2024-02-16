@@ -64,7 +64,6 @@ export const App = () => {
               iconComponent: IconLeftOutlined,
               iconShape: IconShape.downOutlined,
             }}
-            disabled
           >
             Button
           </Button>
