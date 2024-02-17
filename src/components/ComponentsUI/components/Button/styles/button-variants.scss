@@ -105,12 +105,12 @@
         background: unset;
       }
 
-      @if $variant == 'outlined' {
-        border: 1px solid;
-      }
-
-      @at-root #{&}--#{$variant}#{&}--#{$color} {
+      &--#{$variant}#{&}--#{$color} {
         @include button-state-styles($className, $color, $variant);
+
+        @if $variant == 'outlined' {
+          border: 1px solid;
+        }
       }
     }
   }

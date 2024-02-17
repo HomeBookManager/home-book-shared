@@ -80,7 +80,7 @@ export const App = () => {
             Button
           </Button>
           <br />
-          <Button color={ButtonColor.success} variant={ButtonVariant.text}>
+          <Button color={ButtonColor.success} variant={ButtonVariant.outlined}>
             Button
           </Button>
         </div>
