@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Theme } from 'home-book-types';
 
 // components
+import Button from '../../../components/ComponentsUI/components/Button/Button';
 import Icon from '../../../components/ComponentsUI/components/Icon/Icon';
 import {
   IconLeftOutlined,
@@ -21,6 +22,10 @@ import { IconShape } from '../../../components/ComponentsUI/components/Icon/enum
 
 // styles
 import './app.scss';
+import {
+  ButtonColor,
+  ButtonVariant,
+} from '../../../components/ComponentsUI/components/Button/enums';
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -49,6 +54,35 @@ export const App = () => {
               />
             </>
           )}
+        </div>
+
+        <div style={{ padding: '50px' }}>
+          <Button
+            color={ButtonColor.success}
+            endIcon={{
+              applyFill: true,
+              iconComponent: IconLeftOutlined,
+              iconShape: IconShape.downOutlined,
+            }}
+          >
+            Button
+          </Button>
+          <br />
+          <Button
+            color={ButtonColor.success}
+            variant={ButtonVariant.outlined}
+            endIcon={{
+              applyFill: true,
+              iconComponent: IconLeftOutlined,
+              iconShape: IconShape.downOutlined,
+            }}
+          >
+            Button
+          </Button>
+          <br />
+          <Button color={ButtonColor.success} variant={ButtonVariant.outlined}>
+            Button
+          </Button>
         </div>
       </div>
     </div>

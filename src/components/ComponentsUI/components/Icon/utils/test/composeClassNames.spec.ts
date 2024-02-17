@@ -18,6 +18,7 @@ describe('composeClassNames', () => {
     // before
     const result = composeClassNames(iconShape);
 
+    // result
     expect(result).toStrictEqual({
       [iconName]: {
         modificators: {

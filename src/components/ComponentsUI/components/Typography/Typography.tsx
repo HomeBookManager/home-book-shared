@@ -80,7 +80,7 @@ export const Typography = forwardRef<HTMLElement, TTypographyProps>(
           className,
           classNamesWithTheme[classNameTypography].name,
           classNamesWithTheme[classNameTypography].modificators[
-            camelCase(fontWeight) as keyof typeof TypographyFontWeight
+            camelCase(fontWeight)
           ],
           classNamesWithTheme[classNameTypography].modificators[fontStyle],
           classNamesWithTheme[classNameTypography].modificators[fontType],

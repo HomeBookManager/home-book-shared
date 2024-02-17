@@ -106,7 +106,7 @@ const tableBodyData: Array<TTableBody> = [
   {
     description: 'The <code>ref</code> is forwarded to the root element.',
     name: 'ref',
-    type: 'Ref<HTMLElement>',
+    type: 'Ref<SVGSVGElement>',
   },
   {
     description: 'Provide the color for stroke in light mode',
