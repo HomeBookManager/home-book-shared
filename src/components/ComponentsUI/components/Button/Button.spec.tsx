@@ -39,14 +39,11 @@ describe('Button behaviors', () => {
     fireEvent.click(button);
 
     // result
-    await waitFor(
-      () => {
-        expect(button.lastChild).toHaveClass(
-          `${classNames[classNameButton].name}--${RIPPLE_EFFECT_MODIFICATOR}`,
-        );
-      },
-      { timeout: 100 },
-    );
+    await waitFor(() => {
+      expect(button.lastChild).toHaveClass(
+        `${classNames[classNameButton].name}--${RIPPLE_EFFECT_MODIFICATOR}`,
+      );
+    });
   });
 
   it('should provide data from button group contexxt', async () => {
@@ -86,12 +83,9 @@ describe('Button behaviors', () => {
 
     expect(getByE2EAttribute(container, E2EAttribute.button)).toBeDisabled();
 
-    await waitFor(
-      () => {
-        expect(button.lastChild).toHaveTextContent(content);
-      },
-      { timeout: 100 },
-    );
+    await waitFor(() => {
+      expect(button.lastChild).toHaveTextContent(content);
+    });
 
     expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveClass(
       classNames[classNameButton].modificators.forcedHover,
@@ -171,12 +165,9 @@ describe('Button props', () => {
     fireEvent.click(button);
 
     // result
-    await waitFor(
-      () => {
-        expect(button.lastChild).toHaveTextContent(content);
-      },
-      { timeout: 100 },
-    );
+    await waitFor(() => {
+      expect(button.lastChild).toHaveTextContent(content);
+    });
   });
 
   it('should pass e2eAttribute', () => {

@@ -49,14 +49,11 @@ describe('ButtonGroup behaviors', () => {
       fireEvent.click(button);
 
       // result
-      await waitFor(
-        () => {
-          expect(button.lastChild).toHaveClass(
-            `${classNamesButton[classNameButton].name}--${RIPPLE_EFFECT_MODIFICATOR}`,
-          );
-        },
-        { timeout: 100 },
-      );
+      await waitFor(() => {
+        expect(button.lastChild).toHaveClass(
+          `${classNamesButton[classNameButton].name}--${RIPPLE_EFFECT_MODIFICATOR}`,
+        );
+      });
     }
   });
 });
@@ -131,12 +128,9 @@ describe('ButtonGroup props', () => {
       fireEvent.click(button);
 
       // result
-      await waitFor(
-        () => {
-          expect(button.lastChild).toHaveTextContent(contents[i]);
-        },
-        { timeout: 100 },
-      );
+      await waitFor(() => {
+        expect(button.lastChild).toHaveTextContent(contents[i]);
+      });
     }
   });
 
