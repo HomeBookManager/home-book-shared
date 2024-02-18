@@ -1,11 +1,8 @@
-import { act, renderHook } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { MouseEvent } from 'react';
 
 // hooks
 import { useRippleEffect } from './useRippleEffect';
-
-// tests
-import { sleep } from '../../tests/testHelpers';
 
 describe('useRippleEffect', () => {
   it('should return empty state', () => {
@@ -42,10 +39,9 @@ describe('useRippleEffect', () => {
       } as MouseEvent<HTMLElement>);
     });
 
-    // wait
-    await sleep(1000);
-
     // result
-    expect(result.current.rippleEffect).toBe(null);
+    await waitFor(() => {
+      expect(result.current.rippleEffect).toBe(null);
+    });
   });
 });
