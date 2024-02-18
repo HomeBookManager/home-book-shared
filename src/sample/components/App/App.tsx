@@ -6,10 +6,7 @@ import { Theme } from 'home-book-types';
 // components
 import Button from '../../../components/ComponentsUI/components/Button/Button';
 import Icon from '../../../components/ComponentsUI/components/Icon/Icon';
-import {
-  IconLeftOutlined,
-  IconRightOutlined,
-} from '../../../components/ComponentsUI/components/Icon/components';
+import Icons from '../../../components/ComponentsUI/components/Icon/components';
 
 // core
 import { Context } from '../../../core';
@@ -45,13 +42,13 @@ export const App = () => {
         <div style={{ padding: '50px' }}>
           {isDarkMode ? (
             <Icon
-              iconComponent={IconLeftOutlined}
+              iconComponent={Icons.IconLeftOutlined}
               iconShape={IconShape.leftOutlined}
             />
           ) : (
             <>
               <Icon
-                iconComponent={IconRightOutlined}
+                iconComponent={Icons.IconRightOutlined}
                 iconShape={IconShape.rightOutlined}
               />
             </>
@@ -63,7 +60,7 @@ export const App = () => {
             color={ButtonColor.success}
             endIcon={{
               applyFill: true,
-              iconComponent: IconLeftOutlined,
+              iconComponent: Icons.IconLeftOutlined,
               iconShape: IconShape.downOutlined,
             }}
           >
@@ -75,7 +72,7 @@ export const App = () => {
             variant={ButtonVariant.outlined}
             endIcon={{
               applyFill: true,
-              iconComponent: IconLeftOutlined,
+              iconComponent: Icons.IconLeftOutlined,
               iconShape: IconShape.downOutlined,
             }}
             size={ButtonSize.large}

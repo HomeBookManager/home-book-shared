@@ -5,6 +5,9 @@ import { Meta, StoryFn } from '@storybook/react';
 import Button from '../Button';
 import StoryComponent from '../../../../../stories/components/StoryComponent/StoryComponent';
 
+// others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
+
 // types
 import { ButtonColor, ButtonVariant } from '../enums';
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
@@ -16,33 +19,29 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   imports: [
     {
-      items: 'Button',
-      path: './shared/ComponentsUI/components/Button/Button',
-    },
-    {
-      items: '{ ButtonColor }',
-      path: './shared/ComponentsUI/components/Button/enums',
+      items: '{ Button, ButtonColor }',
+      path: LIB_IMPORT_PATH,
     },
   ],
   props: [
     {
-      children: 'Text',
+      children: capitalize(ButtonColor.primary),
     },
     {
       attributes: [{ name: 'color', value: 'ButtonColor.secondary' }],
-      children: 'Secondary',
+      children: capitalize(ButtonColor.secondary),
     },
     {
       attributes: [{ name: 'color', value: 'ButtonColor.success' }],
-      children: 'Success',
+      children: capitalize(ButtonColor.success),
     },
     {
       attributes: [{ name: 'color', value: 'ButtonColor.warning' }],
-      children: 'Warning',
+      children: capitalize(ButtonColor.warning),
     },
     {
       attributes: [{ name: 'color', value: 'ButtonColor.error' }],
-      children: 'Error',
+      children: capitalize(ButtonColor.error),
     },
   ],
 };

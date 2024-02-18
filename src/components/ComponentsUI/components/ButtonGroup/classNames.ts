@@ -7,7 +7,15 @@ import { ButtonGroupOrientation } from './enums';
 export const className = 'ButtonGroup';
 
 export const classNames = {
-  [className]: className,
+  [className]: {
+    name: className,
+    modificators: {
+      ...mapValues(
+        ButtonGroupOrientation,
+        (orientation) => `${className}--${orientation}`,
+      ),
+    },
+  },
   button: {
     name: `${className}__button`,
     modificators: {

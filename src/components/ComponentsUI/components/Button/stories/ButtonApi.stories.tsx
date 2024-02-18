@@ -4,12 +4,16 @@ import { Meta, StoryFn } from '@storybook/react';
 import Button from '../Button';
 import StoryApi from '../../../../../stories/components/StoryApi/StoryApi';
 
+// others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
+
 // types
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
 import { TTableBody } from '../../../../../stories/components/StoryPropsTable/types';
 
 const description = [
-  'API documentation for the React Button component. Learn about the available props.',
+  'API documentation for the React Button component. Learn about the available props. Button is based on basic <code>props</code> from <code>ButtonHTMLAttributes<HTMLElement></code>',
+  'If the Button receives properties from the ButtonGroup, they are included.',
 ];
 
 const tableBodyData: Array<TTableBody> = [
@@ -113,8 +117,8 @@ const tableBodyData: Array<TTableBody> = [
 const blockCodeData: TStoryBlockCode = {
   imports: [
     {
-      items: 'Button',
-      path: './shared/ComponentsUI/components/Button/Button',
+      items: '{ Button }',
+      path: LIB_IMPORT_PATH,
     },
   ],
 };

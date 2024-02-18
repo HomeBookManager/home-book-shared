@@ -286,3 +286,13 @@ describe('ButtonGroup props', () => {
     }
   });
 });
+
+describe('ButtonGroup snapshots', () => {
+  it('should render ButtonGroup', () => {
+    // before
+    const { asFragment } = render(<ButtonGroup>{children}</ButtonGroup>);
+
+    // result
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

@@ -2,8 +2,11 @@ import { Meta, StoryFn } from '@storybook/react';
 
 // components
 import Button from '../Button';
+import Icons from '../../Icon/components';
 import StoryComponent from '../../../../../stories/components/StoryComponent/StoryComponent';
-import { IconUpOutlined } from '../../Icon/components';
+
+// others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
 
 // types
 import { ButtonColor, ButtonVariant } from '../enums';
@@ -18,16 +21,8 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   imports: [
     {
-      items: 'Button',
-      path: './shared/ComponentsUI/components/Button/Button',
-    },
-    {
-      items: 'Send',
-      path: './assets/icons/send.svg',
-    },
-    {
-      items: 'Trash',
-      path: './assets/icons/trash.svg',
+      items: '{ Button, IconShape, Icons }',
+      path: LIB_IMPORT_PATH,
     },
   ],
   props: [
@@ -36,20 +31,20 @@ const blockCodeData: TStoryBlockCode = {
         {
           name: 'startIcon',
           value:
-            '{ applyFill: true, iconComponent: IconUpOutlined, iconShape: IconShape.upOutlined }',
+            '{ applyFill: true, iconComponent: Icons.IconUpOutlined, iconShape: IconShape.upOutlined }',
         },
       ],
-      children: 'Send',
+      children: 'Button',
     },
     {
       attributes: [
         {
           name: 'endIcon',
           value:
-            '{ applyFill: true, iconComponent: IconUpOutlined, iconShape: IconShape.upOutlined }',
+            '{ applyFill: true, iconComponent: Icons.IconUpOutlined, iconShape: IconShape.upOutlined }',
         },
       ],
-      children: 'Remove',
+      children: 'Button',
     },
   ],
 };
@@ -70,7 +65,7 @@ export default {
 const Template: StoryFn<typeof Button> = (args) => {
   const icon = {
     applyFill: true,
-    iconComponent: IconUpOutlined,
+    iconComponent: Icons.IconUpOutlined,
     iconShape: IconShape.upOutlined,
   };
 

@@ -2,7 +2,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 
 // components
 import Button from './Button';
-import { IconUpOutlined } from '../Icon/components';
+import Icons from '../Icon/components';
 
 // core
 import { ButtonGroupContext } from '../ButtonGroup/ButtonGroup';
@@ -208,7 +208,7 @@ describe('Button props', () => {
     // mock
     const endIcon = {
       applyFill: true,
-      iconComponent: IconUpOutlined,
+      iconComponent: Icons.IconUpOutlined,
       iconShape: IconShape.upOutlined,
     };
 
@@ -281,7 +281,7 @@ describe('Button props', () => {
     // mock
     const startIcon = {
       applyFill: true,
-      iconComponent: IconUpOutlined,
+      iconComponent: Icons.IconUpOutlined,
       iconShape: IconShape.upOutlined,
     };
 
@@ -331,7 +331,7 @@ describe('Button props', () => {
   });
 });
 
-describe('Button behaviors', () => {
+describe('Button snapshots', () => {
   it('should render Button', () => {
     // before
     const { asFragment } = render(<Button>{content}</Button>);

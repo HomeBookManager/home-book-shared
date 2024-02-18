@@ -5,6 +5,7 @@ import StoryComponent from '../../../../../stories/components/StoryComponent/Sto
 import Typography from '../Typography';
 
 // others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
 import { TYPOGRAPHY_COLORS_MODE } from '../constants';
 
 // types
@@ -19,12 +20,8 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Typography',
   imports: [
     {
-      items: 'Typography',
-      path: './shared/ComponentsUI/components/Typography/Typography',
-    },
-    {
-      items: '{ TYPOGRAPHY_COLORS_MODE }',
-      path: './shared/ComponentsUI/components/Typography/constants',
+      items: '{ Typography, TYPOGRAPHY_COLORS_MODE }',
+      path: LIB_IMPORT_PATH,
     },
   ],
   props: [

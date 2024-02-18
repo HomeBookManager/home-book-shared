@@ -4,6 +4,9 @@ import { Meta, StoryFn } from '@storybook/react';
 import Button from '../Button';
 import StoryComponent from '../../../../../stories/components/StoryComponent/StoryComponent';
 
+// others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
+
 // types
 import { ButtonColor, ButtonVariant } from '../enums';
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
@@ -17,12 +20,8 @@ const blockCodeData: TStoryBlockCode = {
   componentName: 'Button',
   imports: [
     {
-      items: 'Button',
-      path: './shared/ComponentsUI/components/Button/Button',
-    },
-    {
-      items: '{ ButtonVariant }',
-      path: './shared/ComponentsUI/components/Button/enums',
+      items: '{ Button, ButtonVariant }',
+      path: LIB_IMPORT_PATH,
     },
   ],
   props: [
@@ -35,7 +34,7 @@ const blockCodeData: TStoryBlockCode = {
         { name: 'forcedHover', value: '' },
         { name: 'variant', value: 'ButtonVariant.outlined' },
       ],
-      children: 'Hover',
+      children: 'Forced Hover',
     },
     {
       attributes: [
@@ -68,7 +67,7 @@ const Template: StoryFn<typeof Button> = (args) => (
   >
     <Button {...args}>Outlined</Button>
     <Button {...args} forcedHover>
-      Hover
+      Forced Hover
     </Button>
     <Button {...args} disabled>
       Disabled

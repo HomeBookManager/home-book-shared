@@ -1,5 +1,11 @@
 import cx from 'classnames';
-import { FC, HTMLAttributes, ReactElement, createContext } from 'react';
+import {
+  HTMLAttributes,
+  ReactElement,
+  Ref,
+  createContext,
+  forwardRef,
+} from 'react';
 
 // components
 import E2EDataAttribute from '../../../E2EDataAttributes/E2EDataAttribute';
@@ -22,63 +28,74 @@ import { composeButtonClassNames } from './utils';
 
 export const ButtonGroupContext = createContext<TButtonGroupContext>(undefined);
 
-export type TButtonGroupProps = HTMLAttributes<HTMLElement> &
+export type TButtonGroupProps = HTMLAttributes<HTMLDivElement> &
   TButtonGroupPickedButtonProps & {
     children: ReactElement<TButtonProps> | Array<ReactElement<TButtonProps>>;
     className?: string;
     classNameButton?: string;
     orientation?: ButtonGroupOrientation;
+    ref?: Ref<HTMLDivElement>;
   };
 
-export const ButtonGroup: FC<TButtonGroupProps> = ({
-  children,
-  className = '',
-  classNameButton = '',
-  color = ButtonColor.primary,
-  disabled = false,
-  disabledRippleEffect: disableRippleEffect = false,
-  e2eAttribute = E2EAttribute.buttonGroup,
-  e2eValue = '',
-  forcedHover = false,
-  orientation = ButtonGroupOrientation.horizontal,
-  size = ButtonSize.medium,
-  style = {},
-  type = 'button',
-  variant = ButtonVariant.contained,
-  ...restProps
-}) => {
-  const buttonClassNames = composeButtonClassNames(
-    classNameButton,
-    color,
-    forcedHover,
-    orientation,
-    variant,
-  );
+export const ButtonGroup = forwardRef<HTMLDivElement, TButtonGroupProps>(
+  (
+    {
+      children,
+      className = '',
+      classNameButton = '',
+      color = ButtonColor.primary,
+      disabled = false,
+      disabledRippleEffect = false,
+      e2eAttribute = E2EAttribute.buttonGroup,
+      e2eValue = '',
+      forcedHover = false,
+      orientation = ButtonGroupOrientation.horizontal,
+      size = ButtonSize.medium,
+      style = {},
+      type = 'button',
+      variant = ButtonVariant.contained,
+      ...restProps
+    },
+    ref,
+  ) => {
+    const buttonClassNames = composeButtonClassNames(
+      classNameButton,
+      color,
+      forcedHover,
+      orientation,
+      variant,
+    );
 
-  return (
-    <E2EDataAttribute type={e2eAttribute} value={e2eValue}>
-      <div
-        className={cx(className, classNames[classNameButtonGroup])}
-        style={style}
-        {...restProps}
-      >
-        <ButtonGroupContext.Provider
-          value={{
-            className: buttonClassNames,
-            color,
-            disabled,
-            disabledRippleEffect: disableRippleEffect,
-            forcedHover,
-            size,
-            type,
-            variant,
-          }}
+    return (
+      <E2EDataAttribute type={e2eAttribute} value={e2eValue}>
+        <div
+          className={cx(
+            className,
+            classNames[classNameButtonGroup].name,
+            classNames[classNameButtonGroup].modificators[orientation],
+          )}
+          ref={ref}
+          style={style}
+          {...restProps}
         >
-          {children}
-        </ButtonGroupContext.Provider>
-      </div>
-    </E2EDataAttribute>
-  );
-};
+          <ButtonGroupContext.Provider
+            value={{
+              className: buttonClassNames,
+              color,
+              disabled,
+              disabledRippleEffect,
+              forcedHover,
+              size,
+              type,
+              variant,
+            }}
+          >
+            {children}
+          </ButtonGroupContext.Provider>
+        </div>
+      </E2EDataAttribute>
+    );
+  },
+);
 
 export default ButtonGroup;
