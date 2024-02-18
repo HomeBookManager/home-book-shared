@@ -5,7 +5,7 @@ import { Theme } from 'home-book-types';
 
 // components
 import Icon from './Icon';
-import { IconUpOutlined } from './components';
+import Icons from './components';
 
 // core
 import { ContextProvider } from '../../../../core/ContextProvider/ContextProvider';
@@ -22,7 +22,7 @@ import { composeClassNames } from './utils/composeClassNames';
 import { getByE2EAttribute } from '../../../../tests/testHelpers';
 import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 
-const iconComponent = IconUpOutlined;
+const iconComponent = Icons.IconUpOutlined;
 const iconShape = IconShape.upOutlined;
 
 const className = 'className';

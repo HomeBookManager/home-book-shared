@@ -4,6 +4,9 @@ import type { Meta, StoryFn } from '@storybook/react';
 import StoryApi from '../../../../../stories/components/StoryApi/StoryApi';
 import Typography from '../Typography';
 
+// others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
+
 // types
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
 import { TTableBody } from '../../../../../stories/components/StoryPropsTable/types';
@@ -98,8 +101,8 @@ const tableBodyData: Array<TTableBody> = [
 const blockCodeData: TStoryBlockCode = {
   imports: [
     {
-      items: 'Typography',
-      path: './shared/ComponentsUI/components/Typography/Typography',
+      items: '{ Typography }',
+      path: LIB_IMPORT_PATH,
     },
   ],
 };

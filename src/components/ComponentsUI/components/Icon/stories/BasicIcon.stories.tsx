@@ -3,8 +3,11 @@ import type { Meta, StoryFn } from '@storybook/react';
 
 // components
 import Icon from '../Icon';
-import * as iconsComponents from '../components';
+import Icons from '../components';
 import StoryComponent from '../../../../../stories/components/StoryComponent/StoryComponent';
+
+// others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
 
 // types
 import { ContentGridFlow } from '../../../../../stories/components/StoryComponent/enums';
@@ -16,7 +19,7 @@ const description = [
   'Use Icon to present to emphasize the importance of a given action or section.',
 ];
 
-const iconKeys = keys(iconsComponents);
+const iconsKeys = keys(Icons);
 
 const getEnumKey = (key: string): string => camelCase(key.replace('Icon', ''));
 
@@ -24,21 +27,13 @@ const blockCodeData: TStoryBlockCode = {
   componentName: '',
   imports: [
     {
-      items: 'Icon',
-      path: './shared/ComponentsUI/components/Icon/Icon',
-    },
-    {
-      items: '* as iconsComponents',
-      path: './shared/ComponentsUI/components/Icon/components',
-    },
-    {
-      items: '{ IconShape }',
-      path: './shared/ComponentsUI/components/Icon/enums',
+      items: '{ Icon, IconShape, Icons }',
+      path: LIB_IMPORT_PATH,
     },
   ],
   props: [
     {
-      children: iconKeys.map((componentName) => {
+      children: iconsKeys.map((componentName) => {
         const enumKey = getEnumKey(componentName);
 
         return {
@@ -48,7 +43,7 @@ const blockCodeData: TStoryBlockCode = {
               attributes: [
                 {
                   name: 'iconComponent',
-                  value: `iconsComponents.${componentName}`,
+                  value: `Icons.${componentName}`,
                 },
                 { name: 'iconShape', value: `IconShape.${IconShape[enumKey]}` },
               ],
@@ -74,7 +69,7 @@ export default {
 } satisfies Meta<typeof Icon>;
 
 const Template: StoryFn<typeof Icon> = ({ ...args }) => {
-  const icons = map(iconsComponents, (iconComponent, key) => {
+  const icons = map(Icons, (iconComponent, key) => {
     const enumKey = getEnumKey(key);
 
     return {

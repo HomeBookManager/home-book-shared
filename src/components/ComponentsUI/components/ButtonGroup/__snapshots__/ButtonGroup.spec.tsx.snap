@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup snapshots should render ButtonGroup 1`] = `
+<DocumentFragment>
+  <div
+    class="ButtonGroup ButtonGroup--horizontal"
+    data-test-buttongroup=""
+  >
+    <button
+      class="ButtonGroup__button ButtonGroup__button--primary ButtonGroup__button--horizontal ButtonGroup__button--contained Button Button--primary Button--medium Button--contained"
+      data-test-button="0"
+      type="button"
+    >
+      Button 1
+    </button>
+    <button
+      class="ButtonGroup__button ButtonGroup__button--primary ButtonGroup__button--horizontal ButtonGroup__button--contained Button Button--primary Button--medium Button--contained"
+      data-test-button="1"
+      type="button"
+    >
+      Button 2
+    </button>
+    <button
+      class="ButtonGroup__button ButtonGroup__button--primary ButtonGroup__button--horizontal ButtonGroup__button--contained Button Button--primary Button--medium Button--contained"
+      data-test-button="2"
+      type="button"
+    >
+      Button 3
+    </button>
+  </div>
+</DocumentFragment>
+`;

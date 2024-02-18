@@ -7,6 +7,7 @@ import Typography from '../Typography';
 import { H1, H2, H3, H4, H5, H6, P, Small } from '../';
 
 // others
+import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
 import { TYPOGRAPHY_COLORS_MODE } from '../constants';
 
 // types
@@ -17,12 +18,8 @@ const blockCodeData: TStoryBlockCode = {
   componentName: '',
   imports: [
     {
-      items: '{ H1, H2, H3, H4, H5, H6, P, Small }',
-      path: './shared/ComponentsUI/components/Typography',
-    },
-    {
-      items: '{ TYPOGRAPHY_COLORS_MODE }',
-      path: './shared/ComponentsUI/components/Typography/constants',
+      items: '{ H1, H2, H3, H4, H5, H6, P, Small, Typography }',
+      path: LIB_IMPORT_PATH,
     },
   ],
   props: [

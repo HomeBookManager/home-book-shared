@@ -1,6 +1,9 @@
 export * from './ComponentsUI/components/Button/Button';
 export * from './ComponentsUI/components/Button/enums';
 
+export * from './ComponentsUI/components/ButtonGroup/ButtonGroup';
+export * from './ComponentsUI/components/ButtonGroup/enums';
+
 export * from './ComponentsUI/components/Icon/components';
 export * from './ComponentsUI/components/Icon/enums';
 export * from './ComponentsUI/components/Icon/Icon';

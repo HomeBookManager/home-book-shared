@@ -6,10 +6,7 @@ import { Theme } from 'home-book-types';
 // components
 import Button from '../../../components/ComponentsUI/components/Button/Button';
 import Icon from '../../../components/ComponentsUI/components/Icon/Icon';
-import {
-  IconLeftOutlined,
-  IconRightOutlined,
-} from '../../../components/ComponentsUI/components/Icon/components';
+import Icons from '../../../components/ComponentsUI/components/Icon/components';
 
 // core
 import { Context } from '../../../core';
@@ -24,8 +21,10 @@ import { IconShape } from '../../../components/ComponentsUI/components/Icon/enum
 import './app.scss';
 import {
   ButtonColor,
+  ButtonSize,
   ButtonVariant,
 } from '../../../components/ComponentsUI/components/Button/enums';
+import ButtonGroup from '../../../components/ComponentsUI/components/ButtonGroup/ButtonGroup';
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -43,13 +42,13 @@ export const App = () => {
         <div style={{ padding: '50px' }}>
           {isDarkMode ? (
             <Icon
-              iconComponent={IconLeftOutlined}
+              iconComponent={Icons.IconLeftOutlined}
               iconShape={IconShape.leftOutlined}
             />
           ) : (
             <>
               <Icon
-                iconComponent={IconRightOutlined}
+                iconComponent={Icons.IconRightOutlined}
                 iconShape={IconShape.rightOutlined}
               />
             </>
@@ -61,7 +60,7 @@ export const App = () => {
             color={ButtonColor.success}
             endIcon={{
               applyFill: true,
-              iconComponent: IconLeftOutlined,
+              iconComponent: Icons.IconLeftOutlined,
               iconShape: IconShape.downOutlined,
             }}
           >
@@ -73,9 +72,10 @@ export const App = () => {
             variant={ButtonVariant.outlined}
             endIcon={{
               applyFill: true,
-              iconComponent: IconLeftOutlined,
+              iconComponent: Icons.IconLeftOutlined,
               iconShape: IconShape.downOutlined,
             }}
+            size={ButtonSize.large}
           >
             Button
           </Button>
@@ -83,6 +83,13 @@ export const App = () => {
           <Button color={ButtonColor.success} variant={ButtonVariant.outlined}>
             Button
           </Button>
+        </div>
+        <div style={{ padding: '50px' }}>
+          <ButtonGroup>
+            <Button>Button</Button>
+            <Button>Button</Button>
+            <Button>Button</Button>
+          </ButtonGroup>
         </div>
       </div>
     </div>
