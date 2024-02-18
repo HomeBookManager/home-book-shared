@@ -24,8 +24,10 @@ import { IconShape } from '../../../components/ComponentsUI/components/Icon/enum
 import './app.scss';
 import {
   ButtonColor,
+  ButtonSize,
   ButtonVariant,
 } from '../../../components/ComponentsUI/components/Button/enums';
+import ButtonGroup from '../../../components/ComponentsUI/components/ButtonGroup/ButtonGroup';
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -76,6 +78,7 @@ export const App = () => {
               iconComponent: IconLeftOutlined,
               iconShape: IconShape.downOutlined,
             }}
+            size={ButtonSize.large}
           >
             Button
           </Button>
@@ -83,6 +86,13 @@ export const App = () => {
           <Button color={ButtonColor.success} variant={ButtonVariant.outlined}>
             Button
           </Button>
+        </div>
+        <div style={{ padding: '50px' }}>
+          <ButtonGroup>
+            <Button>Button</Button>
+            <Button>Button</Button>
+            <Button>Button</Button>
+          </ButtonGroup>
         </div>
       </div>
     </div>

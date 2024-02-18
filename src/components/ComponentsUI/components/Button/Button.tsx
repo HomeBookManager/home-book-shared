@@ -5,6 +5,7 @@ import { ButtonHTMLAttributes, ReactNode, Ref, forwardRef } from 'react';
 import E2EDataAttribute from '../../../E2EDataAttributes/E2EDataAttribute';
 
 // hooks
+import { useButtonGroupContext } from './hooks/useButtonGroupContext';
 import { useClickInteraction } from './hooks/useClickInteraction';
 import { useIcon } from './hooks/useIcon';
 import { useRippleEffect } from '../../../../hooks/useRippleEffect/useRippleEffect';
@@ -24,7 +25,7 @@ export type TButtonProps = ButtonHTMLAttributes<HTMLElement> & {
   children?: ReactNode;
   className?: string;
   color?: ButtonColor;
-  disableRippleEffect?: boolean;
+  disabledRippleEffect?: boolean;
   e2eAttribute?: string;
   e2eValue?: number | string;
   endIcon?: TButtonIcon;
@@ -43,7 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
       children,
       className = '',
       color = ButtonColor.primary,
-      disableRippleEffect = false,
+      disabledRippleEffect = false,
       endIcon = null,
       e2eAttribute = E2EAttribute.button,
       e2eValue = '',
@@ -58,6 +59,16 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
     },
     ref,
   ) => {
+    const {
+      classNameButtonGroup,
+      colorButtonGroup,
+      disabledRippleEffectButtonGroup,
+      forcedHoverButtonGroup,
+      sizeButtonGroup,
+      variantButtonGroup,
+      ...restButtonGroupProps
+    } = useButtonGroupContext();
+
     const Icon = useIcon(size);
 
     const { rippleEffect, triggerRippleEffect } = useRippleEffect(
@@ -65,7 +76,7 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
     );
 
     const onClickHandler = useClickInteraction(
-      disableRippleEffect,
+      disabledRippleEffect || disabledRippleEffectButtonGroup,
       onClick,
       triggerRippleEffect,
     );
@@ -74,20 +85,24 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
       <E2EDataAttribute type={e2eAttribute} value={e2eValue}>
         <button
           className={cx(
+            className,
+            classNameButtonGroup,
             classNames[classNameButton].name,
             { [classNames[classNameButton].modificators.fullwidth]: fullWidth },
             {
               [classNames[classNameButton].modificators.forcedHover]:
-                forcedHover,
+                forcedHover || forcedHoverButtonGroup,
             },
-            classNames[classNameButton].modificators[color],
-            classNames[classNameButton].modificators[size],
-            classNames[classNameButton].modificators[variant],
-            className,
+            classNames[classNameButton].modificators[colorButtonGroup || color],
+            classNames[classNameButton].modificators[sizeButtonGroup || size],
+            classNames[classNameButton].modificators[
+              variantButtonGroup || variant
+            ],
           )}
           onClick={onClickHandler}
           ref={ref}
           type={type}
+          {...restButtonGroupProps}
           {...restProps}
         >
           {startIcon && <Icon placement="start" src={startIcon} />}

@@ -1,0 +1,13 @@
+@import './button-group-list';
+@import './button-group-variants';
+
+.ButtonGroup {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    @each $orientation in $--hb-button-group-orientations {
+      @include button-group-variants($orientation);
+    }
+  }
+}

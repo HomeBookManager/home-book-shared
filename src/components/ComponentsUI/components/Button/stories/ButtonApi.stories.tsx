@@ -38,7 +38,7 @@ const tableBodyData: Array<TTableBody> = [
   {
     defaultValue: 'false',
     description: 'If <code>true</code>, the ripple effect is disabled.',
-    name: 'disableRippleEffect',
+    name: 'disabledRippleEffect',
     type: 'boolean',
   },
   {

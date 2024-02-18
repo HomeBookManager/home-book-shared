@@ -94,7 +94,7 @@ describe('Button props', () => {
   it('should pass disableRippleEffect', async () => {
     // before
     const { container } = render(
-      <Button disableRippleEffect>{content}</Button>,
+      <Button disabledRippleEffect>{content}</Button>,
     );
 
     // find

@@ -3,12 +3,12 @@ import { MouseEvent } from 'react';
 type TUseClickInteraction = (event: MouseEvent<HTMLButtonElement>) => void;
 
 export const useClickInteraction = (
-  disableRippleEffect: boolean,
+  disabledRippleEffect: boolean,
   onClick: (() => void) | null,
   triggerRippleEffect: (event: MouseEvent<HTMLElement>) => void,
 ): TUseClickInteraction => {
   const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
-    if (!disableRippleEffect) {
+    if (!disabledRippleEffect) {
       triggerRippleEffect(event);
     }
 
