@@ -57,6 +57,7 @@ export const App = () => {
 
         <div style={{ padding: '50px' }}>
           <Button
+            fullWidth
             color={ButtonColor.success}
             endIcon={{
               applyFill: true,

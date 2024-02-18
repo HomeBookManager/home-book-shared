@@ -21,10 +21,14 @@ import { ButtonColor, ButtonSize, ButtonVariant } from './enums';
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
 import { TButtonIcon } from './types';
 
-export type TButtonProps = ButtonHTMLAttributes<HTMLElement> & {
+export type TButtonProps = Omit<
+  ButtonHTMLAttributes<HTMLElement>,
+  'disabled'
+> & {
   children?: ReactNode;
   className?: string;
   color?: ButtonColor;
+  disabled?: boolean;
   disabledRippleEffect?: boolean;
   e2eAttribute?: string;
   e2eValue?: number | string;
@@ -44,6 +48,7 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
       children,
       className = '',
       color = ButtonColor.primary,
+      disabled = false,
       disabledRippleEffect = false,
       endIcon = null,
       e2eAttribute = E2EAttribute.button,
@@ -99,6 +104,7 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(
               variantButtonGroup || variant
             ],
           )}
+          disabled={disabled}
           onClick={onClickHandler}
           ref={ref}
           type={type}
