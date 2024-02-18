@@ -75,7 +75,7 @@
     "eslint": "^8.51.0",
     "eslint-plugin-react": "^7.33.2",
     "gh-pages": "^6.0.0",
-    "home-book-scripts": "^1.0.0",
+    "home-book-scripts": "^1.0.3",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
