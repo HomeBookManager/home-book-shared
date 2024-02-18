@@ -3,8 +3,8 @@ import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
 
 // utils
 import { getFiles } from './scripts/buildUtils';
