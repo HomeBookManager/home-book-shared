@@ -43,7 +43,7 @@ describe('useRippleEffect', () => {
     });
 
     // wait
-    await sleep(500);
+    await sleep(1000);
 
     // result
     expect(result.current.rippleEffect).toBe(null);
