@@ -1,3 +1,4 @@
+// types
 import { TIconProps } from '../Icon/Icon';
 
 export type TButtonIcon =
