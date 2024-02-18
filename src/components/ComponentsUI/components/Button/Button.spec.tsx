@@ -4,6 +4,9 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import Button from './Button';
 import { IconUpOutlined } from '../Icon/components';
 
+// core
+import { ButtonGroupContext } from '../ButtonGroup/ButtonGroup';
+
 // others
 import { className as classNameButton, classNames } from './classNames';
 import { RIPPLE_EFFECT_MODIFICATOR } from '../../../../hooks/useRippleEffect/constants';
@@ -12,6 +15,7 @@ import { RIPPLE_EFFECT_MODIFICATOR } from '../../../../hooks/useRippleEffect/con
 import { ButtonColor, ButtonSize, ButtonVariant } from './enums';
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
 import { IconShape } from '../Icon/enums';
+import { TButtonGroupContext } from '../ButtonGroup/types';
 
 // utils
 import { getByE2EAttribute } from '../../../../tests/testHelpers';
@@ -19,6 +23,7 @@ import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 import { enumToArray } from '../../../../utils/transform/enumToArray';
 
 const className = 'className';
+const classNameButtonGroup = 'classNameButtonGroup';
 const content = 'Click';
 const mockCallBack = jest.fn();
 
@@ -41,6 +46,68 @@ describe('Button behaviors', () => {
         );
       },
       { timeout: 100 },
+    );
+  });
+
+  it('should provide data from button group contexxt', async () => {
+    // mock
+    const value = {
+      className: classNameButtonGroup,
+      color: ButtonColor.secondary,
+      disabled: true,
+      disabledRippleEffect: true,
+      forcedHover: true,
+      size: ButtonSize.large,
+      type: 'submit',
+      variant: ButtonVariant.text,
+    } as TButtonGroupContext;
+
+    // before
+    const { container } = render(
+      <ButtonGroupContext.Provider value={value}>
+        <Button>{content}</Button>
+      </ButtonGroupContext.Provider>,
+    );
+
+    // find
+    const button = getByE2EAttribute(container, E2EAttribute.button);
+
+    // action
+    fireEvent.click(button);
+
+    // result
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveClass(
+      classNameButtonGroup,
+    );
+
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveClass(
+      classNames[classNameButton].modificators[ButtonColor.secondary],
+    );
+
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toBeDisabled();
+
+    await waitFor(
+      () => {
+        expect(button.lastChild).toHaveTextContent(content);
+      },
+      { timeout: 100 },
+    );
+
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveClass(
+      classNames[classNameButton].modificators.forcedHover,
+    );
+
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveClass(
+      classNames[classNameButton].modificators[ButtonSize.large],
+    );
+
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveAttribute(
+      'type',
+      'submit',
+    );
+
+    expect(getByE2EAttribute(container, E2EAttribute.button)).toHaveClass(
+      classNames[classNameButton].modificators[ButtonVariant.text],
     );
   });
 });

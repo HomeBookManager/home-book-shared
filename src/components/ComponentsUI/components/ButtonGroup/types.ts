@@ -16,4 +16,6 @@ export type TButtonGroupPickedButtonProps = Pick<
   | 'variant'
 >;
 
-export type TButtonGroupContext = TButtonGroupPickedButtonProps | undefined;
+export type TButtonGroupContext =
+  | Omit<TButtonGroupPickedButtonProps, 'e2eAttribute' | 'e2eValue' | 'style'>
+  | undefined;

@@ -11,12 +11,9 @@ type TUseButtonGroupContext = {
   colorButtonGroup: TButtonGroupPickedButtonProps['color'];
   disabled?: TButtonGroupPickedButtonProps['disabled'];
   disabledRippleEffectButtonGroup: TButtonGroupPickedButtonProps['disabledRippleEffect'];
-  e2eAttribute?: TButtonGroupPickedButtonProps['e2eAttribute'];
-  e2eValue?: TButtonGroupPickedButtonProps['e2eValue'];
   forcedHoverButtonGroup: TButtonGroupPickedButtonProps['forcedHover'];
   sizeButtonGroup: TButtonGroupPickedButtonProps['size'];
   variantButtonGroup: TButtonGroupPickedButtonProps['variant'];
-  style?: TButtonGroupPickedButtonProps['style'];
   type?: TButtonGroupPickedButtonProps['type'];
 };
 
