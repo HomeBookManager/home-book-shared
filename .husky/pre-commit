@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx branch-name-lint branchlint.config.json
+node ./node_modules/home-book-scripts/scripts/branchNameLint.js
 npx stylelint "**/*.scss"
 npm run eslint-ts
 npm run eslint-tsx
