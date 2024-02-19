@@ -1,0 +1,35 @@
+@import '../../../../styles/colors/common.scss';
+@import '../../../../styles/mixins/transitions/common.scss';
+
+.Link {
+  @include transition;
+  color: $--hb-neutral-2;
+  display: block;
+  font-size: 14px;
+  position: relative;
+  text-decoration: unset;
+
+  &:hover {
+    color: $--hb-common-neutral-blue-1;
+  }
+
+  &--dark {
+    color: $--hb-neutral-2--dark;
+
+    &:hover {
+      color: $--hb-common-neutral-blue-2;
+    }
+  }
+
+  &--forced-hover {
+    color: $--hb-common-neutral-blue-1;
+
+    &--dark {
+      color: $--hb-common-neutral-blue-2;
+    }
+  }
+
+  &--underline {
+    text-decoration: underline;
+  }
+}

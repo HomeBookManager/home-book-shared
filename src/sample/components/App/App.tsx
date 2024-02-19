@@ -25,6 +25,9 @@ import {
   ButtonVariant,
 } from '../../../components/ComponentsUI/components/Button/enums';
 import ButtonGroup from '../../../components/ComponentsUI/components/ButtonGroup/ButtonGroup';
+import { BrowserRouter, Link } from 'react-router-dom';
+import Routing from '../../../core/Routing/Routing';
+import AppHelmet from '../../../components/AppHelmet/AppHelmet';
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -93,6 +96,11 @@ export const App = () => {
           </ButtonGroup>
         </div>
       </div>
+
+      <BrowserRouter>
+        <AppHelmet />
+        <Routing />
+      </BrowserRouter>
     </div>
   );
 };

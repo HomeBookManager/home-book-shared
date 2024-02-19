@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProtectedRoute snapshots should allow rdner without guards 1`] = `<DocumentFragment />`;
+
+exports[`ProtectedRoute snapshots should allow user on route 1`] = `<DocumentFragment />`;
+
+exports[`ProtectedRoute snapshots should not allow user on route 1`] = `<DocumentFragment />`;
