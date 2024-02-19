@@ -6,8 +6,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 
+// @home-book
+const getFiles = require('home-book-scripts/scripts/buitldUitls');
+
 // utils
-import { getFiles } from './scripts/buildUtils';
 import { rollupPluginSvg } from './scripts/rollup-plugin-svg.lib';
 
 const extensions = ['.js', '.ts', '.jsx', '.tsx', '.json'];
