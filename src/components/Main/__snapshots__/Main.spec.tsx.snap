@@ -2,6 +2,6 @@
 
 exports[`Main snapshots should render Main 1`] = `
 <DocumentFragment>
-  AppHelmetRouting
+  Component
 </DocumentFragment>
 `;
