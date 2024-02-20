@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "webpack --config config/webpack.config.js --mode production",
+    "build": "webpack --config config/webpack.production.js --mode production",
     "build-library": "npx rimraf dist && rollup -c",
     "build-storybook": "npx rimraf storybook-static && storybook build",
     "deploy": "gh-pages -d storybook-static",
@@ -27,7 +27,7 @@
     "prepare": "husky install",
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write .",
-    "start": "webpack serve --config config/webpack.config.js --mode development",
+    "start": "webpack serve --config config/webpack.dev.js --mode development",
     "test": "jest",
     "test:ci": "jest --ci --colors --coverage --coverageReporters=lcov --coverageReporters=text-summary --coverageDirectory=coverage --silent --maxWorkers=1",
     "test:coverage": "jest --colors --coverage",
