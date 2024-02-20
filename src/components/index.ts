@@ -1,3 +1,5 @@
+export * from './App/App';
+
 export * from './ComponentsUI/components/Button/Button';
 export * from './ComponentsUI/components/Button/enums';
 

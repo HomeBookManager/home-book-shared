@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 
 // components
 import App from './components/App/App';
@@ -10,7 +11,9 @@ import { ContextProvider } from '../core';
 import './index.scss';
 
 createRoot(document.getElementById('root')).render(
-  <ContextProvider>
-    <App />
-  </ContextProvider>,
+  <HelmetProvider>
+    <ContextProvider>
+      <App />
+    </ContextProvider>
+  </HelmetProvider>,
 );

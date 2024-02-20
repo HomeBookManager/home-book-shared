@@ -25,6 +25,31 @@ import {
   ButtonVariant,
 } from '../../../components/ComponentsUI/components/Button/enums';
 import ButtonGroup from '../../../components/ComponentsUI/components/ButtonGroup/ButtonGroup';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import { TAppRoutesData, TRoutes } from '../../../core/Routing/types';
+import Main from '../../../components/App/App';
+
+enum RouteName {
+  login = 'login',
+  register = 'register',
+}
+
+const routes: TRoutes = {
+  [RouteName.login]: '/login',
+  [RouteName.register]: '/register',
+};
+
+const APP_ROUTES_DATA: TAppRoutesData = [
+  {
+    Component: LoginPage,
+    name: RouteName.login,
+  },
+  {
+    Component: RegisterPage,
+    name: RouteName.register,
+  },
+];
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -93,6 +118,12 @@ export const App = () => {
           </ButtonGroup>
         </div>
       </div>
+
+      <Main
+        routes={routes}
+        notFoundPage={<>Not Found Page</>}
+        appRoutesData={APP_ROUTES_DATA}
+      />
     </div>
   );
 };

@@ -4,7 +4,7 @@ exports[`ButtonGroup snapshots should render ButtonGroup 1`] = `
 <DocumentFragment>
   <div
     class="ButtonGroup ButtonGroup--horizontal"
-    data-test-buttongroup=""
+    data-test-button-group=""
   >
     <button
       class="ButtonGroup__button ButtonGroup__button--primary ButtonGroup__button--horizontal ButtonGroup__button--contained Button Button--primary Button--medium Button--contained"

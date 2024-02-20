@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderRoute snaphots should render renderRoute 1`] = `
+<DocumentFragment>
+  <div>
+    Component
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renderRoute snaphots should render when routeDataArg is string 1`] = `<DocumentFragment />`;

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link snapshots should render as dynamic link 1`] = `
+<DocumentFragment>
+  <a
+    class="Link"
+    data-test-link=""
+    href="/"
+  >
+    Link
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Link snapshots should render as static link 1`] = `
+<DocumentFragment>
+  <a
+    class="Link"
+    data-test-link=""
+    href="https://"
+    target="_self"
+  >
+    Link
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Link snapshots should render without children 1`] = `
+<DocumentFragment>
+  <a
+    class="Link"
+    data-test-link=""
+    href="https://"
+    target="_self"
+  />
+</DocumentFragment>
+`;
+
+exports[`Link snapshots should return with blank text 1`] = `
+<DocumentFragment>
+  <a
+    class="Link"
+    data-test-link=""
+    href=""
+    target="_blank"
+  >
+    Link
+  </a>
+</DocumentFragment>
+`;

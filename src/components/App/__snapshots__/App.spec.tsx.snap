@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshots should render Main 1`] = `
+<DocumentFragment>
+  Component
+</DocumentFragment>
+`;
