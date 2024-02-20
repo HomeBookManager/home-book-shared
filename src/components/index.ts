@@ -21,4 +21,4 @@ export * from './E2EDataAttributes/enums';
 export * from './E2EDataAttributes/types';
 export * from './E2EDataAttributes/utils';
 
-export * from './Main/Main';
+export * from './App/App';

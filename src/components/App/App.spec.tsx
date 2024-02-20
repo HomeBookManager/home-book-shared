@@ -2,12 +2,12 @@ import { HelmetProvider } from 'react-helmet-async';
 import { render } from '@testing-library/react';
 
 // components
-import Main from './Main';
+import App from './App';
 
 // mocks
 import { appRoutesData, routes } from '../../tests/mock/routing';
 
-describe('Main snapshots', () => {
+describe('App snapshots', () => {
   it('should render Main', async () => {
     // mock
     const notFoundPage = <>Not Found Page</>;
@@ -15,7 +15,7 @@ describe('Main snapshots', () => {
     // before
     const { asFragment } = render(
       <HelmetProvider>
-        <Main
+        <App
           appRoutesData={appRoutesData}
           notFoundPage={notFoundPage}
           routes={routes}

@@ -9,7 +9,7 @@ import Routing, { TRoutingProps } from '../../core/Routing/Routing';
 
 export type TMainProps = TRoutingProps;
 
-export const Main: FC<TMainProps> = (props) => {
+export const App: FC<TMainProps> = (props) => {
   return (
     <Router>
       <AppHelmet />
@@ -18,4 +18,4 @@ export const Main: FC<TMainProps> = (props) => {
   );
 };
 
-export default Main;
+export default App;

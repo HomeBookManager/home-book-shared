@@ -28,7 +28,7 @@ import ButtonGroup from '../../../components/ComponentsUI/components/ButtonGroup
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import { TAppRoutesData, TRoutes } from '../../../core/Routing/types';
-import Main from '../../../components/Main/Main';
+import Main from '../../../components/App/App';
 
 enum RouteName {
   login = 'login',
