@@ -1,3 +1,5 @@
+export * from './App/App';
+
 export * from './ComponentsUI/components/Button/Button';
 export * from './ComponentsUI/components/Button/enums';
 
@@ -20,5 +22,3 @@ export * from './E2EDataAttributes/constants';
 export * from './E2EDataAttributes/enums';
 export * from './E2EDataAttributes/types';
 export * from './E2EDataAttributes/utils';
-
-export * from './App/App';
