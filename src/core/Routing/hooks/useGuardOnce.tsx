@@ -3,7 +3,7 @@ import { useState } from 'react';
 export type TUseGuardOnce = boolean;
 
 export const useGuardOnce = (
-  callback: () => { condition: boolean; done: boolean }
+  callback: () => { condition: boolean; done: boolean },
 ): TUseGuardOnce => {
   const [isWatching, setIsWatching] = useState(true);
   const { condition, done } = callback();

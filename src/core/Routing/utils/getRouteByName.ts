@@ -1,4 +1,4 @@
-// types
-import { RouteName, ROUTES } from '../constants/routes';
-
-export const getRouteByName = (name: RouteName): string => ROUTES[name];
+export const getRouteByName = (
+  name: string,
+  routes: { [key: typeof name]: string },
+): string => routes[name];

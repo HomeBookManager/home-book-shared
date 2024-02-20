@@ -7,7 +7,7 @@ describe('useGuardOnce', () => {
   it('should return true when guard is watching', () => {
     // before
     const { result } = renderHook(() =>
-      useGuardOnce(() => ({ condition: false, done: false }))
+      useGuardOnce(() => ({ condition: false, done: false })),
     );
 
     // result
@@ -17,7 +17,7 @@ describe('useGuardOnce', () => {
   it('should return result when guard is not watching', () => {
     // before
     const { result } = renderHook(() =>
-      useGuardOnce(() => ({ condition: false, done: true }))
+      useGuardOnce(() => ({ condition: false, done: true })),
     );
 
     // result

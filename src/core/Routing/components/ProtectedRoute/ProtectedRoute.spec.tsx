@@ -1,94 +1,68 @@
-// import { Provider } from 'react-redux';
-// import { BrowserRouter as Router, Redirect } from 'react-router-dom';
-// import { render } from '@testing-library/react';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
-// // components
-// import ProtectedRoute from './ProtectedRoute';
+// components
+import ProtectedRoute from './ProtectedRoute';
 
-// // mocks
-// import { routerStateMock } from '../../../../tests/mocks/reducer/routerMock';
+// others
+import { TAppRouteData } from '../../types';
 
-// // others
-// import { TAppRouteData } from '../../types';
+const routeData: TAppRouteData = {
+  Component: () => <div>Component</div>,
+  guards: [
+    {
+      guardCheck: () => true,
+      renderFallback: () => <Redirect exact from={'/'} to={'/error'} />,
+      translationKey: '',
+    },
+  ],
+  name: '/',
+};
 
-// // store
-// import { configureStore } from '../../../../store/store';
+describe('ProtectedRoute snapshots', () => {
+  it('should allow user on route', () => {
+    // before
+    const { Component, guards, name } = routeData;
 
-// // types
-// import { RouteName } from '../../constants/routes';
+    const { asFragment } = render(
+      <Router>
+        <ProtectedRoute component={Component} guards={guards} name={name} />
+      </Router>,
+    );
 
-// // utils
-// import { history } from '../../../../utils/history';
+    // result
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-// const stateMock = {
-//   ...routerStateMock,
-// };
+  it('should allow rdner without guards', () => {
+    // before
+    const { Component, name } = routeData;
 
-// const routeData: TAppRouteData = {
-//   Component: () => <div>Component</div>,
-//   guards: [
-//     {
-//       guardCheck: () => true,
-//       renderFallback: () => <Redirect exact from={'/'} to={'/error'} />,
-//       translationKey: '',
-//     },
-//   ],
-//   name: RouteName.test,
-// };
+    const { asFragment } = render(
+      <Router>
+        <ProtectedRoute component={Component} name={name} />
+      </Router>,
+    );
 
-// describe('ProtectedRoute snapshots', () => {
-//   // mock
-//   const store = configureStore(stateMock);
+    // result
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-//   it('should allow user on route', () => {
-//     // before
-//     const { Component, guards, name } = routeData;
-//     const { asFragment } = render(
-//       <Provider store={store}>
-//         <Router>
-//           <ProtectedRoute component={Component} guards={guards} name={name} />
-//         </Router>
-//       </Provider>,
-//     );
+  it('should not allow user on route', () => {
+    // before
+    const { Component, guards, name } = routeData;
 
-//     // result
-//     expect(asFragment()).toMatchSnapshot();
-//   });
+    const { asFragment } = render(
+      <Router>
+        <ProtectedRoute
+          component={Component}
+          guards={[{ ...guards![0], guardCheck: () => false }]}
+          name={name}
+        />
+      </Router>,
+    );
 
-//   it('should allow rdner without guards', () => {
-//     // before
-//     const { Component, name } = routeData;
-//     const { asFragment } = render(
-//       <Provider store={store}>
-//         <Router>
-//           <ProtectedRoute component={Component} name={name} />
-//         </Router>
-//       </Provider>,
-//     );
-
-//     // result
-//     expect(asFragment()).toMatchSnapshot();
-//   });
-
-//   it('should not allow user on route', () => {
-//     // mock
-//     const store = configureStore(stateMock);
-
-//     // before
-//     const { Component, guards, name } = routeData;
-//     const { asFragment } = render(
-//       <Provider store={store}>
-//         <Router>
-//           <ProtectedRoute
-//             component={Component}
-//             guards={[{ ...guards![0], guardCheck: () => false }]}
-//             name={name}
-//           />
-//         </Router>
-//       </Provider>,
-//     );
-
-//     // result
-//     expect(asFragment()).toMatchSnapshot();
-//   });
-// });
+    // result
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

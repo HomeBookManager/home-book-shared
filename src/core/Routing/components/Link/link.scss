@@ -1,8 +1,9 @@
-@import '../../../../styles/colors/common.scss';
-@import '../../../../styles/mixins/transitions/common.scss';
+@import '../../../../styles/colors/common';
+@import '../../../../styles/mixins/transitions/common';
 
 .Link {
   @include transition;
+
   color: $--hb-neutral-2;
   display: block;
   font-size: 14px;

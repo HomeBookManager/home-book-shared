@@ -25,9 +25,31 @@ import {
   ButtonVariant,
 } from '../../../components/ComponentsUI/components/Button/enums';
 import ButtonGroup from '../../../components/ComponentsUI/components/ButtonGroup/ButtonGroup';
-import { BrowserRouter, Link } from 'react-router-dom';
-import Routing from '../../../core/Routing/Routing';
-import AppHelmet from '../../../components/AppHelmet/AppHelmet';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import { TAppRoutesData, TRoutes } from '../../../core/Routing/types';
+import Main from '../../../components/Main/Main';
+
+enum RouteName {
+  login = 'login',
+  register = 'register',
+}
+
+const routes: TRoutes = {
+  [RouteName.login]: '/login',
+  [RouteName.register]: '/register',
+};
+
+const APP_ROUTES_DATA: TAppRoutesData = [
+  {
+    Component: LoginPage,
+    name: RouteName.login,
+  },
+  {
+    Component: RegisterPage,
+    name: RouteName.register,
+  },
+];
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
@@ -97,10 +119,11 @@ export const App = () => {
         </div>
       </div>
 
-      <BrowserRouter>
-        <AppHelmet />
-        <Routing />
-      </BrowserRouter>
+      <Main
+        routes={routes}
+        notFoundPage={<>Not Found Page</>}
+        appRoutesData={APP_ROUTES_DATA}
+      />
     </div>
   );
 };

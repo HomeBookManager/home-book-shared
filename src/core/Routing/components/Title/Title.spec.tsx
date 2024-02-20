@@ -6,18 +6,18 @@ import { render } from '@testing-library/react';
 // components
 import Title from './Title';
 
+// mocks
+import { RouteName, routes } from '../../../../tests/mock/routing';
+
 // others
 import { APPLICATION_NAME } from '../../constants';
-
-// types
-import { RouteName } from '../../constants/routes';
 
 // utils
 import { getRouteByName } from '../../utils/getRouteByName';
 import { sleep } from '../../../../tests/testHelpers';
 
 const history = createMemoryHistory({
-  initialEntries: [getRouteByName(RouteName.login)],
+  initialEntries: [getRouteByName(RouteName.home, routes)],
 });
 
 describe('Title snapshots', () => {
@@ -26,7 +26,7 @@ describe('Title snapshots', () => {
     const { asFragment } = render(
       <HelmetProvider>
         <Router history={history}>
-          <Title />
+          <Title routes={routes} />
         </Router>
       </HelmetProvider>,
     );
@@ -42,7 +42,7 @@ describe('Title snapshots', () => {
     const { asFragment } = render(
       <HelmetProvider>
         <Router history={history}>
-          <Title />
+          <Title routes={routes} />
         </Router>
       </HelmetProvider>,
     );
@@ -54,7 +54,7 @@ describe('Title snapshots', () => {
 
 describe('Title behaviors', () => {
   beforeEach(() => {
-    history.push(getRouteByName(RouteName.login));
+    history.push(getRouteByName(RouteName.home, routes));
   });
 
   it('should set proper title', async () => {
@@ -62,7 +62,7 @@ describe('Title behaviors', () => {
     render(
       <HelmetProvider>
         <Router history={history}>
-          <Title />
+          <Title routes={routes} />
         </Router>
       </HelmetProvider>,
     );

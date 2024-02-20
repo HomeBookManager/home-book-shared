@@ -1,60 +1,45 @@
-// import { Provider } from 'react-redux';
-// import { render } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
-// // components
-// import LoginPage from '../../../../sample/components/LoginPage/LoginPage';
+// components
+import Component from './mock/Component';
 
-// // core
-// import { renderRoute } from '../renderRoute';
+// core
+import { renderRoute } from '../renderRoute';
 
-// // types
-// import { RouteName } from '../../constants/routes';
-// import { TAppRouteData } from '../../types';
+// mocks
+import { RouteName, routes } from '../../../../tests/mock/routing';
 
-// // utils
-// import { history } from '../../../../utils/history';
+// types
+import { TAppRouteData } from '../../types';
 
-// const stateMock = {
-//   ...routerStateMock,
-// };
+describe('renderRoute snaphots', () => {
+  it('should render renderRoute', () => {
+    // mock
+    const routeData: TAppRouteData = {
+      Component: Component,
+      name: RouteName.home,
+    };
 
-// describe('renderRoute snaphots', () => {
-//   const store = configureStore(stateMock);
+    // before
+    const { asFragment } = render(
+      <Router>{renderRoute(routeData, routes)}</Router>,
+    );
 
-//   it('should render renderRoute', () => {
-//     // mock
-//     const routeData: TAppRouteData = {
-//       Component: LoginPage,
-//       name: RouteName.login,
-//     };
+    // result
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-//     // before
-//     const { asFragment } = render(
-//       <Provider store={store}>
-//         <ConnectedRouter history={history}>
-//           {renderRoute(routeData)}
-//         </ConnectedRouter>
-//       </Provider>,
-//     );
+  it('should render when routeDataArg is string', () => {
+    // mock
+    const routeData: TAppRouteData['name'] = RouteName.home;
 
-//     // result
-//     expect(asFragment()).toMatchSnapshot();
-//   });
+    // before
+    const { asFragment } = render(
+      <Router>{renderRoute(routeData, routes)}</Router>,
+    );
 
-//   it('should render when routeDataArg is string', () => {
-//     // mock
-//     const routeData: TAppRouteData['name'] = RouteName.login;
-
-//     // before
-//     const { asFragment } = render(
-//       <Provider store={store}>
-//         <ConnectedRouter history={history}>
-//           {renderRoute(routeData)}
-//         </ConnectedRouter>
-//       </Provider>,
-//     );
-
-//     // result
-//     expect(asFragment()).toMatchSnapshot();
-//   });
-// });
+    // result
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

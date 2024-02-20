@@ -12,7 +12,6 @@ const AppHelmet = () => (
       href={`${process.env.PUBLIC_URL}/favicon.ico`}
       sizes="16x16"
     />
-    <>{console.log(process.env)}</>
   </Helmet>
 );
 

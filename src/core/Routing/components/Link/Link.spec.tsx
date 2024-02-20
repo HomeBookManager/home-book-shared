@@ -5,14 +5,14 @@ import { Router } from 'react-router-dom';
 // components
 import Link from './Link';
 
-// types
-import { RouteName } from '../../constants/routes';
+// mocks
+import { RouteName, routes } from '../../../../tests/mock/routing';
 
 // utils
 import { getRouteByName } from '../../utils/getRouteByName';
 
 const history = createMemoryHistory({
-  initialEntries: [getRouteByName(RouteName.login)],
+  initialEntries: [getRouteByName(RouteName.home, routes)],
 });
 
 describe('Link snapshots', () => {

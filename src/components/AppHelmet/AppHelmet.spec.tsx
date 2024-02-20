@@ -25,7 +25,7 @@ describe('AppHelmet behaviors', () => {
     render(
       <HelmetProvider>
         <AppHelmet />
-      </HelmetProvider>
+      </HelmetProvider>,
     );
 
     // wait

@@ -6,11 +6,21 @@ import { useTranslation } from 'react-i18next';
 // others
 import { APPLICATION_NAME } from '../../constants';
 
+// types
+import { TRoutes } from '../../types';
+
 // utils
 import { getTitlesTranslationKeys } from './utils';
 
-const Title: FC = () => {
-  const titlesTranslationKeys = useMemo(() => getTitlesTranslationKeys(), []);
+export type TTileProps = {
+  routes: TRoutes;
+};
+
+const Title: FC<TTileProps> = ({ routes }) => {
+  const titlesTranslationKeys = useMemo(
+    () => getTitlesTranslationKeys(routes),
+    [],
+  );
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
