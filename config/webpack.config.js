@@ -4,6 +4,7 @@ const getClientEnvironment = require('./env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const paths = require('./paths');
+const sassVariables = require('./sassVariables');
 const webpack = require('webpack');
 
 const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
@@ -19,7 +20,18 @@ module.exports = {
       },
       {
         test: /\.scss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: async (content) => {
+                return sassVariables + content;
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|tsx)$/,

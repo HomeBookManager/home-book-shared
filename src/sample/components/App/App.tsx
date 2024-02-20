@@ -29,6 +29,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import { TAppRoutesData, TRoutes } from '../../../core/Routing/types';
 import Main from '../../../components/App/App';
+import { H1, TYPOGRAPHY_COLORS_MODE } from '../../../components';
 
 enum RouteName {
   login = 'login',
@@ -54,10 +55,11 @@ const APP_ROUTES_DATA: TAppRoutesData = [
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
   const isDarkMode = theme === Theme.dark;
-
+  console.log(TYPOGRAPHY_COLORS_MODE);
   return (
     <div className={classNames[className]}>
       <div className={classNames.navigation}>
+        <H1 color={TYPOGRAPHY_COLORS_MODE.neutral4}>H1</H1>
         <button
           className={classNames.buttonMode}
           onClick={() => setTheme(isDarkMode ? Theme.light : Theme.dark)}
