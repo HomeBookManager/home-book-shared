@@ -1,4 +1,5 @@
 const path = require('path');
+const sassVariables = require('../config/sassVariables');
 import { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
@@ -26,7 +27,16 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     config.module!.rules!.push({
       test: /\.scss$/i,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      use: [{ loader: 'style-loader' },
+      { loader: 'css-loader' },
+      {
+        loader: 'sass-loader',
+        options: {
+          additionalData: async (content) => {
+            return sassVariables + content;
+          },
+        },
+      },],
       include: path.resolve(__dirname, '../'),
     });
 
