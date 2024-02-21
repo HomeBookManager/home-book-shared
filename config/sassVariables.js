@@ -1,4 +1,5 @@
-const sassColors = require('home-book-constants/config/sass/colors');
+const colors = require('home-book-constants/config/sass/colors');
+const buttonColors = require('home-book-constants/config/sass/buttonColors');
 
 const transpileSassVariables = (obj) => {
   const variables = [];
@@ -10,4 +11,4 @@ const transpileSassVariables = (obj) => {
   return variables.join(' ');
 };
 
-module.exports = [transpileSassVariables(sassColors)].join(' ');
+module.exports = [transpileSassVariables(colors), transpileSassVariables(buttonColors)].join(' ');
