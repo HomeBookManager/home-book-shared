@@ -10,6 +10,7 @@ module.exports = {
     'src/stories',
     'src/store/configureStore.ts',
     'src/store/reducers.ts',
+    'src/store/store.ts',
     'src/store/watchers.ts',
     'src/tests',
     'src/translations',
