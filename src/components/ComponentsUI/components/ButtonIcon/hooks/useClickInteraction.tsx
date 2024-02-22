@@ -1,15 +1,19 @@
 import { ButtonHTMLAttributes, MouseEvent } from 'react';
 
+// utils
+import { getRandomKey } from '../../../../../utils/getRandomKey';
+
 type TUseClickInteraction = (event: MouseEvent<HTMLButtonElement>) => void;
 
 export const useClickInteraction = (
-  disabledRippleEffect: boolean,
+  disablePulseEffect: boolean,
   onClick: ButtonHTMLAttributes<HTMLElement>['onClick'],
-  triggerRippleEffect: (event: MouseEvent<HTMLElement>) => void,
+  pulseElements: Array<string>,
+  setPulseElements: (pulseElements: Array<string>) => void,
 ): TUseClickInteraction => {
   const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
-    if (!disabledRippleEffect) {
-      triggerRippleEffect(event);
+    if (!disablePulseEffect) {
+      setPulseElements([...pulseElements, getRandomKey(pulseElements)]);
     }
 
     if (onClick) {

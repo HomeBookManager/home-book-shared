@@ -27,6 +27,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import { TAppRoutesData, TRoutes } from '../../../core/Routing/types';
 import Main from '../../../components/App/App';
 import { H1, TYPOGRAPHY_COLORS_MODE } from '../../../components';
+import ButtonIcon from '../../../components/ComponentsUI/components/ButtonIcon/ButtonIcon';
+import IconRightOutlined from '../../../components/ComponentsUI/components/Icon/components/IconRightOutlined';
 
 enum RouteName {
   login = 'login',
@@ -73,6 +75,20 @@ export const App = () => {
           )}
         </div>
 
+        <div
+          style={{ display: 'flex', alignItems: 'center', columnGap: '15px' }}
+        >
+          <ButtonIcon
+            disabled
+            size={ButtonSize.small}
+            iconComponent={IconRightOutlined}
+          />
+          <ButtonIcon iconComponent={IconRightOutlined} />
+          <ButtonIcon
+            size={ButtonSize.large}
+            iconComponent={IconRightOutlined}
+          />
+        </div>
         <div style={{ padding: '50px' }}>
           <Button
             fullWidth

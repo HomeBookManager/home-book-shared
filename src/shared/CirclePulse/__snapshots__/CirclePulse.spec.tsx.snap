@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CirclePulse snapshots should render CirclePulse 1`] = `
+<DocumentFragment>
+  <span
+    class="CirclePulse"
+    style="animation-duration: 1000ms;"
+  />
+</DocumentFragment>
+`;
