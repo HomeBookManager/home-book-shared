@@ -24,7 +24,7 @@ import { E2EAttribute } from '../../../E2EDataAttributes/enums';
 
 export type TButtonIconProps = Omit<
   ButtonHTMLAttributes<HTMLElement>,
-  'disabled'
+  'children' | 'disabled'
 > & {
   className?: string;
   classNameCirclePulse?: string;
