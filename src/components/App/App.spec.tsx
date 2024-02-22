@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 // mocks
-import { appRoutesData, routes } from '../../tests/mock/routing';
+import { appRoutesData, routes } from '../../tests/mocks/routing';
 
 describe('App snapshots', () => {
   it('should render Main', async () => {

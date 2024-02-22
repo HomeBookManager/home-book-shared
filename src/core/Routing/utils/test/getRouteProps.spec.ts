@@ -1,5 +1,5 @@
 // mocks
-import { RouteName, routes } from '../../../../tests/mock/routing';
+import { RouteName, routes } from '../../../../tests/mocks/routing';
 
 // types
 import { TAppRouteData, TComponent } from '../../types';

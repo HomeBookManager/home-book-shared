@@ -8,7 +8,7 @@ import Component from './mock/Component';
 import { renderRoute } from '../renderRoute';
 
 // mocks
-import { RouteName, routes } from '../../../../tests/mock/routing';
+import { RouteName, routes } from '../../../../tests/mocks/routing';
 
 // types
 import { TAppRouteData } from '../../types';

@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom';
 import Link from './Link';
 
 // mocks
-import { RouteName, routes } from '../../../../tests/mock/routing';
+import { RouteName, routes } from '../../../../tests/mocks/routing';
 
 // utils
 import { getRouteByName } from '../../utils/getRouteByName';
