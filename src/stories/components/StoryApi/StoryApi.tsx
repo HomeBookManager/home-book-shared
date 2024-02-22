@@ -48,7 +48,7 @@ const StoryApi: FC<TProps> = ({
         className={classNamesWithTheme.storyComponent}
         title="Import"
         {...restProps}
-      ></StoryComponent>
+      />
       {children}
       <StoryPropsTable tableBodyData={tableBodyData} />
     </main>
