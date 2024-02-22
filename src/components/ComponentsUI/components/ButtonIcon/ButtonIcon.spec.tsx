@@ -187,7 +187,7 @@ describe('ButtonIcon props', () => {
 
   it('should pass size', () => {
     // mock
-    const sizes = enumToArray(ButtonSize) as Array<ButtonSize>;
+    const sizes = enumToArray<ButtonSize>(ButtonSize);
 
     // before
     const { container } = render(

@@ -61,7 +61,7 @@ export default {
 
 const Template: StoryFn<typeof Button> = (args) => (
   <StoryComponent blockCodeData={blockCodeData} title="Button Colors">
-    {(enumToArray(ButtonColor) as Array<ButtonColor>).map((color) => (
+    {enumToArray<ButtonColor>(ButtonColor).map((color) => (
       <Button {...args} color={color} key={color}>
         {capitalize(color)}
       </Button>

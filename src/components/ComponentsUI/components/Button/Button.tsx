@@ -35,7 +35,6 @@ export type TButtonProps = Omit<
   endIcon?: TButtonIcon;
   forcedHover?: boolean;
   fullWidth?: boolean;
-  onClick?: () => void;
   ref?: Ref<HTMLButtonElement>;
   size?: ButtonSize;
   startIcon?: TButtonIcon;

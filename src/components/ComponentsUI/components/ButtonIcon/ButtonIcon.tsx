@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { ButtonHTMLAttributes, FC, useState } from 'react';
+import { ButtonHTMLAttributes, forwardRef, Ref, useState } from 'react';
 
 // components
 import CirclePulse, {
@@ -35,79 +35,86 @@ export type TButtonIconProps = Omit<
   e2eValue?: number | string;
   forcedHover?: boolean;
   iconComponent: TIconProps['iconComponent'];
+  ref?: Ref<HTMLButtonElement>;
   size?: ButtonSize;
 };
 
-export const ButtonIcon: FC<TButtonIconProps> = ({
-  className = '',
-  classNameCirclePulse = '',
-  classNameIcon = '',
-  disabled = false,
-  disablePulseEffect = false,
-  e2eAttribute = E2EAttribute.buttonIcon,
-  e2eValue = '',
-  forcedHover = false,
-  iconComponent,
-  onClick = null,
-  size = ButtonSize.medium,
-  type = 'button',
-  ...restProps
-}) => {
-  const { classNamesWithTheme } = useTheme(classNames);
+export const ButtonIcon = forwardRef<HTMLButtonElement, TButtonIconProps>(
+  (
+    {
+      className = '',
+      classNameCirclePulse = '',
+      classNameIcon = '',
+      disabled = false,
+      disablePulseEffect = false,
+      e2eAttribute = E2EAttribute.buttonIcon,
+      e2eValue = '',
+      forcedHover = false,
+      iconComponent,
+      onClick = null,
+      size = ButtonSize.medium,
+      type = 'button',
+      ...restProps
+    },
+    ref,
+  ) => {
+    const { classNamesWithTheme } = useTheme(classNames);
 
-  const [pulseElements, setPulseElements] = useState<
-    TCirclePulseProps['pulseElements']
-  >([]);
+    const [pulseElements, setPulseElements] = useState<
+      TCirclePulseProps['pulseElements']
+    >([]);
 
-  const onClickHandler = useClickInteraction(
-    disablePulseEffect,
-    onClick,
-    pulseElements,
-    setPulseElements,
-  );
+    const onClickHandler = useClickInteraction(
+      disablePulseEffect,
+      onClick,
+      pulseElements,
+      setPulseElements,
+    );
 
-  return (
-    <E2EDataAttribute type={e2eAttribute} value={e2eValue}>
-      <button
-        className={cx(
-          classNamesWithTheme[classNameButtonIcon].name,
-          {
-            [classNamesWithTheme[classNameButtonIcon].modificators.forcedHover]:
-              forcedHover,
-          },
-          classNamesWithTheme[classNameButtonIcon].modificators[size],
-          className,
-        )}
-        disabled={disabled}
-        onClick={onClickHandler}
-        type={type}
-        {...restProps}
-      >
-        <Icon
+    return (
+      <E2EDataAttribute type={e2eAttribute} value={e2eValue}>
+        <button
           className={cx(
-            classNameIcon,
-            classNameCirclePulse,
-            classNamesWithTheme.icon.name,
-            classNamesWithTheme.icon.modificators[size],
+            classNamesWithTheme[classNameButtonIcon].name,
+            {
+              [classNamesWithTheme[classNameButtonIcon].modificators
+                .forcedHover]: forcedHover,
+            },
+            classNamesWithTheme[classNameButtonIcon].modificators[size],
+            className,
           )}
-          forcedHover
-          iconComponent={iconComponent}
-        />
-        {pulseElements.map((key) => (
-          <CirclePulse
-            animationDuration={1000}
+          disabled={disabled}
+          onClick={onClickHandler}
+          ref={ref}
+          type={type}
+          {...restProps}
+        >
+          <Icon
             className={cx(
+              classNameIcon,
               classNameCirclePulse,
-              classNamesWithTheme.circlePulse,
+              classNamesWithTheme.icon.name,
+              classNamesWithTheme.icon.modificators[size],
             )}
-            pulseElements={pulseElements}
-            setPulseElements={setPulseElements}
-            key={key}
+            forcedHover
+            iconComponent={iconComponent}
           />
-        ))}
-      </button>
-    </E2EDataAttribute>
-  );
-};
+          {pulseElements.map((key) => (
+            <CirclePulse
+              animationDuration={1000}
+              className={cx(
+                classNameCirclePulse,
+                classNamesWithTheme.circlePulse,
+              )}
+              pulseElements={pulseElements}
+              setPulseElements={setPulseElements}
+              key={key}
+            />
+          ))}
+        </button>
+      </E2EDataAttribute>
+    );
+  },
+);
 
 export default ButtonIcon;

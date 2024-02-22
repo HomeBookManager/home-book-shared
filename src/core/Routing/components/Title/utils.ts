@@ -9,7 +9,7 @@ import { enumToArray } from '../../../../utils';
 import { getRouteByName } from '../../utils/getRouteByName';
 
 export const getTitlesTranslationKeys = (routes: TRoutes): TObject<string> =>
-  (enumToArray(routes) as Array<string>).reduce(
+  enumToArray<string>(routes).reduce(
     (obj, key) => ({
       ...obj,
       [getRouteByName(key, routes)]: `routing.title.${key}`,

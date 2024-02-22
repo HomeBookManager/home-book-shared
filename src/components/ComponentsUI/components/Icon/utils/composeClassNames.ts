@@ -8,7 +8,7 @@ import { TIconComposedClassNames, TIconModificators } from '../types';
 import { enumToArray } from '../../../../../utils/transform/enumToArray';
 
 export const applyModificators = (className: string): TIconModificators =>
-  enumToArray(IconModificatorsKeys).reduce(
+  enumToArray<string>(IconModificatorsKeys).reduce(
     (obj, key) => ({
       ...obj,
       [key]: `${className}--${kebabCase(key)}`,

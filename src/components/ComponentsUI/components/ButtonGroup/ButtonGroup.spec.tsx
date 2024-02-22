@@ -179,9 +179,9 @@ describe('ButtonGroup props', () => {
 
   it('should pass orientation', () => {
     // mock
-    const orientations = enumToArray(
+    const orientations = enumToArray<ButtonGroupOrientation>(
       ButtonGroupOrientation,
-    ) as Array<ButtonGroupOrientation>;
+    );
 
     // before
     const { container } = render(

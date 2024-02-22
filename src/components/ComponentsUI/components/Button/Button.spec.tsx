@@ -131,7 +131,7 @@ describe('Button props', () => {
 
   it('should pass color', () => {
     // mock
-    const colors = enumToArray(ButtonColor) as Array<ButtonColor>;
+    const colors = enumToArray<ButtonColor>(ButtonColor);
 
     // before
     const { container } = render(
@@ -247,7 +247,7 @@ describe('Button props', () => {
 
   it('should pass size', () => {
     // mock
-    const sizes = enumToArray(ButtonSize) as Array<ButtonSize>;
+    const sizes = enumToArray<ButtonSize>(ButtonSize);
 
     // before
     const { container } = render(
@@ -300,7 +300,7 @@ describe('Button props', () => {
 
   it('should pass variant', () => {
     // mock
-    const variants = enumToArray(ButtonVariant) as Array<ButtonVariant>;
+    const variants = enumToArray<ButtonVariant>(ButtonVariant);
 
     // before
     const { container } = render(
