@@ -71,15 +71,13 @@ const Template: StoryFn<typeof ButtonGroup> = (args) => (
     description={description}
     title="Button Group Variants"
   >
-    {(enumToArray(ButtonVariant) as Array<ButtonVariant>).map(
-      (variant, key) => (
-        <ButtonGroup {...args} key={key} variant={variant}>
-          <Button>One</Button>
-          <Button>Two</Button>
-          <Button>Three</Button>
-        </ButtonGroup>
-      ),
-    )}
+    {enumToArray<ButtonVariant>(ButtonVariant).map((variant, key) => (
+      <ButtonGroup {...args} key={key} variant={variant}>
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup>
+    ))}
   </StoryComponent>
 );
 

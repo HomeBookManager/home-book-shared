@@ -99,8 +99,8 @@ const Template: StoryFn<typeof Button> = (args) => (
     description={description}
     title="Button Size"
   >
-    {(enumToArray(ButtonVariant) as Array<ButtonVariant>).map((variant) =>
-      (enumToArray(ButtonSize) as Array<ButtonSize>).map((size) => (
+    {enumToArray<ButtonVariant>(ButtonVariant).map((variant) =>
+      enumToArray<ButtonSize>(ButtonSize).map((size) => (
         <Button
           {...args}
           key={`${variant}-${size}`}

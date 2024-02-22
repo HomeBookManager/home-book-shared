@@ -28,14 +28,6 @@ const blockCodeData: TStoryBlockCode = {
     {
       children: Array.from(Array(3), () => ({ componentName: 'Button' })),
     },
-    {
-      attributes: [{ name: 'forcedHover' }],
-      children: Array.from(Array(3), () => ({ componentName: 'Button' })),
-    },
-    {
-      attributes: [{ name: 'disabled' }],
-      children: Array.from(Array(3), () => ({ componentName: 'Button' })),
-    },
   ],
 };
 
@@ -64,18 +56,6 @@ const Template: StoryFn<typeof ButtonGroup> = (args) => (
       <Button>Two</Button>
       <Button>Three</Button>
     </ButtonGroup>
-
-    <ButtonGroup {...args} forcedHover>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </ButtonGroup>
-
-    <ButtonGroup {...args} disabled>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </ButtonGroup>
   </StoryComponent>
 );
 
@@ -83,16 +63,6 @@ export const BasicButtonGroup = Template.bind({});
 
 BasicButtonGroup.argTypes = {
   children: {
-    table: {
-      disable: true,
-    },
-  },
-  disabled: {
-    table: {
-      disable: true,
-    },
-  },
-  forcedHover: {
     table: {
       disable: true,
     },

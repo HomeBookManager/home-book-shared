@@ -1,5 +1,7 @@
 export * from './common/generateID';
 
+export * from './getRandomKey';
+
 export * from './history';
 
 export * from './transform/enumToArray';

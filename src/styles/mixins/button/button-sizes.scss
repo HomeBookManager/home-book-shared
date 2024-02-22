@@ -18,15 +18,15 @@ $--hb-padding-left-right-map: (
   large-size: 28px,
 );
 
-@mixin button-size($isProportional: false) {
+@mixin button-size($isIcon: false) {
   &--small {
     font-size: 12px;
     height: map.get($--hb-size-map, 'small-size');
     padding: map.get($--hb-padding-top-bottom-map, 'small-size')
       map.get($--hb-padding-left-right-map, 'small-size');
 
-    @if $isProportional {
-      padding: map.get($--hb-padding-left-right-map, 'small-size');
+    @if $isIcon {
+      padding: 0;
       width: map.get($--hb-size-map, 'small-size');
     }
   }
@@ -37,8 +37,8 @@ $--hb-padding-left-right-map: (
     padding: map.get($--hb-padding-top-bottom-map, 'medium-size')
       map.get($--hb-padding-left-right-map, 'medium-size');
 
-    @if $isProportional {
-      padding: map.get($--hb-padding-left-right-map, 'medium-size');
+    @if $isIcon {
+      padding: 0;
       width: map.get($--hb-size-map, 'medium-size');
     }
   }
@@ -49,8 +49,8 @@ $--hb-padding-left-right-map: (
     padding: map.get($--hb-padding-top-bottom-map, 'large-size')
       map.get($--hb-padding-left-right-map, 'large-size');
 
-    @if $isProportional {
-      padding: map.get($--hb-padding-left-right-map, 'large-size');
+    @if $isIcon {
+      padding: 0;
       width: map.get($--hb-size-map, 'large-size');
     }
   }

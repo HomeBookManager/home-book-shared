@@ -77,7 +77,7 @@ const tableBodyData: Array<TTableBody> = [
   {
     description: '<code>Function</code> to call action after the click button.',
     name: 'onClick',
-    type: '() => void',
+    type: `ButtonHTMLAttributes<HTMLElement>['onClick']`,
   },
   {
     description: 'The <code>ref</code> is forwarded to the root element.',

@@ -73,7 +73,7 @@ const Template: StoryFn<typeof ButtonGroup> = (args) => (
     description={description}
     title="Button Group Sizes"
   >
-    {(enumToArray(ButtonSize) as Array<ButtonSize>).map((size, key) => (
+    {enumToArray<ButtonSize>(ButtonSize).map((size, key) => (
       <ButtonGroup {...args} size={size} key={key}>
         <Button>One</Button>
         <Button>Two</Button>

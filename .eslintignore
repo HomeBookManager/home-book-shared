@@ -4,6 +4,7 @@ commitlint.config.js
 dist
 jest.config.js
 package.json
+src/sample
 src/tests/mocks.tsx
 storybook-static
 tsconfig.json

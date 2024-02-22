@@ -87,7 +87,7 @@ const Template: StoryFn<typeof ButtonGroup> = (args) => (
     description={description}
     title="Button Group Colors"
   >
-    {(enumToArray(ButtonColor) as Array<ButtonColor>).map((color, key) => (
+    {enumToArray<ButtonColor>(ButtonColor).map((color, key) => (
       <ButtonGroup {...args} color={color} key={key}>
         <Button>One</Button>
         <Button>Two</Button>
