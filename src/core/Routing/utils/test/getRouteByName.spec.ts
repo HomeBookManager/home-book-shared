@@ -1,5 +1,5 @@
 // mocks
-import { RouteName, routes } from '../../../../tests/mock/routing';
+import { RouteName, routes } from '../../../../tests/mocks/routing';
 
 // utils
 import { getRouteByName } from '../getRouteByName';

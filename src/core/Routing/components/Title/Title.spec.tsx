@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 import Title from './Title';
 
 // mocks
-import { RouteName, routes } from '../../../../tests/mock/routing';
+import { RouteName, routes } from '../../../../tests/mocks/routing';
 
 // others
 import { APPLICATION_NAME } from '../../constants';

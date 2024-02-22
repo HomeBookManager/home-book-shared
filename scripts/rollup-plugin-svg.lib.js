@@ -1,7 +1,7 @@
-import path from 'path';
-import rollupPluginutils from 'rollup-pluginutils';
+const path = require('path');
+const rollupPluginutils = require('rollup-pluginutils');
 
-export const rollupPluginSvg = (options = {}) => {
+const rollupPluginSvg = (options = {}) => {
   const filter = rollupPluginutils.createFilter(
     options.include,
     options.exclude,
@@ -24,3 +24,5 @@ export const rollupPluginSvg = (options = {}) => {
     },
   };
 };
+
+module.exports = rollupPluginSvg;
