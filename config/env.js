@@ -13,6 +13,9 @@ if (!NODE_ENV) {
   );
 }
 
+const appDirectory = fs.realpathSync(process.cwd());
+const REACT_APP = /^REACT_APP_/i;
+
 const dotenvFiles = [
   `${paths.dotenv}.${NODE_ENV}.local`,
   NODE_ENV !== 'test' && `${paths.dotenv}.local`,
@@ -30,14 +33,11 @@ dotenvFiles.forEach((dotenvFile) => {
   }
 });
 
-const appDirectory = fs.realpathSync(process.cwd());
 process.env.NODE_PATH = (process.env.NODE_PATH || '')
   .split(path.delimiter)
   .filter((folder) => folder && !path.isAbsolute(folder))
   .map((folder) => path.resolve(appDirectory, folder))
   .join(path.delimiter);
-
-const REACT_APP = /^REACT_APP_/i;
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
