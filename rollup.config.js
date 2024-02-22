@@ -15,8 +15,8 @@ const sassVariables = require('./config/sassVariables');
 // utils
 const rollupPluginSvg = require('./scripts/rollup-plugin-svg.lib');
 
-const extensions = ['.js', '.ts', '.jsx', '.tsx', '.json'];
 const excludeExtensions = ['.d.ts', '.stories.tsx', '.spec.ts', '.spec.tsx'];
+const extensions = ['.js', '.ts', '.jsx', '.tsx', '.json'];
 
 module.exports = {
   external: [
