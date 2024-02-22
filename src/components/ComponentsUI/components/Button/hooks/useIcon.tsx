@@ -17,7 +17,7 @@ export const useIcon = (size: ButtonSize): TUseIcon =>
   useCallback(
     ({
       placement,
-      src: { iconComponent, iconShape, applyFill, applyStroke },
+      src: { iconComponent, applyFill, applyStroke },
     }: TButtonIconArgs): JSX.Element => (
       <Icon
         className={cx(
@@ -32,7 +32,6 @@ export const useIcon = (size: ButtonSize): TUseIcon =>
           classNames.icon.modificators[size],
         )}
         iconComponent={iconComponent}
-        iconShape={iconShape}
         ignoreDefaultStyles
       />
     ),

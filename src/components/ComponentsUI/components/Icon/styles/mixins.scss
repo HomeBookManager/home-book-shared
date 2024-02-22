@@ -24,15 +24,17 @@
   $colorLight: $--hb-neutral-1,
   $colorDark: $--hb-neutral-1--dark
 ) {
-  &:focus:not(#{$className}--selected):not(#{$className}--disabled-hover) {
+  &:focus:not(#{$className}--disabled):not(#{$className}--disabled-hover):not(
+      #{$className}--selected
+    ) {
     #{$selector} {
       #{$property}: $colorLight;
     }
   }
 
-  &--dark:focus:not(#{$className}--selected--dark):not(
+  &--dark:focus:not(#{$className}--disabled--dark):not(
       #{$className}--disabled-hover--dark
-    ) {
+    ):not(#{$className}--selected--dark) {
     #{$selector} {
       #{$property}: $colorDark;
     }
@@ -46,15 +48,17 @@
   $colorLight: $--hb-neutral-1,
   $colorDark: $--hb-neutral-1--dark
 ) {
-  &:hover:not(#{$className}--selected):not(#{$className}--disabled-hover) {
+  &:hover:not(#{$className}--disabled):not(#{$className}--disabled-hover):not(
+      #{$className}--selected
+    ) {
     #{$selector} {
       #{$property}: $colorLight;
     }
   }
 
-  &--dark:hover:not(#{$className}--selected--dark):not(
+  &--dark:hover:not(#{$className}--disabled--dark):not(
       #{$className}--disabled-hover--dark
-    ) {
+    ):not(#{$className}--selected--dark) {
     #{$selector} {
       #{$property}: $colorDark;
     }
@@ -62,40 +66,48 @@
 }
 
 @mixin apply-icon-forced-hover(
+  $className,
   $property,
   $selector,
   $colorLight: $--hb-neutral-1,
   $colorDark: $--hb-neutral-1--dark
 ) {
-  &--forced-hover {
+  &--forced-hover:not(#{$className}--disabled) {
     #{$selector} {
       #{$property}: $colorLight;
     }
+  }
 
-    &--dark {
-      #{$selector} {
-        #{$property}: $colorDark;
-      }
+  &--forced-hover--dark:not(#{$className}--disabled--dark) {
+    #{$selector} {
+      #{$property}: $colorDark;
     }
   }
 }
 
 @mixin apply-icon-selected(
+  $className,
   $property,
   $selector,
   $colorLight: $--hb-common-neutral-blue-1,
   $colorDark: $--hb-common-neutral-blue-2
 ) {
-  &--selected {
+  &--selected:not(#{$className}--disabled) {
     #{$selector} {
       #{$property}: $colorLight;
     }
+  }
 
-    &--dark {
-      #{$selector} {
-        #{$property}: $colorDark;
-      }
+  &--selected--dark:not(#{$className}--disabled--dark) {
+    #{$selector} {
+      #{$property}: $colorDark;
     }
+  }
+}
+
+@mixin apply-icon-clickable() {
+  &--clickable {
+    cursor: pointer;
   }
 }
 
@@ -106,20 +118,14 @@
   }
 }
 
-@mixin apply-icon-clickable() {
-  &--clickable {
-    cursor: pointer;
-  }
-}
-
 @mixin apply-icon-styles($className, $property, $selector) {
   @include apply-icon-idle($property, $selector);
   @include apply-icon-focus($className, $property, $selector);
   @include apply-icon-hover($className, $property, $selector);
-  @include apply-icon-forced-hover($property, $selector);
-  @include apply-icon-selected($property, $selector);
-  @include apply-icon-disabled;
+  @include apply-icon-forced-hover($className, $property, $selector);
+  @include apply-icon-selected($className, $property, $selector);
   @include apply-icon-clickable;
+  @include apply-icon-disabled;
 
   outline: none;
 

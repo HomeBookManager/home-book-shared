@@ -10,12 +10,8 @@ import Icons from './components';
 // core
 import { ContextProvider } from '../../../../core/ContextProvider/ContextProvider';
 
-// others
-import { classNames as classNamesIcon } from './classNames';
-
 // types
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
-import { IconShape } from './enums';
 
 // utils
 import { composeClassNames } from './utils/composeClassNames';
@@ -23,13 +19,13 @@ import { getByE2EAttribute } from '../../../../tests/testHelpers';
 import { getDataTestAttribute } from '../../../E2EDataAttributes/utils';
 
 const iconComponent = Icons.IconUpOutlined;
-const iconShape = IconShape.upOutlined;
+const componentName =
+  iconComponent.name.charAt(0).toUpperCase() + iconComponent.name.slice(1);
 
 const className = 'className';
+const classNames = composeClassNames(componentName);
+const classNameIconShape = componentName;
 const classNamePath = 'classNamePath';
-
-const classNameIconShape = classNamesIcon[iconShape];
-const classNames = composeClassNames(iconShape);
 
 describe('Icon behaviors', () => {
   it('should not apply default styles when all specific props passed', () => {
@@ -46,7 +42,6 @@ describe('Icon behaviors', () => {
           fill={fill}
           fillDark={fillDark}
           iconComponent={iconComponent}
-          iconShape={iconShape}
           ignoreDefaultStyles
           stroke={stroke}
           strokeDark={strokeDark}
@@ -64,11 +59,7 @@ describe('Icon behaviors', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-          ignoreDefaultStyles
-        />
+        <Icon iconComponent={iconComponent} ignoreDefaultStyles />
       </ContextProvider>,
     );
 
@@ -85,7 +76,7 @@ describe('Icon behaviors', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon fill={fill} iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon fill={fill} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -102,11 +93,7 @@ describe('Icon behaviors', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          fillDark={fillDark}
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon fillDark={fillDark} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -123,11 +110,7 @@ describe('Icon behaviors', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-          stroke={stroke}
-        />
+        <Icon iconComponent={iconComponent} stroke={stroke} />
       </ContextProvider>,
     );
 
@@ -144,11 +127,7 @@ describe('Icon behaviors', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-          strokeDark={strokeDark}
-        />
+        <Icon iconComponent={iconComponent} strokeDark={strokeDark} />
       </ContextProvider>,
     );
 
@@ -164,11 +143,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          className={className}
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon className={className} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -180,11 +155,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          classNamePath={classNamePath}
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon classNamePath={classNamePath} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -198,7 +169,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon clickable iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon clickable iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -212,7 +183,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon disabled iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon disabled iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -226,11 +197,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          disabledFocus
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon disabledFocus iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -244,11 +211,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          disabledHover
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon disabledHover iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -262,11 +225,7 @@ describe('Icon props', () => {
     // before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          e2eAttribute={E2EAttribute.icon}
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon e2eAttribute={E2EAttribute.icon} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -283,11 +242,7 @@ describe('Icon props', () => {
     // before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          e2eValue={e2eValue}
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon e2eValue={e2eValue} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -309,7 +264,6 @@ describe('Icon props', () => {
           classNamePath={classNamePath}
           fill={fill}
           iconComponent={iconComponent}
-          iconShape={iconShape}
         />
       </ContextProvider>,
     );
@@ -332,7 +286,6 @@ describe('Icon props', () => {
           classNamePath={classNamePath}
           fillDark={fillDark}
           iconComponent={iconComponent}
-          iconShape={iconShape}
         />
       </ContextProvider>,
     );
@@ -348,7 +301,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon forcedHover iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon forcedHover iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -365,11 +318,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider theme={Theme.dark}>
-        <Icon
-          height={height}
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-        />
+        <Icon height={height} iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -384,7 +333,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -396,7 +345,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon iconComponent={iconComponent} />
       </ContextProvider>,
     );
 
@@ -410,11 +359,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-          ignoreDefaultStyles
-        />
+        <Icon iconComponent={iconComponent} ignoreDefaultStyles />
       </ContextProvider>,
     );
 
@@ -428,7 +373,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider>
-        <Icon iconComponent={iconComponent} iconShape={iconShape} selected />
+        <Icon iconComponent={iconComponent} selected />
       </ContextProvider>,
     );
 
@@ -448,7 +393,6 @@ describe('Icon props', () => {
         <Icon
           classNamePath={classNamePath}
           iconComponent={iconComponent}
-          iconShape={iconShape}
           stroke={stroke}
         />
       </ContextProvider>,
@@ -471,7 +415,6 @@ describe('Icon props', () => {
         <Icon
           classNamePath={classNamePath}
           iconComponent={iconComponent}
-          iconShape={iconShape}
           strokeDark={strokeDark}
         />
       </ContextProvider>,
@@ -491,11 +434,7 @@ describe('Icon props', () => {
     //before
     const { container } = render(
       <ContextProvider theme={Theme.dark}>
-        <Icon
-          iconComponent={iconComponent}
-          iconShape={iconShape}
-          width={width}
-        />
+        <Icon iconComponent={iconComponent} width={width} />
       </ContextProvider>,
     );
 
@@ -512,7 +451,7 @@ describe('Icon snapshots', () => {
     //before
     const { asFragment } = render(
       <ContextProvider>
-        <Icon iconComponent={iconComponent} iconShape={iconShape} />
+        <Icon iconComponent={iconComponent} />
       </ContextProvider>,
     );
 

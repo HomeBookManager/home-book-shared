@@ -4,7 +4,7 @@ exports[`Icon snapshots should render Icon 1`] = `
 <DocumentFragment>
   <svg
     class="IconUpOutlined"
-    data-test-icon="up-outlined"
+    data-test-icon="icon-up-outlined"
     fill="none"
     height="16px"
     tabindex="-1"

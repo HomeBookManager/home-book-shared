@@ -1,8 +1,5 @@
 import { kebabCase } from 'lodash';
 
-// others
-import { classNames } from '../../classNames';
-
 // types
 import { IconShape, IconModificatorsKeys } from '../../enums';
 
@@ -12,11 +9,11 @@ import { composeClassNames } from '../composeClassNames';
 describe('composeClassNames', () => {
   it('should return composed class names', () => {
     // mock
-    const iconShape = IconShape.upOutlined;
-    const iconName = classNames[iconShape];
+    const iconShape = IconShape.iconUpOutlined;
+    const iconName = iconShape.charAt(0).toUpperCase() + iconShape.slice(1);
 
     // before
-    const result = composeClassNames(iconShape);
+    const result = composeClassNames(iconName);
 
     // result
     expect(result).toStrictEqual({

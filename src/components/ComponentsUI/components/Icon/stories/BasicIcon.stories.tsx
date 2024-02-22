@@ -1,4 +1,4 @@
-import { camelCase, keys, map } from 'lodash';
+import { keys, map } from 'lodash';
 import type { Meta, StoryFn } from '@storybook/react';
 
 // components
@@ -12,7 +12,6 @@ import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
 // types
 import { ContentGridFlow } from '../../../../../stories/components/StoryComponent/enums';
 import { E2EAttribute } from '../../../../E2EDataAttributes/enums';
-import { IconShape } from '../enums';
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
 
 const description = [
@@ -21,21 +20,17 @@ const description = [
 
 const iconsKeys = keys(Icons);
 
-const getEnumKey = (key: string): string => camelCase(key.replace('Icon', ''));
-
 const blockCodeData: TStoryBlockCode = {
   componentName: '',
   imports: [
     {
-      items: '{ Icon, IconShape, Icons }',
+      items: '{ Icon, Icons }',
       path: LIB_IMPORT_PATH,
     },
   ],
   props: [
     {
       children: iconsKeys.map((componentName) => {
-        const enumKey = getEnumKey(componentName);
-
         return {
           componentName: 'Icon',
           props: [
@@ -45,7 +40,6 @@ const blockCodeData: TStoryBlockCode = {
                   name: 'iconComponent',
                   value: `Icons.${componentName}`,
                 },
-                { name: 'iconShape', value: `IconShape.${IconShape[enumKey]}` },
               ],
             },
           ],
@@ -69,14 +63,7 @@ export default {
 } satisfies Meta<typeof Icon>;
 
 const Template: StoryFn<typeof Icon> = ({ ...args }) => {
-  const icons = map(Icons, (iconComponent, key) => {
-    const enumKey = getEnumKey(key);
-
-    return {
-      iconComponent,
-      iconShape: IconShape[enumKey],
-    };
-  });
+  const icons = map(Icons, (iconComponent) => iconComponent);
 
   return (
     <StoryComponent
@@ -85,12 +72,11 @@ const Template: StoryFn<typeof Icon> = ({ ...args }) => {
       description={description}
       title="Icon"
     >
-      {icons.map(({ iconComponent, iconShape }) => (
+      {icons.map((iconComponent) => (
         <Icon
           {...args}
           iconComponent={iconComponent}
-          iconShape={iconShape}
-          key={iconShape}
+          key={iconComponent.name}
         />
       ))}
     </StoryComponent>
@@ -106,11 +92,6 @@ BasicIcon.argTypes = {
     },
   },
   iconComponent: {
-    table: {
-      disable: true,
-    },
-  },
-  iconShape: {
     table: {
       disable: true,
     },

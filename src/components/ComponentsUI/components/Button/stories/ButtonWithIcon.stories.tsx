@@ -10,7 +10,6 @@ import { LIB_IMPORT_PATH } from '../../../../../stories/constants';
 
 // types
 import { ButtonColor, ButtonVariant } from '../enums';
-import { IconShape } from '../../Icon/enums';
 import { TStoryBlockCode } from '../../../../../stories/components/StoryBlockCode/types';
 
 const description = [
@@ -30,8 +29,7 @@ const blockCodeData: TStoryBlockCode = {
       attributes: [
         {
           name: 'startIcon',
-          value:
-            '{ applyFill: true, iconComponent: Icons.IconUpOutlined, iconShape: IconShape.upOutlined }',
+          value: '{ applyFill: true, iconComponent: Icons.IconUpOutlined }',
         },
       ],
       children: 'Button',
@@ -40,8 +38,7 @@ const blockCodeData: TStoryBlockCode = {
       attributes: [
         {
           name: 'endIcon',
-          value:
-            '{ applyFill: true, iconComponent: Icons.IconUpOutlined, iconShape: IconShape.upOutlined }',
+          value: '{ applyFill: true, iconComponent: Icons.IconUpOutlined }',
         },
       ],
       children: 'Button',
@@ -66,7 +63,6 @@ const Template: StoryFn<typeof Button> = (args) => {
   const icon = {
     applyFill: true,
     iconComponent: Icons.IconUpOutlined,
-    iconShape: IconShape.upOutlined,
   };
 
   return (

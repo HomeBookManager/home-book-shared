@@ -12,15 +12,11 @@ import withRefreshReference from '../../../../shared/WithRefreshReference/withRe
 // hooks
 import { useTheme } from '../../../../hooks';
 
-// others
-import { classNames } from './classNames';
-
 // styles
 import './styles/index.scss';
 
 // types
 import { E2EAttribute } from '../../../E2EDataAttributes/enums';
-import { IconShape } from './enums';
 import { TIconBasicProps } from './types';
 
 // utils
@@ -29,7 +25,6 @@ import { composeClassNames } from './utils/composeClassNames';
 export type TIconProps = TIconBasicProps & {
   fillDark?: string;
   iconComponent: FC<TIconBasicProps>;
-  iconShape: IconShape;
   ignoreDefaultStyles?: boolean;
   ref?: Ref<SVGSVGElement>;
   selected?: boolean;
@@ -50,7 +45,6 @@ export const Icon = forwardRef<SVGSVGElement, TIconProps>(
       fillDark = '',
       forcedHover = false,
       iconComponent: IconComponent,
-      iconShape,
       ignoreDefaultStyles = false,
       selected = false,
       stroke = '',
@@ -60,43 +54,45 @@ export const Icon = forwardRef<SVGSVGElement, TIconProps>(
     },
     ref,
   ) => {
+    const componentName = IconComponent.name;
+
     const withDefaultStyles =
       !ignoreDefaultStyles && !fill && !fillDark && !stroke && !strokeDark;
 
     const { classNamesWithTheme, theme } = useTheme(
-      composeClassNames(iconShape),
+      composeClassNames(componentName),
     );
 
     return (
       <E2EDataAttribute
         type={e2eAttribute}
-        value={e2eValue || kebabCase(iconShape)}
+        value={e2eValue || kebabCase(componentName)}
       >
         <IconComponent
           className={
             withDefaultStyles
               ? cx(
                   className,
-                  classNamesWithTheme[classNames[iconShape]].name,
+                  classNamesWithTheme[componentName].name,
                   {
-                    [classNamesWithTheme[classNames[iconShape]].modificators
-                      .clickable]: clickable,
+                    [classNamesWithTheme[componentName].modificators.clickable]:
+                      clickable,
                   },
                   {
-                    [classNamesWithTheme[classNames[iconShape]].modificators
-                      .disabled]: disabled,
+                    [classNamesWithTheme[componentName].modificators.disabled]:
+                      disabled,
                   },
                   {
-                    [classNamesWithTheme[classNames[iconShape]].modificators
+                    [classNamesWithTheme[componentName].modificators
                       .disabledHover]: disabledHover,
                   },
                   {
-                    [classNamesWithTheme[classNames[iconShape]].modificators
+                    [classNamesWithTheme[componentName].modificators
                       .forcedHover]: forcedHover,
                   },
                   {
-                    [classNamesWithTheme[classNames[iconShape]].modificators
-                      .selected]: selected,
+                    [classNamesWithTheme[componentName].modificators.selected]:
+                      selected,
                   },
                 )
               : className

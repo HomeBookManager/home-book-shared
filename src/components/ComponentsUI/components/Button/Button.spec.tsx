@@ -200,7 +200,7 @@ describe('Button props', () => {
     const endIcon = {
       applyFill: true,
       iconComponent: Icons.IconUpOutlined,
-      iconShape: IconShape.upOutlined,
+      iconShape: IconShape.iconUpOutlined,
     };
 
     // before
@@ -273,7 +273,7 @@ describe('Button props', () => {
     const startIcon = {
       applyFill: true,
       iconComponent: Icons.IconUpOutlined,
-      iconShape: IconShape.upOutlined,
+      iconShape: IconShape.iconUpOutlined,
     };
 
     // before

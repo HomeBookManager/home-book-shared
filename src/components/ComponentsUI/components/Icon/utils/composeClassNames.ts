@@ -1,10 +1,7 @@
 import { kebabCase } from 'lodash';
 
-// others
-import { classNames } from '../classNames';
-
 // types
-import { IconShape, IconModificatorsKeys } from '../enums';
+import { IconModificatorsKeys } from '../enums';
 import { TIconComposedClassNames, TIconModificators } from '../types';
 
 // utils
@@ -20,10 +17,10 @@ export const applyModificators = (className: string): TIconModificators =>
   );
 
 export const composeClassNames = (
-  iconShape: IconShape,
+  componentName: string,
 ): TIconComposedClassNames => ({
-  [classNames[iconShape]]: {
-    modificators: applyModificators(classNames[iconShape]),
-    name: classNames[iconShape],
+  [componentName]: {
+    modificators: applyModificators(componentName),
+    name: componentName,
   },
 });

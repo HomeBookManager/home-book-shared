@@ -1,8 +1,8 @@
 export enum IconShape {
-  downOutlined = 'downOutlined',
-  leftOutlined = 'leftOutlined',
-  rightOutlined = 'rightOutlined',
-  upOutlined = 'upOutlined',
+  iconDownOutlined = 'iconDownOutlined',
+  iconLeftOutlined = 'iconLeftOutlined',
+  iconRightOutlined = 'iconRightOutlined',
+  iconUpOutlined = 'iconUpOutlined',
 }
 
 export enum IconModificatorsKeys {

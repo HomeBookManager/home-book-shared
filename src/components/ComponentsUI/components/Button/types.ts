@@ -2,7 +2,7 @@
 import { TIconProps } from '../Icon/Icon';
 
 export type TButtonIcon =
-  | (Pick<TIconProps, 'iconComponent' | 'iconShape'> & {
+  | (Pick<TIconProps, 'iconComponent'> & {
       applyFill?: boolean;
       applyStroke?: boolean;
     })

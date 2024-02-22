@@ -89,11 +89,6 @@ const tableBodyData: Array<TTableBody> = [
     type: 'React.FC<TIconBasicProps>',
   },
   {
-    description: 'Type icon shape, should be compatible with component.',
-    name: 'iconShape',
-    type: 'IconShape',
-  },
-  {
     defaultValue: 'false',
     description:
       'If <code>true</code>, the default styles will not be applied.',

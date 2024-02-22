@@ -11,4 +11,7 @@ const transpileSassVariables = (obj) => {
   return variables.join(' ');
 };
 
-module.exports = [transpileSassVariables(colors), transpileSassVariables(buttonColors)].join(' ');
+module.exports = [
+  transpileSassVariables(colors),
+  transpileSassVariables(buttonColors),
+].join(' ');

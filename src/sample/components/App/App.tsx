@@ -14,9 +14,6 @@ import { Context } from '../../../core';
 // others
 import { className, classNames } from './classNames';
 
-// types
-import { IconShape } from '../../../components/ComponentsUI/components/Icon/enums';
-
 // styles
 import './app.scss';
 import {
@@ -55,7 +52,7 @@ const APP_ROUTES_DATA: TAppRoutesData = [
 export const App = () => {
   const { theme, setTheme } = useContext(Context);
   const isDarkMode = theme === Theme.dark;
-  console.log(TYPOGRAPHY_COLORS_MODE);
+
   return (
     <div className={classNames[className]}>
       <div className={classNames.navigation}>
@@ -68,16 +65,10 @@ export const App = () => {
         </button>
         <div style={{ padding: '50px' }}>
           {isDarkMode ? (
-            <Icon
-              iconComponent={Icons.IconLeftOutlined}
-              iconShape={IconShape.leftOutlined}
-            />
+            <Icon iconComponent={Icons.IconLeftOutlined} />
           ) : (
             <>
-              <Icon
-                iconComponent={Icons.IconRightOutlined}
-                iconShape={IconShape.rightOutlined}
-              />
+              <Icon iconComponent={Icons.IconRightOutlined} />
             </>
           )}
         </div>
@@ -89,7 +80,6 @@ export const App = () => {
             endIcon={{
               applyFill: true,
               iconComponent: Icons.IconLeftOutlined,
-              iconShape: IconShape.downOutlined,
             }}
           >
             Button
@@ -101,7 +91,6 @@ export const App = () => {
             endIcon={{
               applyFill: true,
               iconComponent: Icons.IconLeftOutlined,
-              iconShape: IconShape.downOutlined,
             }}
             size={ButtonSize.large}
           >
