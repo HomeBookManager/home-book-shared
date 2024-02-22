@@ -1,21 +1,24 @@
-import commonjs from '@rollup/plugin-commonjs';
-import image from '@rollup/plugin-image';
-import json from '@rollup/plugin-json';
-import postcss from 'rollup-plugin-postcss';
-import resolve from '@rollup/plugin-node-resolve';
-import terser from '@rollup/plugin-terser';
-import typescript from '@rollup/plugin-typescript';
+const commonjs = require('@rollup/plugin-commonjs');
+const image = require('@rollup/plugin-image');
+const json = require('@rollup/plugin-json');
+const postcss = require('rollup-plugin-postcss');
+const resolve = require('@rollup/plugin-node-resolve');
+const terser = require('@rollup/plugin-terser');
+const typescript = require('@rollup/plugin-typescript');
 
 // @home-book
 const getFiles = require('home-book-scripts/scripts/buitldUitls');
 
+// others
+const sassVariables = require('./config/sassVariables');
+
 // utils
-import { rollupPluginSvg } from './scripts/rollup-plugin-svg.lib';
+const rollupPluginSvg = require('./scripts/rollup-plugin-svg.lib');
 
 const extensions = ['.js', '.ts', '.jsx', '.tsx', '.json'];
 const excludeExtensions = ['.d.ts', '.stories.tsx', '.spec.ts', '.spec.tsx'];
 
-export default {
+module.exports = {
   external: [
     /node_modules/,
     'classnames',
@@ -58,12 +61,13 @@ export default {
     postcss({
       extract: false,
       inject(cssVariableName) {
-        return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`;
+        return `import styleInject from 'style-inject';\nstyleInject(${cssVariableName}); `;
       },
       use: [
         [
           'sass',
           {
+            data: sassVariables,
             includePaths: ['./src/styles', './node_modules'],
           },
         ],
