@@ -5,6 +5,9 @@ import { useLocation } from 'react-router';
 // components
 import Title from './components/Title/Title';
 
+// hooks
+import { useHandleRouter } from './hooks/useHandleRouter';
+
 // types
 import { TAppRoutesData, TRoutes } from './types';
 
@@ -23,6 +26,8 @@ const Routing: FC<TRoutingProps> = ({
   routes,
 }) => {
   const location = useLocation();
+
+  useHandleRouter();
 
   return (
     <>

@@ -1,3 +1,4 @@
+/// [imports]
 import { useContext } from 'react';
 
 // @home-book
@@ -29,6 +30,7 @@ import Main from '../../../components/App/App';
 import { H1, TYPOGRAPHY_COLORS_MODE } from '../../../components';
 import ButtonIcon from '../../../components/ComponentsUI/components/ButtonIcon/ButtonIcon';
 import IconRightOutlined from '../../../components/ComponentsUI/components/Icon/components/IconRightOutlined';
+import { useDispatch } from 'react-redux';
 
 enum RouteName {
   login = 'login',
@@ -50,6 +52,21 @@ const APP_ROUTES_DATA: TAppRoutesData = [
     name: RouteName.register,
   },
 ];
+
+const data = {
+  router: {
+    location: {
+      pathname: '/strategy-editor',
+      search: '?strategyId=64fb8a41580d9498ac3f8d21',
+      hash: '',
+      key: 'msmi5g',
+      query: {
+        strategyId: '64fb8a41580d9498ac3f8d21',
+      },
+    },
+    action: 'PUSH',
+  },
+};
 
 export const App = () => {
   const { theme, setTheme } = useContext(Context);

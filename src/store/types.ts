@@ -4,11 +4,8 @@ import { EmptyObject, Store } from 'redux';
 import { TAction } from 'home-book-types';
 
 // types
-import { TComponentsUIMainState } from '../types/reducers';
+import { TMainState } from '../types/reducers';
 
-export type TStore = Store<
-  EmptyObject & TComponentsUIMainState,
-  TAction<any>
-> & {
+export type TStore = Store<EmptyObject & TMainState, TAction<any>> & {
   dispatch: unknown;
 };

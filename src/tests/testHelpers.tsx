@@ -1,3 +1,5 @@
+import { Router } from 'react-router-dom';
+
 // @home-book
 import { TObject } from 'home-book-types';
 
@@ -6,6 +8,9 @@ import { E2EAttribute } from '../components/E2EDataAttributes/enums';
 
 // utils
 import { getDataTestAttribute } from '../components/E2EDataAttributes/utils';
+import { TStore } from '../store/types';
+import { FC, ReactNode } from 'react';
+import { Provider } from 'react-redux';
 
 export const getByE2EAttribute = (
   container: Element | HTMLElement,
@@ -17,6 +22,14 @@ export const getByE2EAttribute = (
         `[${getDataTestAttribute(e2eAttribute)}="${e2eValue}"]`,
       )!
     : container.querySelector(`[${getDataTestAttribute(e2eAttribute)}]`)!;
+
+export const getProviderWrapper =
+  (store: TStore, history): FC<{ children: ReactNode }> =>
+  ({ children }) => (
+    <Provider store={store}>
+      <Router history={history}>{children}</Router>
+    </Provider>
+  );
 
 export const isJestRunning = (): boolean =>
   process?.env?.JEST_WORKER_ID !== undefined;
