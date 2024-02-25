@@ -1,0 +1,51 @@
+@import '../../../../styles/colors/common.scss';
+
+.StrategyEditorDiagram {
+  background: $--cth-background;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &--dark {
+    background-color: $--cth-background--dark;
+  }
+
+  &--mode-move {
+    cursor: grabbing;
+  }
+
+  &__grid {
+    height: 10000%;
+    left: -4950%;
+    pointer-events: none;
+    position: absolute;
+    top: -4950%;
+    width: 10000%;
+  }
+
+  &__background {
+    background-image: url('../../../../assets/images/grid.svg');
+    background-size: 100px;
+    height: 100%;
+    width: 100%;
+
+    &--dark {
+      background-image: url('../../../../assets/images/grid-dark.svg');
+    }
+  }
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__area {
+    height: 100%;
+    width: 100%;
+  }
+}
